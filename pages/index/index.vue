@@ -1,52 +1,17 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+	<uv-tabbar :value="value" :fixed="true" @change="index=>value = index">
+		<uv-tabbar-item text="首页" icon="home"></uv-tabbar-item>
+		<uv-tabbar-item text="放映厅" icon="photo"></uv-tabbar-item>
+		<uv-tabbar-item text="直播" icon="play-right"></uv-tabbar-item>
+		<uv-tabbar-item text="我的" icon="account"></uv-tabbar-item>
+	</uv-tabbar>
 </template>
-
 <script>
 	export default {
-		data() {
+		data(){
 			return {
-				title: 'Hello'
+				value: 0
 			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
 		}
 	}
 </script>
-
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
-</style>
