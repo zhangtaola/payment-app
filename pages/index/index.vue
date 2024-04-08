@@ -1,6 +1,6 @@
 <template>
 	<view>
-		这是首页
+		这是首页111
 	</view>
 </template>
 <script>
