@@ -1,14 +1,22 @@
 <template>
 	<view>
-		这是首页
+		账单页面
 	</view>
 </template>
+
 <script>
 	export default {
-		data(){
+		data() {
 			return {
-				value: 0
+				
 			}
+		},
+		methods: {
+			
 		}
 	}
 </script>
+
+<style>
+
+</style>
