@@ -1,0 +1,47 @@
+
+.storeContainer {
+		width: 90%;
+		height: 7.8125rem;
+		margin: 0 auto;
+		margin-top: 1.875rem;
+		border-radius: 0.46875rem 0.46875rem;
+		display: flex;
+		border: 1px solid bisque;
+		box-shadow: 0.25rem 0.25rem 0.125rem 0.25rem gainsboro;
+}
+.leftContainer {
+		width: 55%;
+		height: 7.8125rem;
+		border-radius: 0.46875rem 0 0 0.46875rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		border-right: 1px solid bisque;
+}
+.top{
+		margin-left: 0.9375rem;
+}
+.mid{
+		margin-left: 0.9375rem;
+}
+.foot{
+		margin-left: 0.9375rem;
+}
+.info{
+		display: inline-block;
+		font-size: 1.09375rem;
+		margin-left: 0.4375rem;
+}
+.rightContainer {
+		width: 45%;
+		height: 7.8125rem;
+		border-radius: 0 0.46875rem 0.46875rem 0;
+}
+.storeImage {
+		width: 8.125rem;
+		height: 6.875rem;
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 7%);
+}

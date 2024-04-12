@@ -1,3 +1,4 @@
+
 <template>
 	<view style="margin-top: 55rpx;"></view>
 	<view class="topcolor">
@@ -381,3 +382,4 @@
 	
 
 </style>
+

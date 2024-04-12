@@ -1,0 +1,28 @@
+
+body {
+        background-color: #f7f7f7;
+}
+.uni-list-cell {
+		flex-direction: row;
+		margin-top: 0.625rem;
+		background-color: white;
+		padding: 0.1875rem 0.375rem;
+		display: flex;
+}
+.storeMsg {
+		width: 13.125rem;
+		height: 0.9125rem;
+		line-height: 1rem;
+		font-weight: 500;
+		font-size: 14px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		margin-top: 1.40625rem;
+		color: #44527c;
+}
+.storeImg{
+		width: 8rem;
+		height: 8rem;
+		margin-left: 1rem;
+}
