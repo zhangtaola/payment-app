@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -29,6 +29,105 @@
 			{
 				"navigationBarTitleText" : "报表",
 				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/personalCenter/application/applicationStatus",
+			"style" : 
+			{
+				"navigationBarTitleText" : "申请状态",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/application/applicationAll",
+			"style" : 
+			{
+				"navigationBarTitleText" : "所有申请",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/storeManagement/storeManagement",
+			"style" : 
+			{
+				"navigationBarTitleText" : "商铺管理",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/userOpinion/userOpinion",
+			"style" : 
+			{
+				"navigationBarTitleText" : "意见反馈",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/storeManagement/storeDetails/storeDetails",
+			"style" : 
+			{
+				"navigationBarTitleText" : "店铺详情",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/unsubscribe/unsubscribe",
+			"style" : 
+			{
+				"navigationBarTitleText" : "注销账户",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/changePassword/changePassword",
+			"style" : 
+			{
+				"navigationBarTitleText" : "修改密码",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/chatWindow/chatWindow",
+			"style" : 
+			{
+				"navigationBarTitleText" : "联系我们",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/showCashOutStore/showCashOutStore",
+			"style" : 
+			{
+				"navigationBarTitleText" : "可提现",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/showCashOutStore/cashOut/cashOut",
+			"style" : 
+			{
+				"navigationBarTitleText" : "提现",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
+			}
+		},
+		{
+			"path" : "pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney",
+			"style" : 
+			{
+				"navigationBarTitleText" : "待审核",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default" 
 			}
 		}
 	],

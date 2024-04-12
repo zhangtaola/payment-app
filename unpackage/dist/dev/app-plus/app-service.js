@@ -4102,19 +4102,6 @@ ${i3}
     chinese,
     code,
     contains,
-    date,
-    dateISO,
-    digits,
-    email,
-    empty,
-    enOrNum,
-    func,
-    idCard,
-    image,
-    jsonString,
-    landline,
-    letter,
-    mobile,
     number,
     object,
     promise,
@@ -4480,11 +4467,11 @@ ${i3}
             break;
           case "comma":
             let commaStr = "";
+
+            value2.forEach((_value) => {
+
             value.forEach((_value) => {
-              commaStr += (commaStr ? "," : "") + _value;
-            });
             _result.push(`${key}=${commaStr}`);
-            break;
           default:
             value.forEach((_value) => {
               _result.push(`${key}[]=${_value}`);

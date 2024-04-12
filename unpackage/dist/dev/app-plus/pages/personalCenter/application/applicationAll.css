@@ -1,0 +1,51 @@
+
+body {
+
+        background-color: #f7f7f7;
+}
+.content {
+        display: flex;
+        flex-direction: column;
+}
+.mui-content-padded {
+        margin: 0 0.4375rem;
+        /* background-color: #ffffff; */
+}
+.uni-list-cell {
+		flex-direction: column;
+		margin-top: 1.5625rem;
+		background-color: white;
+		padding: 0.1875rem 0.375rem;
+}
+.topTitleV {
+		/* height: 26rpx; */
+		height: 1rem;
+		line-height: 1.09375rem;
+		color: #333333;
+		font-family: PingFangSC-Semibold, PingFang SC;
+		font-weight: 500;
+		font-size: 14px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-top: 0.15625rem;
+}
+.unitV{
+		color: #555555;
+		font-size: 12px;
+		margin-top: 0.9375rem;
+		font-family: PingFangSC-Regular, PingFang SC;
+}
+.cellView {
+		margin-top: 1.5625rem;
+		margin-left: 0.25rem;
+		height: 0.6875rem;
+		line-height: 0.6875rem;
+		text-align: center;
+		border-radius: 0.0625rem;
+		padding: 0 0.125rem !important;
+		font-size: 12px;
+	
+		color: #4272FF;
+		background: #F3F4F6;
+}
