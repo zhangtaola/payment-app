@@ -130,52 +130,6 @@
 				"navigationStyle": "default" 
 			}
 		},
-		{
-			"path" : "pages/bill/getDailyOrder/getDailyOrder",
-			"style" : 
-			{
-				"navigationBarTitleText" : "当天订单",
-				"enablePullDownRefresh" : false,
-				"navigationStyle": "default"
-				
-			}
-		},
-		{
-			"path" : "pages/bill/getDailyOrder/orderDetail/orderDetail",
-			"style" : 
-			{
-				"navigationBarTitleText" : "订单详情",
-				"enablePullDownRefresh" : true,
-				"navigationStyle": "default"
-			}
-		},
-		{
-			"path" : "pages/login/regist/regist",
-			"style" : 
-			{
-				"navigationBarTitleText" : "注册",
-				"enablePullDownRefresh" : false,
-				"navigationStyle": "default"
-			}
-		},
-		{
-			"path" : "pages/login/forgetPwd/forgetPwd",
-			"style" : 
-			{
-				"navigationBarTitleText" : "重置密码",
-				"enablePullDownRefresh" : false,
-				"navigationStyle": "default"
-			}
-		},
-		{
-			"path" : "pages/login/login",
-			"style" : 
-			{
-				"navigationBarTitleText" : "登录",
-				"enablePullDownRefresh" : false,
-				"navigationStyle": "default"
-			}
-		},
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
