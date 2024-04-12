@@ -36,7 +36,7 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom" 
 	},
 	"uniIdRouter": {},
@@ -45,25 +45,25 @@
 		"list": [
 			{
 				"text": "首页",
-				"pagePath": "pages/index/index"
+				"pagePath": "pages/index/index",
 				"iconPath": "static/icon/shouye1.png",
 				"selectedIconPath": "static/icon/shouye2.png"
 			},
 			{
 				"text": "账单",
-				"pagePath": "pages/bill/bill"
+				"pagePath": "pages/bill/bill",
 				"iconPath": "static/icon/zhangdang1.png",
 				"selectedIconPath": "static/icon/zhangdang2.png"
 			},
 			{
 				"text": "报表",
-				"pagePath": "pages/reportForms/reportForms"
+				"pagePath": "pages/reportForms/reportForms",
 				"iconPath": "static/icon/baobiao1.png",
 				"selectedIconPath": "static/icon/baobiao2.png"
 			},
 			{
 				"text": "我的",
-				"pagePath": "pages/personalCenter/personalCenter"
+				"pagePath": "pages/personalCenter/personalCenter",
 				"iconPath": "static/icon/wode1.png",
 				"selectedIconPath": "static/icon/wode2.png"
 			}
