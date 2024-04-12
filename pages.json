@@ -129,7 +129,7 @@
 				"enablePullDownRefresh" : false,
 				"navigationStyle": "default" 
 			}
-		}
+		},
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
