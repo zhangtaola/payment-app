@@ -176,6 +176,62 @@
 				"navigationStyle": "default"
 			}
 		},
+		{
+			"path" : "pages/bill/bill",
+			"style" : 
+			{
+				"navigationBarTitleText" : "账单",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/reportForms/reportForms",
+			"style" : 
+			{
+				"navigationBarTitleText" : "报表",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/merchantSettled/merchantSettled",
+			"style" : 
+			{
+				"navigationBarTitleText" : "商家入驻",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/trade/trade",
+			"style" : 
+			{
+				"navigationBarTitleText" : "最新交易",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/unusualOrders/unusualOrders",
+			"style" : 
+			{
+				"navigationBarTitleText" : "异常订单",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/pay/pay",
+			"style" : 
+			{
+				"navigationBarTitleText" : "支付",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/message/message",
+			"style" : 
+			{
+				"navigationBarTitleText" : "聊天框",
+				"enablePullDownRefresh" : false
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
