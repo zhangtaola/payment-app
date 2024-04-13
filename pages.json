@@ -177,22 +177,6 @@
 			}
 		},
 		{
-			"path" : "pages/bill/bill",
-			"style" : 
-			{
-				"navigationBarTitleText" : "账单",
-				"enablePullDownRefresh" : false
-			}
-		},
-		{
-			"path" : "pages/reportForms/reportForms",
-			"style" : 
-			{
-				"navigationBarTitleText" : "报表",
-				"enablePullDownRefresh" : false
-			}
-		},
-		{
 			"path" : "pages/merchantSettled/merchantSettled",
 			"style" : 
 			{
