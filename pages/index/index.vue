@@ -1,4 +1,3 @@
-
 <template>
 	<view style="margin-top: 55rpx;"></view>
 	<view class="topcolor">
@@ -109,8 +108,7 @@
 	<!-- 结算出款通知 -->
 	<view class="settlementbar">
 		<view>
-			<uni-notice-bar show-icon scrollable single color="white" background-color="#E75650"
-				style="border-radius: 20rpx;" text="结算出款通知" />
+			<uv-notice-bar text="结算出款通知" bgColor="#E75650" style="border-radius: 20rpx;" color="white"></uv-notice-bar>
 		</view>
 	</view>
 
@@ -354,7 +352,7 @@
 		margin: 0 auto;
 		margin-top: 35rpx;
 		border-radius: 15rpx;
-		background-color: #C8C7CD;
+		// background-color: #C8C7CD;
 	}
 
 	.settlementbar .txt {
@@ -382,4 +380,3 @@
 	
 
 </style>
-
