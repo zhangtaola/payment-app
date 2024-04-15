@@ -1,11 +1,11 @@
 {
-  "hash": "7751d92d",
-  "browserHash": "4e017bc6",
+  "hash": "a0b4c4ce",
+  "browserHash": "6628afc8",
   "optimized": {
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "b21fe610",
+      "fileHash": "81e0e9bf",
       "needsInterop": false
     }
   },
