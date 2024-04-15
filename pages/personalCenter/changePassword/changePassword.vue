@@ -69,7 +69,7 @@
 					this.passwordInfo
 					  ).then(res => {
 						console.log(res)
-					  if(res.data.code == 1001) {
+					  if(res.data.code == 200) {
 						this.$refs.notify.success ('密码修改成功');
 						this.clearFields();
 						// 使用 setTimeout 添加延时，单位为毫秒（这里是 2000 毫秒，即 2 秒）
@@ -79,9 +79,9 @@
 							  url: '/pages/personalCenter/personalCenter'
 							});
 						  }, 2000); // 2秒延时
-					  }else if(res.data.code == 1002) {
+					  }else if(res.data.code == 201) {
 						this.$refs.notify.error('修改失败');
-					  }else if(res.data.code == 1003){
+					  }else if(res.data.code == 202){
 						this.$refs.notify.error('旧密码输入错误，修改失败');
 					  }
 					}).catch(e => {
