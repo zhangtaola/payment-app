@@ -74,7 +74,6 @@
       "style": "dark",
       "background": "#F8F8F8"
     },
-    "arguments": "{\"path\":\"pages/reportForms/reportForms\"}",
     "uniStatistics": {
       "enable": false
     },
@@ -140,7 +139,7 @@
       "child": [
         "lauchwebview"
       ],
-      "selected": 2
+      "selected": 0
     }
   },
   "launch_path": "__uniappview.html"

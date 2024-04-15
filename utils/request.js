@@ -2,13 +2,12 @@ import axios from 'axios'
 // import { UniAdapter } from 'uniapp-axios-adapter';
 
 const request = axios.create({
-	baseURL: "http://127.0.0.1:8080",
+	baseURL: "http://127.0.0.1:8125",
 	timeout: 6000,
 	crossDomain: true,
 })
 
 export default request
-
 
 
 // export default http;

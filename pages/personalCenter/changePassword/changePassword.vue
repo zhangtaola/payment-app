@@ -1,28 +1,29 @@
 <template>
 	<view class="container">
 		<view>
-			<uv-form labelPosition="left" :model="passwordInfo" :rules="rules" ref="form">
+			<uv-form labelPosition="left" :model="passwordInfo" ref="form">
 				<view class="uni-input-input">
 					<uv-form-item label="原密码:" prop="pwd" borderBottom >
-						<uv-input v-model="passwordInfo.oldPwd" border="none" clearable >
+						<uv-input v-model="passwordInfo.oldPwd" border="none" clearable :password = "true">
 						</uv-input>
 					</uv-form-item>
 				</view>
 				<view class="uni-input-input">
 					<uv-form-item label="新密码:" prop="pwd" borderBottom >
-						<uv-input v-model="passwordInfo.newPwd" border="none" clearable>
+						<uv-input v-model="passwordInfo.newPwd" border="none" clearable :password = "true">
 						</uv-input>
 					</uv-form-item>
 				</view>
 				<view class="uni-input-input">
 					<uv-form-item label="确认密码:" prop="pwd" borderBottom >
-						<uv-input v-model="passwordInfo.confirmPwd" border="none" clearable>
+						<uv-input v-model="passwordInfo.confirmPwd" border="none" clearable :password = "true" style="margin-left: 20rpx;">
 						</uv-input>
 					</uv-form-item>
 				</view>
 				</uv-form>
 		</view>
 		<uv-button type="error" text="提交修改" @click="submit" style="margin-top: 100rpx;"></uv-button>
+		<uv-notify ref="notify"></uv-notify>
 	</view>
 
 </template>
@@ -32,6 +33,7 @@
 		data() {
 			return {
 				passwordInfo:{
+					userId:"1",
 					oldPwd:"",
 					newPwd:"",
 					confirmPwd:"",
@@ -40,7 +42,7 @@
 					pwd: {
 						type: 'string',
 						required: true,
-						message: '请填写姓名',
+						message: '请填写密码',
 						trigger: ['blur', 'change']
 					}
 				}
@@ -48,7 +50,49 @@
 		},
 		methods: {
 			submit() {
-
+				const { oldPwd, newPwd, confirmPwd } = this.passwordInfo;
+				//判断输入框是否为空
+				if (oldPwd === "" || newPwd === "" || confirmPwd === "") {
+					return this.$refs.notify.warning('请输入完整的信息');
+				};
+				//判断两次密码是否输入一致
+				if(newPwd != confirmPwd){
+					return this.$refs.notify.error('两次密码输入不一致');
+				};
+				//判断旧密码是否和新密码一样，一样就不能修改
+				if(newPwd === oldPwd){
+					return this.$refs.notify.error('新密码和旧密码不能一样');
+				};
+				//通过判断，发送axios
+				this.$axios.post(
+					'/user/modifyPwd',
+					this.passwordInfo
+					  ).then(res => {
+						console.log(res)
+					  if(res.data.code == 1001) {
+						this.$refs.notify.success ('密码修改成功');
+						this.clearFields();
+						// 使用 setTimeout 添加延时，单位为毫秒（这里是 2000 毫秒，即 2 秒）
+						setTimeout(() => {
+						// 跳转到个人中心页面
+							uni.switchTab({
+							  url: '/pages/personalCenter/personalCenter'
+							});
+						  }, 2000); // 2秒延时
+					  }else if(res.data.code == 1002) {
+						this.$refs.notify.error('修改失败');
+					  }else if(res.data.code == 1003){
+						this.$refs.notify.error('旧密码输入错误，修改失败');
+					  }
+					}).catch(e => {
+					  console.log(e)
+				})
+			},
+			//清空字段的值，封装起来
+			clearFields() {
+			  this.passwordInfo.oldPwd = "";
+			  this.passwordInfo.newPwd = "";
+			  this.passwordInfo.confirmPwd = "";
 			}
 		}
 	}

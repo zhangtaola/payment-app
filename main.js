@@ -22,7 +22,7 @@ export function createApp() {
 // #endif
 
 
-// 下面的这些是封装的
+// // 下面的这些是封装的
 // import App from './App'
 // // #ifndef VUE3
 // import Vue from 'vue'
@@ -47,3 +47,4 @@ export function createApp() {
 //   }
 // }
 // // #endif
+
