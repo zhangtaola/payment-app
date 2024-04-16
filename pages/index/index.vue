@@ -61,36 +61,6 @@
 			</navigator>
 		</view>
 		<view class="tradebar-bottom">
-			<!-- <view class="tradebar-container">
-				<image src="../../static/icon/wechat.png" mode=""></image>
-				<view class="tradebar-container-info">
-					<view>
-						<span>支付成功</span>
-						<p>13:52:27</p>
-					</view>
-					<text>+27.00</text>
-				</view>
-			</view>
-			<view class="tradebar-container">
-				<image src="../../static/icon/wechat.png" mode=""></image>
-				<view class="tradebar-container-info">
-					<view>
-						<span>支付成功</span>
-						<p>13:52:27</p>
-					</view>
-					<text>+27.00</text>
-				</view>
-			</view>
-			<view class="tradebar-container">
-				<image src="../../static/icon/wechat.png" mode=""></image>
-				<view class="tradebar-container-info">
-					<view>
-						<span>支付成功</span>
-						<p>13:52:27</p>
-					</view>
-					<text>+27.00</text>
-				</view>
-			</view> -->
 			<uv-list>
 				<uv-list-item title="支付成功" note="4月10日 14:19" thumb="/static/icon/wechat.png" thumb-size="lg"
 					rightText="27.00" :clickable="true" style="font-weight: bold;">
@@ -106,14 +76,11 @@
 	</view>
 
 	<!-- 结算出款通知 -->
-	<!-- <view class="settlementbar"> -->
+	<view class="settlementbar">
 		<view>
-
-			<!-- <uni-notice-bar show-icon scrollable single color="white" background-color="#E75650"
-				style="border-radius: 20rpx;" text="结算出款通知" /> -->
-				<uv-notice-bar text="结算出款通知" bgColor="#E75650" style="border-radius: 20rpx;" color="white"></uv-notice-bar>
+			<uv-notice-bar text="结算出款通知" bgColor="#E75650" style="border-radius: 20rpx;" color="white"></uv-notice-bar>
 		</view>
-	<!-- </view> -->
+	</view>
 
 	<!-- 广告栏 -->
 	<view class="uv-demo-block">
@@ -144,22 +111,22 @@
 			},
 			goToPay(){
 				uni.navigateTo({
-					url: '/pages/pay/pay'
+					url: '/pages/index/pay/pay'
 				});
 			},
 			goToMechantSettled() {
 				uni.navigateTo({
-					url: '/pages/merchantSettled/merchantSettled' // 请替换为实际的页面路径
+					url: '/pages/index/merchantSettled/merchantSettled' // 请替换为实际的页面路径
 				});
 			},
 			goToTrade() {
 				uni.navigateTo({
-					url: '/pages/trade/trade'
+					url: '/pages/index/trade/trade'
 				})
 			},
 			gotoUnusualOrders() {
 				uni.navigateTo({
-					url: '/pages/unusualOrders/unusualOrders'
+					url: '/pages/index/unusualOrders/unusualOrders'
 				})
 			},
 			scanCode() {
