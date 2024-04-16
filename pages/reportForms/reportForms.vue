@@ -78,9 +78,6 @@ export default {
 		value: 0,
 		range: [
 			{ value: 0, text: "全部" },
-			{ value: 1, text: "A店铺" },
-			{ value: 2, text: "B店铺" },
-			{ value: 3, text: "C店铺" },
 		],
 		list: ['今天','近七天','近三十天','自定义'],
 		current: 0,
@@ -133,28 +130,43 @@ export default {
 	      },
     getServerData() {		
       //模拟从服务器获取数据时的延时
-      setTimeout(() => {
-        //模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
-        let res = {
-            categories: ["周一","周二","周三","周四","周五","周六"],
-            series: [
-              {
-                name: "A店",
-                data: [35,8.5,25,37,4,20]
-              },
-              {
-                name: "B店",
-                data: [70,40,65,100,44,68]
-              },
-              {
-                name: "C店",
-                data: [100,80,95,150,112,132]
-              }
-            ]
-          };
-		this.chartData1 = JSON.parse(JSON.stringify(res));
-        this.chartData = JSON.parse(JSON.stringify(res));
-      }, 500);
+  //     setTimeout(() => {
+  //       //模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
+  //       let res = {
+            // categories: ["2024-04-09","2024-04-10","2024-04-11","2024-04-12","2024-04-13","2024-04-14"],
+            // series: [
+            //   {
+            //     name: "A店",
+            //     data: [35,8.5,25,37,4,20]
+            //   },
+            //   {
+            //     name: "B店",
+            //     data: [70,40,65,100,44,68]
+            //   },
+            //   {
+            //     name: "C店",
+            //     data: [100,80,95,150,112,132]
+            //   }
+            // ]
+  //         };
+		// this.chartData1 = JSON.parse(JSON.stringify(res));
+  //       this.chartData = JSON.parse(JSON.stringify(res));
+  //     }, 500);
+		this.$request(
+			"/form/report",
+			"GET",
+			{storeId:0},
+		).then(res=>{
+			console.log(res)
+			if(res.data.code == 200){
+				this.chartData1 = JSON.parse(JSON.stringify(res.data.data));
+				this.chartData = JSON.parse(JSON.stringify(res.data.data));
+				res.data.data.series.forEach((item,index) => {
+					this.range.push({ value: index+1, text: item.name });
+				});
+
+			}
+		})
     },
 	change(e) {
 	      console.log("选择的店铺值：", e);

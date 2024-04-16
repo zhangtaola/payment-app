@@ -134,9 +134,6 @@
 					const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/
 					passwordRegex.test(pwd)
 					console.log("密码是否规范:" + passwordRegex.test(pwd))
-					
-
-					
 				}
 			},
 			goRegist() {

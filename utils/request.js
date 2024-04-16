@@ -2,12 +2,13 @@
 // // import { UniAdapter } from 'uniapp-axios-adapter';
 
 // const request = axios.create({
-// 	baseURL: "http://192.168.1.26:8125",
+// 	baseURL: "http://127.0.0.1:8080",
 // 	timeout: 6000,
 // 	crossDomain: true,
 // })
 
 // export default request
+
 
 
 // export default http;
@@ -37,7 +38,7 @@
 // const baseUrl = "http://127.0.0.1:8080/";
 
 
-const baseUrl = 'http://192.168.2.102:8125'    //api的固定前部地址
+const baseUrl = 'http://localhost:8080'    //api的固定前部地址
 const request = (url,method,data) =>{
     return new Promise((resolve,reject) =>{
         uni.request({
