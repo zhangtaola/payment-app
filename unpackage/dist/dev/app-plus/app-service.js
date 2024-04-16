@@ -30,7 +30,7 @@ if (uni.restoreGlobal) {
   uni.restoreGlobal(Vue, weex, plus, setTimeout, clearTimeout, setInterval, clearInterval);
 }
 (function(vue) {
-  var _e2, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s2, _t2, _u, _v, _w, _x, _y, _z, _A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N, _O, _P, _Q, _R, _S, _T, _U, _V, _W, _X, _Y, _Z, __, _$, _aa, _ba, _ca, _da, _ea, _fa, _ga, _ha, _ia, _ja, _ka, _la, _ma, _na, _oa, _pa;
+  var _e2, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s2, _t2, _u, _v, _w, _x, _y, _z, _A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N, _O, _P, _Q, _R, _S, _T, _U, _V, _W, _X, _Y, _Z, __, _$, _aa, _ba, _ca, _da, _ea, _fa, _ga, _ha, _ia, _ja, _ka, _la, _ma, _na, _oa, _pa, _qa, _ra, _sa, _ta, _ua, _va;
   "use strict";
   function formatAppLog(type2, filename, ...args) {
     if (uni.__log__) {
@@ -1050,7 +1050,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  const props$v = {
+  const props$y = {
     props: {
       bgColor: {
         type: String,
@@ -1065,9 +1065,9 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$1d = {
+  const _sfc_main$1g = {
     name: "uv-status-bar",
-    mixins: [mpMixin, mixin, props$v],
+    mixins: [mpMixin, mixin, props$y],
     data() {
       return {};
     },
@@ -1086,7 +1086,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1100,7 +1100,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0$c = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1c], ["__scopeId", "data-v-f5bd6f5a"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-status-bar/components/uv-status-bar/uv-status-bar.vue"]]);
+  const __easycom_0$d = /* @__PURE__ */ _export_sfc(_sfc_main$1g, [["render", _sfc_render$1f], ["__scopeId", "data-v-f5bd6f5a"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-status-bar/components/uv-status-bar/uv-status-bar.vue"]]);
   const icons = {
     "uvicon-level": "e68f",
     "uvicon-checkbox-mark": "e659",
@@ -1261,7 +1261,7 @@ if (uni.restoreGlobal) {
     "uvicon-twitte": "e607",
     "uvicon-twitter-circle-fill": "e6cf"
   };
-  const props$u = {
+  const props$x = {
     props: {
       // 图标类名
       name: {
@@ -1351,10 +1351,10 @@ if (uni.restoreGlobal) {
       ...(_f = (_e2 = uni.$uv) == null ? void 0 : _e2.props) == null ? void 0 : _f.icon
     }
   };
-  const _sfc_main$1c = {
+  const _sfc_main$1f = {
     name: "uv-icon",
     emits: ["click"],
-    mixins: [mpMixin, mixin, props$u],
+    mixins: [mpMixin, mixin, props$x],
     data() {
       return {
         colorType: [
@@ -1412,7 +1412,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1456,8 +1456,8 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_0$b = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1b], ["__scopeId", "data-v-b7a6dd5d"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-icon/components/uv-icon/uv-icon.vue"]]);
-  const props$t = {
+  const __easycom_0$c = /* @__PURE__ */ _export_sfc(_sfc_main$1f, [["render", _sfc_render$1e], ["__scopeId", "data-v-b7a6dd5d"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-icon/components/uv-icon/uv-icon.vue"]]);
+  const props$w = {
     props: {
       // 是否开启顶部安全区适配
       safeAreaInsetTop: {
@@ -1546,9 +1546,9 @@ if (uni.restoreGlobal) {
       ...(_h = (_g = uni.$uv) == null ? void 0 : _g.props) == null ? void 0 : _h.navbar
     }
   };
-  const _sfc_main$1b = {
+  const _sfc_main$1e = {
     name: "uv-navbar",
-    mixins: [mpMixin, mixin, props$t],
+    mixins: [mpMixin, mixin, props$w],
     data() {
       return {};
     },
@@ -1604,9 +1604,9 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_0$c);
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+  function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_0$d);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uv-navbar" }, [
       _ctx.fixed && _ctx.placeholder ? (vue.openBlock(), vue.createElementBlock(
         "view",
@@ -1722,8 +1722,8 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const __easycom_0$a = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1a], ["__scopeId", "data-v-16f3e502"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-navbar/components/uv-navbar/uv-navbar.vue"]]);
-  const props$s = {
+  const __easycom_0$b = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1d], ["__scopeId", "data-v-16f3e502"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-navbar/components/uv-navbar/uv-navbar.vue"]]);
+  const props$v = {
     props: {
       // 是否显示圆点
       isDot: {
@@ -1796,9 +1796,9 @@ if (uni.restoreGlobal) {
       ...(_j = (_i = uni.$uv) == null ? void 0 : _i.props) == null ? void 0 : _j.badge
     }
   };
-  const _sfc_main$1a = {
+  const _sfc_main$1d = {
     name: "uv-badge",
-    mixins: [mpMixin, mixin, props$s],
+    mixins: [mpMixin, mixin, props$v],
     computed: {
       // 是否将badge中心与父组件右上角重合
       boxStyle() {
@@ -1842,7 +1842,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
     return _ctx.show && ((Number(_ctx.value) === 0 ? _ctx.showZero : true) || _ctx.isDot) ? (vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -1855,7 +1855,7 @@ if (uni.restoreGlobal) {
       /* TEXT, CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1$9 = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$19], ["__scopeId", "data-v-91e4945b"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-badge/components/uv-badge/uv-badge.vue"]]);
+  const __easycom_1$a = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1c], ["__scopeId", "data-v-91e4945b"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-badge/components/uv-badge/uv-badge.vue"]]);
   function colorGradient(startColor = "rgb(0, 0, 0)", endColor = "rgb(255, 255, 255)", step = 10) {
     const startRGB = hexToRgb(startColor, false);
     const startR = startRGB[0];
@@ -1940,7 +1940,7 @@ if (uni.restoreGlobal) {
       return _this;
     }
   }
-  const props$r = {
+  const props$u = {
     props: {
       // 是否显示组件
       show: {
@@ -2007,9 +2007,9 @@ if (uni.restoreGlobal) {
       ...(_l = (_k = uni.$uv) == null ? void 0 : _k.props) == null ? void 0 : _l.loadingIcon
     }
   };
-  const _sfc_main$19 = {
+  const _sfc_main$1c = {
     name: "uv-loading-icon",
-    mixins: [mpMixin, mixin, props$r],
+    mixins: [mpMixin, mixin, props$u],
     data() {
       return {
         // Array.form可以通过一个伪数组对象创建指定长度的数组
@@ -2067,7 +2067,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
     return _ctx.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -2130,8 +2130,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1$8 = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$18], ["__scopeId", "data-v-29b619ea"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-loading-icon/components/uv-loading-icon/uv-loading-icon.vue"]]);
-  const props$q = {
+  const __easycom_1$9 = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1b], ["__scopeId", "data-v-29b619ea"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-loading-icon/components/uv-loading-icon/uv-loading-icon.vue"]]);
+  const props$t = {
     props: {
       value: {
         type: [Boolean, String, Number],
@@ -2189,9 +2189,9 @@ if (uni.restoreGlobal) {
       ...(_n = (_m = uni.$uv) == null ? void 0 : _m.props) == null ? void 0 : _n.switch
     }
   };
-  const _sfc_main$18 = {
+  const _sfc_main$1b = {
     name: "uv-switch",
-    mixins: [mpMixin, mixin, props$q],
+    mixins: [mpMixin, mixin, props$t],
     data() {
       return {
         bgColor: "#ffffff",
@@ -2261,8 +2261,8 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
+  function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -2305,8 +2305,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_2$8 = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$17], ["__scopeId", "data-v-c713e4c9"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-switch/components/uv-switch/uv-switch.vue"]]);
-  const _sfc_main$17 = {
+  const __easycom_2$8 = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1a], ["__scopeId", "data-v-c713e4c9"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-switch/components/uv-switch/uv-switch.vue"]]);
+  const _sfc_main$1a = {
     name: "uv-list-item",
     mixins: [mpMixin, mixin],
     emits: ["click", "switchChange"],
@@ -2565,9 +2565,9 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
-    const _component_uv_badge = resolveEasycom(vue.resolveDynamicComponent("uv-badge"), __easycom_1$9);
+  function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
+    const _component_uv_badge = resolveEasycom(vue.resolveDynamicComponent("uv-badge"), __easycom_1$a);
     const _component_uv_switch = resolveEasycom(vue.resolveDynamicComponent("uv-switch"), __easycom_2$8);
     return vue.openBlock(), vue.createElementBlock("view", {
       class: vue.normalizeClass([{ "uv-list-item--disabled": $props.disabled }, "uv-list-item"]),
@@ -2708,8 +2708,8 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ], 14, ["hover-class"]);
   }
-  const __easycom_2$7 = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$16], ["__scopeId", "data-v-d568ce32"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list-item/uv-list-item.vue"]]);
-  const _sfc_main$16 = {
+  const __easycom_2$7 = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$19], ["__scopeId", "data-v-d568ce32"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list-item/uv-list-item.vue"]]);
+  const _sfc_main$19 = {
     name: "uv-list",
     mixins: [mpMixin, mixin],
     "mp-weixin": {
@@ -2754,7 +2754,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -2790,7 +2790,573 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_3$5 = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$15], ["__scopeId", "data-v-53ea9bef"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list/uv-list.vue"]]);
+  const __easycom_3$5 = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$18], ["__scopeId", "data-v-53ea9bef"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list/uv-list.vue"]]);
+  const props$s = {
+    props: {
+      // 显示的内容，字符串
+      text: {
+        type: [Array],
+        default: ""
+      },
+      // 是否显示左侧的音量图标
+      icon: {
+        type: [String, Boolean, null],
+        default: "volume"
+      },
+      // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+      mode: {
+        type: String,
+        default: ""
+      },
+      // 文字颜色，各图标也会使用文字颜色
+      color: {
+        type: String,
+        default: "#f9ae3d"
+      },
+      // 背景颜色
+      bgColor: {
+        type: String,
+        default: "#fdf6ec"
+      },
+      // 字体大小，单位px
+      fontSize: {
+        type: [String, Number],
+        default: 14
+      },
+      // 水平滚动时的滚动速度，即每秒滚动多少px(px)，这有利于控制文字无论多少时，都能有一个恒定的速度
+      speed: {
+        type: [String, Number],
+        default: 80
+      },
+      // direction = row时，是否使用步进形式滚动
+      step: {
+        type: Boolean,
+        default: false
+      },
+      // 滚动一个周期的时间长，单位ms
+      duration: {
+        type: [String, Number],
+        default: 1500
+      },
+      // 是否禁止用手滑动切换，仅`direction="column"生效`
+      // 目前HX2.6.11，只支持App 2.5.5+、H5 2.5.5+、支付宝小程序、字节跳动小程序
+      disableTouch: {
+        type: Boolean,
+        default: true
+      },
+      // 是否禁止滚动，仅`direction="column"生效`
+      disableScroll: {
+        type: Boolean,
+        default: false
+      },
+      ...(_p = (_o = uni.$uv) == null ? void 0 : _o.props) == null ? void 0 : _p.columnNotice
+    }
+  };
+  const _sfc_main$18 = {
+    emits: ["click", "close", "change"],
+    mixins: [mpMixin, mixin, props$s],
+    watch: {
+      text: {
+        immediate: true,
+        handler(newValue, oldValue) {
+          if (!this.$uv.test.array(newValue)) {
+            this.$uv.error("noticebar组件direction为column时，要求text参数为数组形式");
+          }
+        }
+      }
+    },
+    computed: {
+      // 文字内容的样式
+      textStyle() {
+        let style = {};
+        style.color = this.color;
+        style.fontSize = this.$uv.addUnit(this.fontSize);
+        return style;
+      },
+      // 垂直或者水平滚动
+      vertical() {
+        if (this.mode == "horizontal")
+          return false;
+        else
+          return true;
+      },
+      // NVUE中的swiper在css中样式不生效
+      swiperStyle() {
+        const style = {};
+        return style;
+      }
+    },
+    data() {
+      return {
+        index: 0
+      };
+    },
+    methods: {
+      noticeChange(e2) {
+        this.index = e2.detail.current;
+        this.$emit("change", this.index);
+      },
+      // 点击通告栏
+      clickHandler() {
+        this.$emit("click", this.index);
+      },
+      // 点击关闭按钮
+      close() {
+        this.$emit("close");
+      }
+    }
+  };
+  function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
+    return vue.openBlock(), vue.createElementBlock("view", {
+      class: "uv-notice",
+      onClick: _cache[1] || (_cache[1] = (...args) => $options.clickHandler && $options.clickHandler(...args))
+    }, [
+      vue.renderSlot(_ctx.$slots, "icon", {}, () => [
+        _ctx.icon ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "uv-notice__left-icon"
+        }, [
+          vue.createVNode(_component_uv_icon, {
+            name: _ctx.icon,
+            color: _ctx.color,
+            size: "19"
+          }, null, 8, ["name", "color"])
+        ])) : vue.createCommentVNode("v-if", true)
+      ], true),
+      vue.createElementVNode("swiper", {
+        "disable-touch": _ctx.disableTouch,
+        vertical: _ctx.step ? false : true,
+        circular: "",
+        interval: _ctx.duration,
+        autoplay: !_ctx.disableScroll,
+        class: "uv-notice__swiper",
+        style: vue.normalizeStyle([$options.swiperStyle]),
+        onChange: _cache[0] || (_cache[0] = (...args) => $options.noticeChange && $options.noticeChange(...args))
+      }, [
+        (vue.openBlock(true), vue.createElementBlock(
+          vue.Fragment,
+          null,
+          vue.renderList(_ctx.text, (item, index2) => {
+            return vue.openBlock(), vue.createElementBlock("swiper-item", {
+              key: index2,
+              class: "uv-notice__swiper__item"
+            }, [
+              vue.createElementVNode(
+                "text",
+                {
+                  class: "uv-notice__swiper__item__text uv-line-1",
+                  style: vue.normalizeStyle([$options.textStyle])
+                },
+                vue.toDisplayString(item),
+                5
+                /* TEXT, STYLE */
+              )
+            ]);
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        ))
+      ], 44, ["disable-touch", "vertical", "interval", "autoplay"]),
+      ["link", "closable"].includes(_ctx.mode) ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "uv-notice__right-icon"
+      }, [
+        _ctx.mode === "link" ? (vue.openBlock(), vue.createBlock(_component_uv_icon, {
+          key: 0,
+          name: "arrow-right",
+          size: 17,
+          color: _ctx.color
+        }, null, 8, ["color"])) : vue.createCommentVNode("v-if", true),
+        _ctx.mode === "closable" ? (vue.openBlock(), vue.createBlock(_component_uv_icon, {
+          key: 1,
+          name: "close",
+          size: 16,
+          color: _ctx.color,
+          onClick: $options.close
+        }, null, 8, ["color", "onClick"])) : vue.createCommentVNode("v-if", true)
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const __easycom_0$a = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$17], ["__scopeId", "data-v-243b8fd9"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-notice-bar/components/uv-column-notice/uv-column-notice.vue"]]);
+  const props$r = {
+    props: {
+      // 显示的内容，字符串
+      text: {
+        type: String,
+        default: ""
+      },
+      // 是否显示左侧的音量图标
+      icon: {
+        type: [String, Boolean, null],
+        default: "volume"
+      },
+      // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+      mode: {
+        type: String,
+        default: ""
+      },
+      // 文字颜色，各图标也会使用文字颜色
+      color: {
+        type: String,
+        default: "#f9ae3d"
+      },
+      // 背景颜色
+      bgColor: {
+        type: String,
+        default: "#fdf6ec"
+      },
+      // 字体大小，单位px
+      fontSize: {
+        type: [String, Number],
+        default: 14
+      },
+      // 水平滚动时的滚动速度，即每秒滚动多少px(rpx)，这有利于控制文字无论多少时，都能有一个恒定的速度
+      speed: {
+        type: [String, Number],
+        default: 80
+      },
+      ...(_r = (_q = uni.$uv) == null ? void 0 : _q.props) == null ? void 0 : _r.rowNotice
+    }
+  };
+  const _sfc_main$17 = {
+    name: "uv-row-notice",
+    emits: ["click", "close"],
+    mixins: [mpMixin, mixin, props$r],
+    data() {
+      return {
+        animationDuration: "0",
+        // 动画执行时间
+        animationPlayState: "paused",
+        // 动画的开始和结束执行
+        // nvue下，内容发生变化，导致滚动宽度也变化，需要标志为是否需要重新计算宽度
+        // 不能在内容变化时直接重新计算，因为nvue的animation模块上一次的滚动不是刚好结束，会有影响
+        nvueInit: true,
+        show: true
+      };
+    },
+    watch: {
+      text: {
+        immediate: true,
+        handler(newValue, oldValue) {
+          this.vue();
+          if (!this.$uv.test.string(newValue)) {
+            this.$uv.error("noticebar组件direction为row时，要求text参数为字符串形式");
+          }
+        }
+      },
+      fontSize() {
+        this.vue();
+      },
+      speed() {
+        this.vue();
+      }
+    },
+    computed: {
+      // 文字内容的样式
+      textStyle() {
+        let style = {};
+        style.color = this.color;
+        style.fontSize = this.$uv.addUnit(this.fontSize);
+        return style;
+      },
+      animationStyle() {
+        let style = {};
+        style.animationDuration = this.animationDuration;
+        style.animationPlayState = this.animationPlayState;
+        return style;
+      },
+      // 内部对用户传入的数据进一步分割，放到多个text标签循环，否则如果用户传入的字符串很长（100个字符以上）
+      // 放在一个text标签中进行滚动，在低端安卓机上，动画可能会出现抖动现象，需要分割到多个text中可解决此问题
+      innerText() {
+        let result = [], len = 20;
+        const textArr = this.text ? this.text.split("") : [];
+        for (let i2 = 0; i2 < textArr.length; i2 += len) {
+          result.push(textArr.slice(i2, i2 + len).join(""));
+        }
+        return result;
+      }
+    },
+    mounted() {
+      var pages2 = getCurrentPages();
+      var page2 = pages2[pages2.length - 1];
+      var currentWebview = page2.$getAppWebview();
+      currentWebview.addEventListener("hide", () => {
+        this.webviewHide = true;
+      });
+      currentWebview.addEventListener("show", () => {
+        this.webviewHide = false;
+      });
+      this.init();
+    },
+    methods: {
+      init() {
+        this.vue();
+        if (!this.$uv.test.string(this.text)) {
+          this.$uv.error("noticebar组件direction为row时，要求text参数为字符串形式");
+        }
+      },
+      // vue版处理
+      async vue() {
+        let textWidth = 0;
+        await this.$uv.sleep();
+        textWidth = (await this.$uvGetRect(".uv-notice__content__text")).width;
+        (await this.$uvGetRect(".uv-notice__content")).width;
+        this.animationDuration = `${textWidth / this.$uv.getPx(this.speed)}s`;
+        this.animationPlayState = "paused";
+        setTimeout(() => {
+          this.animationPlayState = "running";
+        }, 10);
+      },
+      // nvue版处理
+      async nvue() {
+      },
+      loopAnimation(textWidth, boxWidth) {
+      },
+      getNvueRect(el) {
+      },
+      // 点击通告栏
+      clickHandler(index2) {
+        this.$emit("click");
+      },
+      // 点击右侧按钮，需要判断点击的是关闭图标还是箭头图标
+      close() {
+        this.$emit("close");
+      }
+    }
+  };
+  function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
+    return vue.openBlock(), vue.createElementBlock("view", {
+      class: "uv-notice",
+      onClick: _cache[0] || (_cache[0] = (...args) => $options.clickHandler && $options.clickHandler(...args))
+    }, [
+      vue.renderSlot(_ctx.$slots, "icon", {}, () => [
+        _ctx.icon ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "uv-notice__left-icon"
+        }, [
+          vue.createVNode(_component_uv_icon, {
+            name: _ctx.icon,
+            color: _ctx.color,
+            size: "19"
+          }, null, 8, ["name", "color"])
+        ])) : vue.createCommentVNode("v-if", true)
+      ], true),
+      vue.createElementVNode(
+        "view",
+        {
+          class: "uv-notice__content",
+          ref: "uv-notice__content"
+        },
+        [
+          vue.createElementVNode(
+            "view",
+            {
+              ref: "uv-notice__content__text",
+              class: "uv-notice__content__text",
+              style: vue.normalizeStyle([$options.animationStyle])
+            },
+            [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($options.innerText, (item, index2) => {
+                  return vue.openBlock(), vue.createElementBlock(
+                    "text",
+                    {
+                      key: index2,
+                      style: vue.normalizeStyle([$options.textStyle])
+                    },
+                    vue.toDisplayString(item),
+                    5
+                    /* TEXT, STYLE */
+                  );
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ],
+            4
+            /* STYLE */
+          )
+        ],
+        512
+        /* NEED_PATCH */
+      ),
+      ["link", "closable"].includes(_ctx.mode) ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "uv-notice__right-icon"
+      }, [
+        _ctx.mode === "link" ? (vue.openBlock(), vue.createBlock(_component_uv_icon, {
+          key: 0,
+          name: "arrow-right",
+          size: 17,
+          color: _ctx.color
+        }, null, 8, ["color"])) : vue.createCommentVNode("v-if", true),
+        _ctx.mode === "closable" ? (vue.openBlock(), vue.createBlock(_component_uv_icon, {
+          key: 1,
+          onClick: $options.close,
+          name: "close",
+          size: 16,
+          color: _ctx.color
+        }, null, 8, ["onClick", "color"])) : vue.createCommentVNode("v-if", true)
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const __easycom_1$8 = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$16], ["__scopeId", "data-v-8e15132c"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-notice-bar/components/uv-row-notice/uv-row-notice.vue"]]);
+  const props$q = {
+    props: {
+      // 显示的内容，数组
+      text: {
+        type: [Array, String],
+        default: () => []
+      },
+      // 通告滚动模式，row-横向滚动，column-竖向滚动
+      direction: {
+        type: String,
+        default: "row"
+      },
+      // direction = row时，是否使用步进形式滚动
+      step: {
+        type: Boolean,
+        default: false
+      },
+      // 是否显示左侧的音量图标
+      icon: {
+        type: [String, Boolean, null],
+        default: "volume"
+      },
+      // 通告模式，link-显示右箭头，closable-显示右侧关闭图标
+      mode: {
+        type: String,
+        default: ""
+      },
+      // 文字颜色，各图标也会使用文字颜色
+      color: {
+        type: String,
+        default: "#f9ae3d"
+      },
+      // 背景颜色
+      bgColor: {
+        type: String,
+        default: "#fdf6ec"
+      },
+      // 水平滚动时的滚动速度，即每秒滚动多少px(px)，这有利于控制文字无论多少时，都能有一个恒定的速度
+      speed: {
+        type: [String, Number],
+        default: 80
+      },
+      // 字体大小
+      fontSize: {
+        type: [String, Number],
+        default: 14
+      },
+      // 滚动一个周期的时间长，单位ms
+      duration: {
+        type: [String, Number],
+        default: 2e3
+      },
+      // 跳转的页面路径
+      url: {
+        type: String,
+        default: ""
+      },
+      // 页面跳转的类型
+      linkType: {
+        type: String,
+        default: "navigateTo"
+      },
+      // 是否禁止用手滑动切换
+      // 目前HX2.6.11，只支持App 2.5.5+、H5 2.5.5+、支付宝小程序、字节跳动小程序
+      disableTouch: {
+        type: Boolean,
+        default: true
+      },
+      // 是否禁止滚动，仅`direction="column"生效`
+      disableScroll: {
+        type: Boolean,
+        default: false
+      },
+      ...(_t2 = (_s2 = uni.$uv) == null ? void 0 : _s2.props) == null ? void 0 : _t2.noticeBar
+    }
+  };
+  const _sfc_main$16 = {
+    name: "uv-notice-bar",
+    emits: ["click", "close", "change"],
+    mixins: [mpMixin, mixin, props$q],
+    data() {
+      return {
+        show: true
+      };
+    },
+    methods: {
+      // 点击通告栏
+      click(index2) {
+        this.$emit("click", index2);
+        if (this.url && this.linkType) {
+          this.openPage();
+        }
+      },
+      // 点击关闭按钮
+      close() {
+        this.show = false;
+        this.$emit("close");
+      },
+      // 竖向滚动时触发
+      change(index2) {
+        this.$emit("change", index2);
+      }
+    }
+  };
+  function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uv_column_notice = resolveEasycom(vue.resolveDynamicComponent("uv-column-notice"), __easycom_0$a);
+    const _component_uv_row_notice = resolveEasycom(vue.resolveDynamicComponent("uv-row-notice"), __easycom_1$8);
+    return $data.show ? (vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        key: 0,
+        class: "uv-notice-bar",
+        style: vue.normalizeStyle([{
+          backgroundColor: _ctx.bgColor
+        }, _ctx.$uv.addStyle(_ctx.customStyle)])
+      },
+      [
+        _ctx.direction === "column" || _ctx.direction === "row" && _ctx.step ? (vue.openBlock(), vue.createBlock(_component_uv_column_notice, {
+          key: 0,
+          color: _ctx.color,
+          bgColor: _ctx.bgColor,
+          text: _ctx.text,
+          mode: _ctx.mode,
+          step: _ctx.step,
+          icon: _ctx.icon,
+          "disable-touch": _ctx.disableTouch,
+          "disable-scroll": _ctx.disableScroll,
+          fontSize: _ctx.fontSize,
+          duration: _ctx.duration,
+          onClose: $options.close,
+          onClick: $options.click,
+          onChange: $options.change
+        }, null, 8, ["color", "bgColor", "text", "mode", "step", "icon", "disable-touch", "disable-scroll", "fontSize", "duration", "onClose", "onClick", "onChange"])) : (vue.openBlock(), vue.createBlock(_component_uv_row_notice, {
+          key: 1,
+          color: _ctx.color,
+          bgColor: _ctx.bgColor,
+          text: _ctx.text,
+          mode: _ctx.mode,
+          fontSize: _ctx.fontSize,
+          speed: _ctx.speed,
+          url: _ctx.url,
+          linkType: _ctx.linkType,
+          icon: _ctx.icon,
+          onClose: $options.close,
+          onClick: $options.click
+        }, null, 8, ["color", "bgColor", "text", "mode", "fontSize", "speed", "url", "linkType", "icon", "onClose", "onClick"]))
+      ],
+      4
+      /* STYLE */
+    )) : vue.createCommentVNode("v-if", true);
+  }
+  const __easycom_3$4 = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$15], ["__scopeId", "data-v-ecf69ee0"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-notice-bar/components/uv-notice-bar/uv-notice-bar.vue"]]);
   const props$p = {
     props: {
       // 轮播的长度
@@ -2818,7 +3384,7 @@ if (uni.restoreGlobal) {
         type: String,
         default: ""
       },
-      ...(_p = (_o = uni.$uv) == null ? void 0 : _o.props) == null ? void 0 : _p.swiperIndicator
+      ...(_v = (_u = uni.$uv) == null ? void 0 : _u.props) == null ? void 0 : _v.swiperIndicator
     }
   };
   const _sfc_main$15 = {
@@ -3035,7 +3601,7 @@ if (uni.restoreGlobal) {
         type: [Object, String],
         default: ""
       },
-      ...(_r = (_q = uni.$uv) == null ? void 0 : _q.props) == null ? void 0 : _r.swiper
+      ...(_x = (_w = uni.$uv) == null ? void 0 : _w.props) == null ? void 0 : _x.swiper
     }
   };
   const _sfc_main$14 = {
@@ -3119,7 +3685,7 @@ if (uni.restoreGlobal) {
     }
   };
   function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
     const _component_uv_swiper_indicator = resolveEasycom(vue.resolveDynamicComponent("uv-swiper-indicator"), __easycom_1$7);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -3246,7 +3812,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_3$4 = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$13], ["__scopeId", "data-v-7522af0b"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-swiper/components/uv-swiper/uv-swiper.vue"]]);
+  const __easycom_4$5 = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$13], ["__scopeId", "data-v-7522af0b"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-swiper/components/uv-swiper/uv-swiper.vue"]]);
   const _sfc_main$13 = {
     data() {
       return {
@@ -3261,7 +3827,7 @@ if (uni.restoreGlobal) {
     },
     methods: {
       leftClick() {
-        formatAppLog("log", "at pages/index/index.vue:142", "leftClick");
+        formatAppLog("log", "at pages/index/index.vue:143", "leftClick");
       },
       goToPay() {
         uni.navigateTo({
@@ -3287,19 +3853,19 @@ if (uni.restoreGlobal) {
       scanCode() {
         uni.scanCode({
           success: function(res) {
-            formatAppLog("log", "at pages/index/index.vue:168", "条码类型：" + res.scanType);
-            formatAppLog("log", "at pages/index/index.vue:169", "条码内容：" + res.result);
+            formatAppLog("log", "at pages/index/index.vue:169", "条码类型：" + res.scanType);
+            formatAppLog("log", "at pages/index/index.vue:170", "条码内容：" + res.result);
           }
         });
       }
     }
   };
   function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$a);
+    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$b);
     const _component_uv_list_item = resolveEasycom(vue.resolveDynamicComponent("uv-list-item"), __easycom_2$7);
     const _component_uv_list = resolveEasycom(vue.resolveDynamicComponent("uv-list"), __easycom_3$5);
-    const _component_uni_notice_bar = vue.resolveComponent("uni-notice-bar");
-    const _component_uv_swiper = resolveEasycom(vue.resolveDynamicComponent("uv-swiper"), __easycom_3$4);
+    const _component_uv_notice_bar = resolveEasycom(vue.resolveDynamicComponent("uv-notice-bar"), __easycom_3$4);
+    const _component_uv_swiper = resolveEasycom(vue.resolveDynamicComponent("uv-swiper"), __easycom_4$5);
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -3437,19 +4003,17 @@ if (uni.restoreGlobal) {
           ])
         ]),
         vue.createCommentVNode(" 结算出款通知 "),
-        vue.createElementVNode("view", { class: "settlementbar" }, [
-          vue.createElementVNode("view", null, [
-            vue.createVNode(_component_uni_notice_bar, {
-              "show-icon": "",
-              scrollable: "",
-              single: "",
-              color: "white",
-              "background-color": "#E75650",
-              style: { "border-radius": "20rpx" },
-              text: "结算出款通知"
-            })
-          ])
+        vue.createCommentVNode(' <view class="settlementbar"> '),
+        vue.createElementVNode("view", null, [
+          vue.createCommentVNode(' <uni-notice-bar show-icon scrollable single color="white" background-color="#E75650"\r\n				style="border-radius: 20rpx;" text="结算出款通知" /> '),
+          vue.createVNode(_component_uv_notice_bar, {
+            text: "结算出款通知",
+            bgColor: "#E75650",
+            style: { "border-radius": "20rpx" },
+            color: "white"
+          })
         ]),
+        vue.createCommentVNode(" </view> "),
         vue.createCommentVNode(" 广告栏 "),
         vue.createElementVNode("view", { class: "uv-demo-block" }, [
           vue.createCommentVNode(' <text class="uv-demo-block__title">卡片式</text> '),
@@ -3690,7 +4254,7 @@ if (uni.restoreGlobal) {
         type: [Object, String],
         default: ""
       },
-      ...(_t2 = (_s2 = uni.$uv) == null ? void 0 : _s2.props) == null ? void 0 : _t2.button
+      ...(_z = (_y = uni.$uv) == null ? void 0 : _y.props) == null ? void 0 : _z.button
     }
   };
   const _sfc_main$12 = {
@@ -3808,8 +4372,8 @@ if (uni.restoreGlobal) {
     }
   };
   function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -4294,7 +4858,7 @@ if (uni.restoreGlobal) {
         type: [String, Number],
         default: 0.5
       },
-      ...(_v = (_u = uni.$uv) == null ? void 0 : _u.props) == null ? void 0 : _v.overlay
+      ...(_B = (_A = uni.$uv) == null ? void 0 : _A.props) == null ? void 0 : _B.overlay
     }
   };
   const _sfc_main$10 = {
@@ -4456,7 +5020,7 @@ if (uni.restoreGlobal) {
         type: [Number, String],
         default: 0
       },
-      ...(_x = (_w = uni.$uv) == null ? void 0 : _w.props) == null ? void 0 : _x.popup
+      ...(_D = (_C = uni.$uv) == null ? void 0 : _C.props) == null ? void 0 : _D.popup
     },
     watch: {
       /**
@@ -4713,9 +5277,9 @@ if (uni.restoreGlobal) {
   };
   function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_overlay = resolveEasycom(vue.resolveDynamicComponent("uv-overlay"), __easycom_0$9);
-    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_0$c);
+    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_0$d);
     const _component_uv_safe_bottom = resolveEasycom(vue.resolveDynamicComponent("uv-safe-bottom"), __easycom_2$6);
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_transition = resolveEasycom(vue.resolveDynamicComponent("uv-transition"), __easycom_4$4);
     return $data.showPopup ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -5139,7 +5703,7 @@ if (uni.restoreGlobal) {
         type: String,
         default: ""
       },
-      ...(_z = (_y = uni.$uv) == null ? void 0 : _y.props) == null ? void 0 : _z.toolbar
+      ...(_F = (_E = uni.$uv) == null ? void 0 : _E.props) == null ? void 0 : _F.toolbar
     }
   };
   const _sfc_main$Y = {
@@ -5310,7 +5874,7 @@ if (uni.restoreGlobal) {
         type: Boolean,
         default: true
       },
-      ...(_B = (_A = uni.$uv) == null ? void 0 : _A.props) == null ? void 0 : _B.picker
+      ...(_H = (_G = uni.$uv) == null ? void 0 : _G.props) == null ? void 0 : _H.picker
     }
   };
   const _sfc_main$X = {
@@ -5475,7 +6039,7 @@ if (uni.restoreGlobal) {
   };
   function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_toolbar = resolveEasycom(vue.resolveDynamicComponent("uv-toolbar"), __easycom_0$8);
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
     const _component_uv_popup = resolveEasycom(vue.resolveDynamicComponent("uv-popup"), __easycom_4$3);
     return vue.openBlock(), vue.createBlock(_component_uv_popup, {
       ref: "pickerPopup",
@@ -7763,7 +8327,7 @@ if (uni.restoreGlobal) {
         type: Boolean,
         default: false
       },
-      ...(_D = (_C = uni.$uv) == null ? void 0 : _C.props) == null ? void 0 : _D.calendars
+      ...(_J = (_I = uni.$uv) == null ? void 0 : _I.props) == null ? void 0 : _J.calendars
     },
     data() {
       return {
@@ -12360,7 +12924,7 @@ ${i3}
         type: [String, Object],
         default: ""
       },
-      ...(_F = (_E = uni.$uv) == null ? void 0 : _E.props) == null ? void 0 : _F.subsection
+      ...(_L = (_K = uni.$uv) == null ? void 0 : _K.props) == null ? void 0 : _L.subsection
     }
   };
   const _sfc_main$Q = {
@@ -12531,7 +13095,7 @@ ${i3}
         type: String,
         default: "transparent"
       },
-      ...(_H = (_G = uni.$uv) == null ? void 0 : _G.props) == null ? void 0 : _H.gridItem
+      ...(_N = (_M = uni.$uv) == null ? void 0 : _M.props) == null ? void 0 : _N.gridItem
     }
   };
   const _sfc_main$P = {
@@ -12660,7 +13224,7 @@ ${i3}
         type: String,
         default: "left"
       },
-      ...(_J = (_I = uni.$uv) == null ? void 0 : _I.props) == null ? void 0 : _J.grid
+      ...(_P = (_O = uni.$uv) == null ? void 0 : _O.props) == null ? void 0 : _P.grid
     }
   };
   const _sfc_main$O = {
@@ -12755,7 +13319,7 @@ ${i3}
         type: [String, Number],
         default: 0
       },
-      ...(_L = (_K = uni.$uv) == null ? void 0 : _K.props) == null ? void 0 : _L.gap
+      ...(_R = (_Q = uni.$uv) == null ? void 0 : _Q.props) == null ? void 0 : _R.gap
     }
   };
   const _sfc_main$N = {
@@ -14966,7 +15530,7 @@ ${i3}
         type: String,
         default: ""
       },
-      ...(_N = (_M = uni.$uv) == null ? void 0 : _M.props) == null ? void 0 : _N.link
+      ...(_T = (_S = uni.$uv) == null ? void 0 : _S.props) == null ? void 0 : _T.link
     }
   };
   const _sfc_main$D = {
@@ -15190,7 +15754,7 @@ ${i3}
         type: String,
         default: "normal"
       },
-      ...(_P = (_O = uni.$uv) == null ? void 0 : _O.props) == null ? void 0 : _P.text
+      ...(_V = (_U = uni.$uv) == null ? void 0 : _U.props) == null ? void 0 : _V.text
     }
   };
   const _sfc_main$C = {
@@ -15239,7 +15803,7 @@ ${i3}
     }
   };
   function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_link = resolveEasycom(vue.resolveDynamicComponent("uv-link"), __easycom_1$4);
     return _ctx.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -15347,7 +15911,7 @@ ${i3}
         type: Boolean,
         default: false
       },
-      ...(_R = (_Q = uni.$uv) == null ? void 0 : _Q.props) == null ? void 0 : _R.stepsItem
+      ...(_X = (_W = uni.$uv) == null ? void 0 : _W.props) == null ? void 0 : _X.stepsItem
     }
   };
   const _sfc_main$B = {
@@ -15472,7 +16036,7 @@ ${i3}
     }
   };
   function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_text = resolveEasycom(vue.resolveDynamicComponent("uv-text"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -15635,7 +16199,7 @@ ${i3}
         type: Boolean,
         default: false
       },
-      ...(_T = (_S = uni.$uv) == null ? void 0 : _S.props) == null ? void 0 : _T.steps
+      ...(_Z = (_Y = uni.$uv) == null ? void 0 : _Y.props) == null ? void 0 : _Z.steps
     }
   };
   const _sfc_main$A = {
@@ -16187,7 +16751,7 @@ ${i3}
         default: () => {
         }
       },
-      ...(_V = (_U = uni.$uv) == null ? void 0 : _U.props) == null ? void 0 : _V.textarea
+      ...(_$ = (__ = uni.$uv) == null ? void 0 : __.props) == null ? void 0 : _$.textarea
     }
   };
   const _sfc_main$w = {
@@ -16552,7 +17116,7 @@ ${i3}
         type: Boolean,
         default: true
       },
-      ...(_X = (_W = uni.$uv) == null ? void 0 : _W.props) == null ? void 0 : _X.input
+      ...(_ba = (_aa = uni.$uv) == null ? void 0 : _aa.props) == null ? void 0 : _ba.input
     }
   };
   const _sfc_main$u = {
@@ -16697,7 +17261,7 @@ ${i3}
     }
   };
   function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -16810,7 +17374,7 @@ ${i3}
         type: Boolean,
         default: false
       },
-      ...(_Z = (_Y = uni.$uv) == null ? void 0 : _Y.props) == null ? void 0 : _Z.line
+      ...(_da = (_ca = uni.$uv) == null ? void 0 : _ca.props) == null ? void 0 : _da.line
     }
   };
   const _sfc_main$t = {
@@ -16897,7 +17461,7 @@ ${i3}
         type: [String, Object],
         default: ""
       },
-      ...(_$ = (__ = uni.$uv) == null ? void 0 : __.props) == null ? void 0 : _$.formItem
+      ...(_fa = (_ea = uni.$uv) == null ? void 0 : _ea.props) == null ? void 0 : _fa.formItem
     }
   };
   const _sfc_main$s = {
@@ -16953,7 +17517,7 @@ ${i3}
     }
   };
   function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_transition = resolveEasycom(vue.resolveDynamicComponent("uv-transition"), __easycom_4$4);
     const _component_uv_line = resolveEasycom(vue.resolveDynamicComponent("uv-line"), __easycom_0$2);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uv-form-item" }, [
@@ -17327,7 +17891,7 @@ ${i3}
         type: Boolean,
         default: true
       },
-      ...(_ba = (_aa = uni.$uv) == null ? void 0 : _aa.props) == null ? void 0 : _ba.upload
+      ...(_ha = (_ga = uni.$uv) == null ? void 0 : _ga.props) == null ? void 0 : _ha.upload
     }
   };
   const _sfc_main$q = {
@@ -17513,8 +18077,8 @@ ${i3}
     }
   };
   function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
     const _component_uv_preview_video = resolveEasycom(vue.resolveDynamicComponent("uv-preview-video"), __easycom_2$2);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -17711,7 +18275,7 @@ ${i3}
         type: Object,
         default: () => ({})
       },
-      ...(_da = (_ca = uni.$uv) == null ? void 0 : _ca.props) == null ? void 0 : _da.form
+      ...(_ja = (_ia = uni.$uv) == null ? void 0 : _ia.props) == null ? void 0 : _ja.form
     }
   };
   const formatRegExp = /%[sdj%]/g;
@@ -18819,7 +19383,7 @@ ${i3}
         type: [Boolean, String, Number],
         default: 0
       },
-      ...(_fa = (_ea = uni.$uv) == null ? void 0 : _ea.props) == null ? void 0 : _fa.actionSheet
+      ...(_la = (_ka = uni.$uv) == null ? void 0 : _ka.props) == null ? void 0 : _la.actionSheet
     }
   };
   const _sfc_main$o = {
@@ -18868,9 +19432,9 @@ ${i3}
     }
   };
   function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_line = resolveEasycom(vue.resolveDynamicComponent("uv-line"), __easycom_0$2);
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
     const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$1);
     const _component_uv_popup = resolveEasycom(vue.resolveDynamicComponent("uv-popup"), __easycom_4$3);
     return vue.openBlock(), vue.createBlock(_component_uv_popup, {
@@ -19451,7 +20015,7 @@ ${i3}
         type: Boolean,
         default: false
       },
-      ...(_ha = (_ga = uni.$uv) == null ? void 0 : _ga.props) == null ? void 0 : _ha.notify
+      ...(_na = (_ma = uni.$uv) == null ? void 0 : _ma.props) == null ? void 0 : _na.notify
     }
   };
   const _sfc_main$l = {
@@ -19557,8 +20121,8 @@ ${i3}
     }
   };
   function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_0$c);
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_0$d);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_transition = resolveEasycom(vue.resolveDynamicComponent("uv-transition"), __easycom_4$4);
     return vue.openBlock(), vue.createBlock(_component_uv_transition, {
       mode: "slide-top",
@@ -19639,12 +20203,9 @@ ${i3}
         if (newPwd === oldPwd) {
           return this.$refs.notify.error("新密码和旧密码不能一样");
         }
-        this.$axios.post(
-          "/user/modifyPwd",
-          this.passwordInfo
-        ).then((res) => {
-          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:71", res);
-          if (res.data.code == 1001) {
+        this.$request("/user/modifyPwd", "POST", { name: "张三", age: 12 }).then((res) => {
+          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:68", res);
+          if (res.data.code == 200) {
             this.$refs.notify.success("密码修改成功");
             this.clearFields();
             setTimeout(() => {
@@ -19652,13 +20213,13 @@ ${i3}
                 url: "/pages/personalCenter/personalCenter"
               });
             }, 2e3);
-          } else if (res.data.code == 1002) {
+          } else if (res.data.code == 201) {
             this.$refs.notify.error("修改失败");
-          } else if (res.data.code == 1003) {
+          } else if (res.data.code == 202) {
             this.$refs.notify.error("旧密码输入错误，修改失败");
           }
-        }).catch((e2) => {
-          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:88", e2);
+        }).catch((err) => {
+          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:85", err);
         });
       },
       //清空字段的值，封装起来
@@ -20078,7 +20639,7 @@ ${i3}
         type: [String, Number],
         default: ""
       },
-      ...(_ja = (_ia = uni.$uv) == null ? void 0 : _ia.props) == null ? void 0 : _ja.sticky
+      ...(_pa = (_oa = uni.$uv) == null ? void 0 : _oa.props) == null ? void 0 : _pa.sticky
     }
   };
   const _sfc_main$f = {
@@ -20749,8 +21310,8 @@ ${i3}
   };
   function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_overlay = resolveEasycom(vue.resolveDynamicComponent("uv-overlay"), __easycom_0$9);
-    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$8);
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$9);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$1);
     const _component_uv_transition = resolveEasycom(vue.resolveDynamicComponent("uv-transition"), __easycom_4$4);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uv-toast" }, [
@@ -20843,7 +21404,7 @@ ${i3}
         type: String,
         default: ""
       },
-      ...(_la = (_ka = uni.$uv) == null ? void 0 : _ka.props) == null ? void 0 : _la.code
+      ...(_ra = (_qa = uni.$uv) == null ? void 0 : _qa.props) == null ? void 0 : _ra.code
     }
   };
   const _sfc_main$9 = {
@@ -21375,7 +21936,7 @@ ${i3}
     }
   };
   function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$a);
+    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$b);
     const _component_uv_input = resolveEasycom(vue.resolveDynamicComponent("uv-input"), __easycom_2$3);
     const _component_uv_upload = resolveEasycom(vue.resolveDynamicComponent("uv-upload"), __easycom_2$1);
     const _component_uv_form_item = resolveEasycom(vue.resolveDynamicComponent("uv-form-item"), __easycom_3);
@@ -21582,7 +22143,7 @@ ${i3}
     }
   };
   function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$a);
+    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$b);
     const _component_uv_input = resolveEasycom(vue.resolveDynamicComponent("uv-input"), __easycom_2$3);
     const _component_uv_list_item = resolveEasycom(vue.resolveDynamicComponent("uv-list-item"), __easycom_2$7);
     const _component_uv_list = resolveEasycom(vue.resolveDynamicComponent("uv-list"), __easycom_3$5);
@@ -21688,7 +22249,7 @@ ${i3}
         type: String,
         default: "#dcdfe6"
       },
-      ...(_na = (_ma = uni.$uv) == null ? void 0 : _ma.props) == null ? void 0 : _na.divider
+      ...(_ta = (_sa = uni.$uv) == null ? void 0 : _sa.props) == null ? void 0 : _ta.divider
     }
   };
   const _sfc_main$5 = {
@@ -21786,8 +22347,8 @@ ${i3}
     }
   };
   function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$a);
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_divider = resolveEasycom(vue.resolveDynamicComponent("uv-divider"), __easycom_2);
     const _component_uv_button = resolveEasycom(vue.resolveDynamicComponent("uv-button"), __easycom_3$3);
     return vue.openBlock(), vue.createElementBlock("view", null, [
@@ -21916,7 +22477,7 @@ ${i3}
         type: String,
         default: ""
       },
-      ...(_pa = (_oa = uni.$uv) == null ? void 0 : _oa.props) == null ? void 0 : _pa.avatar
+      ...(_va = (_ua = uni.$uv) == null ? void 0 : _ua.props) == null ? void 0 : _va.avatar
     }
   };
   const base64Avatar = "data:image/jpg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMraHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjREMEQwRkY0RjgwNDExRUE5OTY2RDgxODY3NkJFODMxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjREMEQwRkY1RjgwNDExRUE5OTY2RDgxODY3NkJFODMxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NEQwRDBGRjJGODA0MTFFQTk5NjZEODE4Njc2QkU4MzEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NEQwRDBGRjNGODA0MTFFQTk5NjZEODE4Njc2QkU4MzEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAGBAQEBQQGBQUGCQYFBgkLCAYGCAsMCgoLCgoMEAwMDAwMDBAMDg8QDw4MExMUFBMTHBsbGxwfHx8fHx8fHx8fAQcHBw0MDRgQEBgaFREVGh8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx//wAARCADIAMgDAREAAhEBAxEB/8QAcQABAQEAAwEBAAAAAAAAAAAAAAUEAQMGAgcBAQAAAAAAAAAAAAAAAAAAAAAQAAIBAwICBgkDBQAAAAAAAAABAhEDBCEFMVFBYXGREiKBscHRMkJSEyOh4XLxYjNDFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/fAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHbHFyZ/Dam+yLA+Z2L0Pjtyj2poD4AAAAAAAAAAAAAAAAAAAAAAAAKWFs9y6lcvvwQeqj8z9wFaziY1n/HbUX9XF97A7QAGXI23EvJ1goyfzR0YEfN269jeZ+a03pNe0DIAAAAAAAAAAAAAAAAAAAACvtO3RcVkXlWutuL9YFYAAAAAOJRjKLjJVi9GmB5/csH/mu1h/in8PU+QGMAAAAAAAAAAAAAAAAAAaMDG/6MmMH8C80+xAelSSVFolwQAAAAAAAHVlWI37ErUulaPk+hgeYnCUJuElSUXRrrQHAAAAAAAAAAAAAAAAABa2Oz4bM7r4zdF2ICmAAAAAAAAAg7zZ8GX41wuJP0rRgYAAAAAAAAAAAAAAAAAD0m2R8ODaXU33tsDSAAAAAAAAAlb9HyWZcnJd9PcBHAAAAAAAAAAAAAAAAAPS7e64Vn+KA0AAAAAAAAAJm+v8Ftf3ewCKAAAAAAAAAAAAAAAAAX9muqeGo9NttP06+0DcAAAAAAAAAjb7dTu2ra+VOT9P8AQCWAAAAAAAAAAAAAAAAAUNmyPt5Ltv4bui/kuAF0AAAAAAADiUlGLlJ0SVW+oDzOXfd/Ind6JPRdS0QHSAAAAAAAAAAAAAAAAAE2nVaNcGB6Lbs6OTao9LsF51z60BrAAAAAABJ3jOVHjW3r/sa9QEgAAAAAAAAAAAAAAAAAAAPu1duWriuW34ZR4MC9hbnZyEoy8l36XwfYBsAAADaSq9EuLAlZ+7xSdrGdW9Hc5dgEdtt1erfFgAAAAAAAAAAAAAAAAADVjbblX6NR8MH80tEBRs7HYivyzlN8lovaBPzduvY0m6eK10TXtAyAarO55lpJK54orolr+4GqO/Xaea1FvqbXvA+Z77kNeW3GPbV+4DJfzcm/pcm3H6Vou5AdAFLC2ed2Pjv1txa8sV8T6wOL+yZEKu1JXFy4MDBOE4ScZxcZLinoB8gAAAAAAAAAAAB242LeyJ+C3GvN9C7QLmJtePYpKS+5c+p8F2IDYAANJqj1T4oCfk7Nj3G5Wn9qXJax7gJ93Z82D8sVNc4v30A6Xg5i42Z+iLfqARwcyT0sz9MWvWBps7LlTf5Grce9/oBTxdtxseklHxT+uWr9AGoAB138ezfj4bsFJdD6V2MCPm7RdtJzs1uW1xXzL3gTgAAAAAAAAADRhYc8q74I6RWs5ckB6GxYtWLat21SK731sDsAAAAAAAAAAAAAAAASt021NO/YjrxuQXT1oCOAAAAAAABzGLlJRSq26JAelwsWONYjbXxcZvmwO8AAAAAAAAAAAAAAAAAAef3TEWPkVivx3NY9T6UBiAAAAAABo2+VmGXblddIJ8eivRUD0oAAAAAAAAAAAAAAAAAAAYt4tKeFKVNYNSXfRgefAAAAAAAAr7VuSSWPedKaW5v1MCsAAAAAAAAAAAAAAAAAAIe6bj96Ts2n+JPzSXzP3ATgAAAAAAAAFbbt1UUrOQ9FpC4/UwK6aaqtU+DAAAAAAAAAAAAAAA4lKMIuUmoxWrb4ARNx3R3q2rLpa4Sl0y/YCcAAAAAAAAAAANmFud7G8r89r6X0dgFvGzLGRGtuWvTF6NAdwAAAAAAAAAAAy5W442PVN+K59EePp5ARMvOv5MvO6QXCC4AZwAAAAAAAAAAAAAcxlKLUotprg1owN+PvORborq+7Hnwl3gUbO74VzRydt8pKn68ANcJwmqwkpLmnUDkAAAAfNy9atqtyagut0AxXt5xIV8Fbj6lRd7Am5G65V6qUvtwfyx94GMAAAAAAAAAAAAAAAAAAAOU2nVOj5gdsc3LiqRvTpyqwOxbnnrhdfpSfrQB7pnv/AGvuS9gHXPMy5/Fem1yq0v0A6W29XqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//Z";
@@ -21992,7 +22553,7 @@ ${i3}
     }
   };
   function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$b);
+    const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_text = resolveEasycom(vue.resolveDynamicComponent("uv-text"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -22059,7 +22620,7 @@ ${i3}
     }
   };
   function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$a);
+    const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$b);
     const _component_uv_avatar = resolveEasycom(vue.resolveDynamicComponent("uv-avatar"), __easycom_1);
     const _component_uv_input = resolveEasycom(vue.resolveDynamicComponent("uv-input"), __easycom_2$3);
     const _component_uv_button = resolveEasycom(vue.resolveDynamicComponent("uv-button"), __easycom_3$3);
@@ -22303,8 +22864,30 @@ ${i3}
     }
   };
   const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:/HBuilderX/aggregated payment/payment-app/App.vue"]]);
+  const baseUrl = "http://192.168.1.32:8125";
+  const request = (url2, method2, data) => {
+    return new Promise((resolve, reject) => {
+      uni.request({
+        url: baseUrl + url2,
+        //拼接请求路径
+        data,
+        method: method2,
+        header: {
+          "content-type": "application/json"
+          //token: uni.getStorageSync('token')!= null ? uni.getStorageSync('token'): ''//请求头发送token，可选
+        },
+        success: (res) => {
+          resolve(res);
+        },
+        fail: (error2) => {
+          reject(error2);
+        }
+      });
+    });
+  };
   function createApp() {
     const app = vue.createVueApp(App);
+    app.config.globalProperties.$request = request;
     return {
       app
     };

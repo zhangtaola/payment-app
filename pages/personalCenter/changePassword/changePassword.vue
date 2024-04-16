@@ -63,29 +63,30 @@
 				if(newPwd === oldPwd){
 					return this.$refs.notify.error('新密码和旧密码不能一样');
 				};
-				//通过判断，发送axios
-				this.$axios.post(
-					'/user/modifyPwd',
-					this.passwordInfo
-					  ).then(res => {
-						console.log(res)
-					  if(res.data.code == 200) {
-						this.$refs.notify.success ('密码修改成功');
-						this.clearFields();
-						// 使用 setTimeout 添加延时，单位为毫秒（这里是 2000 毫秒，即 2 秒）
-						setTimeout(() => {
-						// 跳转到个人中心页面
-							uni.switchTab({
-							  url: '/pages/personalCenter/personalCenter'
-							});
-						  }, 2000); // 2秒延时
-					  }else if(res.data.code == 201) {
-						this.$refs.notify.error('修改失败');
-					  }else if(res.data.code == 202){
-						this.$refs.notify.error('旧密码输入错误，修改失败');
-					  }
-					}).catch(e => {
-					  console.log(e)
+				//发送post请求，参数为object
+				this.$request(
+					"/user/modifyPwd",
+					"POST",
+					this.passwordInfo,
+					).then(res=>{
+					console.log(res)
+					if(res.data.code == 200) {
+					this.$refs.notify.success ('密码修改成功');
+					this.clearFields();
+					// 使用 setTimeout 添加延时，单位为毫秒（这里是 2000 毫秒，即 2 秒）
+					setTimeout(() => {
+					// 跳转到个人中心页面
+						uni.switchTab({
+						  url: '/pages/personalCenter/personalCenter'
+						});
+					  }, 2000); // 2秒延时
+				  }else if(res.data.code == 201) {
+					this.$refs.notify.error('修改失败');
+				  }else if(res.data.code == 202){
+					this.$refs.notify.error('旧密码输入错误，修改失败');
+				  }
+				}).catch(err=>{
+					console.log(err)
 				})
 			},
 			//清空字段的值，封装起来
