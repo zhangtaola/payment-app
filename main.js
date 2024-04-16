@@ -41,7 +41,7 @@ import request from './utils/request.js'
 export function createApp() {
   const app = createSSRApp(App)
   // app.config.globalProperties.$request = request
-  app.config.globalProperties.$axios = request
+  app.config.globalProperties.$request = request
   return {
     app
   }

@@ -1,13 +1,13 @@
-import axios from 'axios'
-// import { UniAdapter } from 'uniapp-axios-adapter';
+// import axios from 'axios'
+// // import { UniAdapter } from 'uniapp-axios-adapter';
 
-const request = axios.create({
-	baseURL: "http://127.0.0.1:8080",
-	timeout: 6000,
-	crossDomain: true,
-})
+// const request = axios.create({
+// 	baseURL: "http://127.0.0.1:8080",
+// 	timeout: 6000,
+// 	crossDomain: true,
+// })
 
-export default request
+// export default request
 
 
 
@@ -38,26 +38,26 @@ export default request
 // const baseUrl = "http://127.0.0.1:8080/";
 
 
-// const baseUrl = 'http://localhost:8080'    //api的固定前部地址
-// const request = (url,method,data) =>{
-//     return new Promise((resolve,reject) =>{
-//         uni.request({
-//             url: baseUrl + url,//拼接请求路径
-//             data: data,
-//             method: method,
-//             header: {
-//                 'content-type': 'application/json',
-//                 //token: uni.getStorageSync('token')!= null ? uni.getStorageSync('token'): ''//请求头发送token，可选
-//             },
-//             success: (res) => {
-//                 resolve(res)
-//             },
-//             fail: (error) => {
-//                 reject(error)
-//             }
-//         })
-//     })
-// }
+const baseUrl = 'http://localhost:8080'    //api的固定前部地址
+const request = (url,method,data) =>{
+    return new Promise((resolve,reject) =>{
+        uni.request({
+            url: baseUrl + url,//拼接请求路径
+            data: data,
+            method: method,
+            header: {
+                'content-type': 'application/json',
+                //token: uni.getStorageSync('token')!= null ? uni.getStorageSync('token'): ''//请求头发送token，可选
+            },
+            success: (res) => {
+                resolve(res)
+            },
+            fail: (error) => {
+                reject(error)
+            }
+        })
+    })
+}
  
-// //暴露函数
-// export default request
+//暴露函数
+export default request
