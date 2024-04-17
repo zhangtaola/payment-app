@@ -216,6 +216,14 @@
 				"enablePullDownRefresh" : false
 			}
 		}
+		// {
+		// 	"path" : "pages/merchantSettled/merchantSettled",
+		// 	"style" : 
+		// 	{
+		// 		"navigationBarTitleText" : "",
+		// 		"enablePullDownRefresh" : false
+		// 	}
+		// }
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -3,10 +3,10 @@
 		<uv-navbar title="商家入驻" @leftClick="goToIndex"></uv-navbar>
 	</view>
 	<view style="margin-top: 80rpx;width: 700rpx;height: 10rpx;">
-			</view>
+	</view>
 
 	<view class="formInfo">
-		<uv-form :model="form"  ref="form">
+		<uv-form :model="form" ref="form">
 			<uv-input placeholder="商铺基本信息" border="bottom" disabled="true"></uv-input>
 			<uv-form-item label="店铺图片" prop="pics" label-width="180rpx">
 				<uv-upload :fileList="merchantList" name="1" multiple :maxCount="9" @afterRead="merchantPicsRead()"
@@ -26,21 +26,30 @@
 				<uv-input v-model="form.merchantPhone" placeholder="请输入店铺电话" />
 			</uv-form-item>
 			<uv-input placeholder="负责人信息" border="bottom" disabled="true"></uv-input>
-			<uv-form-item label="身份证" prop="pics" label-width="180rpx">
-				<uv-upload :fileList="idCardList" name="1" multiple :maxCount="9" @afterRead="idCardPicsRead()"
-					@delete="deleteIdCardPic()" :previewFullImage="true"></uv-upload>
-				<!-- <uv-upload :fileList="fileList" name="1" multiple :maxCount="9" @afterRead="afterRead"
-					@delete="deletePic" :previewFullImage="true"></uv-upload> -->
+<!-- 			<uv-form-item label="身份证正面" prop="pics" label-width="180rpx">
+				<uv-upload :fileList="fileList2" name="1" multiple :maxCount="1" @afterRead="afterRead2"
+					@delete="deletePic2" style="margin-left: 50rpx;">
+					<image src="https://cdn.uviewui.com/uview/demo/upload/positive.png" mode="widthFix"
+						style="width: 250px;height: 150px;"></image>
+				</uv-upload>
+			</uv-form-item> -->
+			<uv-form-item label="身份证反面" prop="pics" label-width="180rpx">
+				<uv-upload :fileList="fileList1" name="1" multiple :maxCount="1" @afterRead="afterRead"
+					@delete="deletePic" style="margin-left: 50rpx;">
+					<image src="https://cdn.uviewui.com/uview/demo/upload/positive.png" mode="widthFix"
+						style="width: 250px;height: 150px;"></image>
+				</uv-upload>
 			</uv-form-item>
 			<uv-form-item label="负责人姓名" prop="userName" label-width="180rpx">
-				<uv-input v-model="form.userName" placeholder="请输入负责人姓名" />
+				<uv-input v-model="form.userName" placeholder="请输入负责人姓名" disabled="true" />
 			</uv-form-item>
-			<uv-form-item label="负责人电话" prop="userPhone" label-width="180rpx">
-				<uv-input v-model="form.userPhone" placeholder="请输入负责人电话" />
+			<uv-form-item label="负责人身份证" prop="userIdCard" label-width="180rpx">
+				<uv-input v-model="form.userIdCard" placeholder="请输入负责人身份证" disabled="true" />
 			</uv-form-item>
 		</uv-form>
 		<uv-button @click="submit" type="primary" customStyle="margin-top: 10px">提交</uv-button>
 		<uv-button type="error" text="重置" customStyle="margin-top: 10px"></uv-button>
+		<uv-notify ref="notify"></uv-notify>
 	</view>
 </template>
 
@@ -48,18 +57,20 @@
 	export default {
 		data() {
 			return {
-				merchantList:[],
-				licenseList:[],
-				idCardList:[],
+				merchantList: [],
+				licenseList: [],
+				idCardList: [],
+				fileList1: [],
+				fileList2: [],
 				form: {
 					merchantName: '',
-					merchantAddress:'',
-					merchantPhone:'',
-					username:'',
-					userPhone:'',
-					merchantPics:[],
-					licensePics:[],
-					idCardPics:[]
+					merchantAddress: '',
+					merchantPhone: '',
+					username: '',
+					userIdCard: '',
+					merchantPics: [],
+					licensePics: [],
+					idCardPics: []
 				},
 			}
 		},
@@ -111,7 +122,7 @@
 				setTimeout(() => {
 					this.idCardList = [{
 						url: 'https://via.placeholder.com/100x100.png/3c9cff'
-					},{
+					}, {
 						url: 'https://via.placeholder.com/100x100.png/3c9cff'
 					}]
 					this.form.idCardPics = this.idCardList;
@@ -138,6 +149,118 @@
 					// 处理错误后的逻辑
 				})
 			},
+			// 删除图片
+			deletePic(event) {
+				this[`fileList${event.name}`].splice(event.index, 1)
+			},
+			// 新增图片
+			async afterRead(event) {
+				// 当设置 multiple 为 true 时, file 为数组格式，否则为对象格式
+				let lists = [].concat(event.file)
+				let fileListLen = this[`fileList${event.name}`].length
+				lists.map((item) => {
+					this[`fileList${event.name}`].push({
+						...item,
+						status: 'uploading',
+						message: '上传中'
+					})
+				})
+				for (let i = 0; i < lists.length; i++) {
+					const result = await this.uploadFilePromise(lists[i].url)
+					let item = this[`fileList${event.name}`][fileListLen]
+					this[`fileList${event.name}`].splice(fileListLen, 1, Object.assign(item, {
+						status: 'success',
+						message: '',
+						url: result
+					}))
+					fileListLen++
+				}
+			},
+			uploadFilePromise(url) {
+				return new Promise((resolve, reject) => {
+					let a = uni.uploadFile({
+						url: 'http://127.0.0.1:8080/ocr/idcard', // 仅为示例，非真实的接口地址
+						filePath: url,
+						name: 'multipartFile',
+						formData: {
+							user: 'test'
+						},
+						success: (res) => {
+							setTimeout(() => {
+								let responseData = JSON.parse(res.data);
+								console.log(responseData);
+								if (responseData.code == 200) {
+									this.form.userName = responseData.data.idName;
+									this.form.userIdCard = responseData.data.idNum;
+								} else if (responseData.code == 201) {
+									this.$refs.notify.error(responseData.msg);
+								} else if (responseData.code == 202) {
+									this.$refs.notify.error(responseData.msg);
+								} else if (responseData.code == 203) {
+									this.$refs.notify.error(responseData.msg);
+								}
+								resolve(res.data.data)
+							}, 1000)
+						}
+					});
+				})
+			},
+			//身份证正面
+			// 删除图片
+			deletePic2(event) {
+				this[`fileList${event.name}`].splice(event.index, 1)
+			},
+			// 新增图片
+			async afterRead2(event) {
+				// 当设置 multiple 为 true 时, file 为数组格式，否则为对象格式
+				let lists = [].concat(event.file)
+				let fileListLen = this[`fileList${event.name}`].length
+				lists.map((item) => {
+					this[`fileList${event.name}`].push({
+						...item,
+						status: 'uploading',
+						message: '上传中'
+					})
+				})
+				for (let i = 0; i < lists.length; i++) {
+					const result = await this.uploadFilePromise(lists[i].url)
+					let item = this[`fileList${event.name}`][fileListLen]
+					this[`fileList${event.name}`].splice(fileListLen, 1, Object.assign(item, {
+						status: 'success',
+						message: '',
+						url: result
+					}))
+					fileListLen++
+				}
+			},
+			uploadFilePromise2(url) {
+				return new Promise((resolve, reject) => {
+					let a = uni.uploadFile({
+						url: 'http://127.0.0.1:8080/ocr/idcard', // 仅为示例，非真实的接口地址
+						filePath: url,
+						name: 'multipartFile',
+						formData: {
+							user: 'test'
+						},
+						success: (res) => {
+							setTimeout(() => {
+								let responseData = JSON.parse(res.data);
+								console.log(responseData);
+								if (responseData.code == 200) {
+									this.$refs.notify.success(responseData.msg);
+								} else if (responseData.code == 201) {
+									this.$refs.notify.error(responseData.msg);
+								} else if (responseData.code == 202) {
+									this.$refs.notify.error(responseData.msg);
+								} else if (responseData.code == 203) {
+									this.$refs.notify.error(responseData.msg);
+								}
+								resolve(res.data.data)
+							}, 1000)
+						}
+					});
+				})
+			}
 		}
 	}
 </script>
@@ -153,6 +276,7 @@
 		height: 100%;
 		background-color: #f9f9f9;
 	}
+
 	.formInfo {
 		width: 660rpx;
 		height: 1400rpx;
