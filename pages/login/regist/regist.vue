@@ -79,7 +79,7 @@
 					// 密码规则
 					const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/
 					if(passwordRegex.test(this.user.pwd)){
-						this.$request("/user/regist","POST",this.user).then(res => {
+						this.$request("/user/register","POST",this.user).then(res => {
 							console.log(res)
 							if(res.data.code == 200){
 								uni.showToast({

@@ -205,6 +205,10 @@
 			confirm(){
 				console.log("退出的逻辑");
 				this.$refs.popup.close();
+				uni.redirectTo({
+				    // 不保留当前页面，跳转到应用内的某个页面
+				    url: '/pages/login/login'
+				})
 			},
 		}
 	}
