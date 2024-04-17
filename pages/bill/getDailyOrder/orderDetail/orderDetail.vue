@@ -2,17 +2,20 @@
 	<view id="box">
 		<view class="headContainer">
 			<view class="header">
-				<span class="orderMoney" v-if="order.orderStatus==1">
+				<span class="orderMoney" v-if="order.orderStatus==0">
 					+{{ order.orderMoney }}
 				</span>
-				<span class="orderMoney" v-if="order.orderStatus==0">
+				<span class="orderMoney" v-if="order.orderStatus==1">
 					-{{ order.orderMoney }}
 				</span>
-				<span class="orderStatus" v-if="order.orderStatus==0">
+				<span class="orderStatus" v-if="order.orderStatus==1">
 					有退款
 				</span>
-				<span class="orderStatus" v-if="order.orderStatus==1">
+				<span class="orderStatus" v-if="order.orderStatus==0">
 					交易关闭
+				</span>
+				<span class="orderStatus" >
+					支付方式：{{ order.orderPayway }}
 				</span>
 			</view>
 			<view class="infoContainer">
@@ -22,7 +25,7 @@
 				</view>
 				<view class="right">
 					<span class="payTime">
-						{{ order.orderPayTime }}
+						{{ order.orderCreatetime }}
 					</span>
 					<span class="orderNumber">
 						{{ order.orderNumber }}
@@ -40,19 +43,29 @@
 	export default {
 		data() {
 			return {
-				dayTime:"",
-				order:{
-					orderMoney: 1433,
-					orderStatus: 1,  // 0退款，1交易成功
-					orderPayTime:"2024.01.05 21:32:33",
-					orderNumber: "12345329823423423"
+				// 接收后端数据
+				order:{},
+				// 上传后端数据
+				info:{
+					storeId:1,
+					orderNumber:"",
 				}
 			}
 		},
 		methods: {
+			// 获取的订单详细信息
 			getOrderInfo(){
-				this.dayTime = uni.getStorageSync("dayTime")
-				console.log(this.dayTime + "要渲染的时间")
+				this.info.orderNumber = uni.getStorageSync("orderNumber")
+				console.log(this.info.orderNumber + "要渲染的订单号")
+				this.$request("/storeOrder/getOrderDetail","POST",this.info).then(res => {
+					console.log(res)
+					this.order = res.data.data[0]
+				}).catch(err => {
+					uni.showToast({
+						"title":"服务器出错，请稍后再试",
+						"icon":"none"
+					})
+				})
 			}
 		},
 		mounted() {
@@ -65,6 +78,7 @@
 	.headContainer{
 		display: flex;
 		flex-direction: column;
+		
 	}
 	
 	.header{
@@ -72,14 +86,18 @@
 		width: 95%;
 		margin: 0 auto;
 		margin-top: 40rpx;
-		background-color: antiquewhite;
+		border:1rpx solid black;
 		text-align: center;
+		border-radius: 8rpx 8rpx 0rpx 0rpx;
+		background-color: aliceblue;
+		box-shadow: 5rpx 5rpx 1rpx 2rpx gainsboro;
+		
 	}
 	
 	.orderMoney{
 		display: inline-block;
 		font-size: 40rpx;
-		margin-top: 40rpx;
+		margin-top: 10rpx;
 	}
 	
 	.orderStatus{
@@ -91,20 +109,26 @@
 		height: 200rpx;
 		width: 95%;
 		margin: 0 auto;
-		background-color: aqua;
 		display: flex;
+		border-left: 1rpx solid black;
+		border-bottom: 1rpx solid black;
+		border-right: 1rpx solid black;
+		border-radius: 0rpx 0rpx 8rpx 8rpx;
+		background-color: aliceblue;
+		box-shadow: 5rpx 5rpx 3rpx 2rpx gainsboro;
 	}
 	
 	.left{
 		height: 200rpx;
 		width: 50%;
-		background-color: aquamarine;
+		border-right: 1px solid black;
+		
 	}
 	
 	.right{
 		height: 200rpx;
 		width: 50%;
-		background-color: beige;
+		
 	}
 	
 	.left .payTime{
