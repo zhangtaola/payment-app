@@ -111,9 +111,7 @@
 
 			<!-- <uni-notice-bar show-icon scrollable single color="white" background-color="#E75650"
 				style="border-radius: 20rpx;" text="结算出款通知" /> -->
-				<uv-notice-bar text="结算出款通知"></uv-notice-bar>
-
-			
+				<uv-notice-bar text="结算出款通知" bgColor="#E75650" style="border-radius: 20rpx;" color="white"></uv-notice-bar>
 		</view>
 	<!-- </view> -->
 

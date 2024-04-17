@@ -1,0 +1,61 @@
+
+.headContainer{
+		display: flex;
+		flex-direction: column;
+}
+.header{
+		height: 6.25rem;
+		width: 95%;
+		margin: 0 auto;
+		margin-top: 1.25rem;
+		background-color: antiquewhite;
+		text-align: center;
+}
+.orderMoney{
+		display: inline-block;
+		font-size: 1.25rem;
+		margin-top: 1.25rem;
+}
+.orderStatus{
+		display: block;
+		margin-top: 0.625rem;
+}
+.infoContainer{
+		height: 6.25rem;
+		width: 95%;
+		margin: 0 auto;
+		background-color: aqua;
+		display: flex;
+}
+.left{
+		height: 6.25rem;
+		width: 50%;
+		background-color: aquamarine;
+}
+.right{
+		height: 6.25rem;
+		width: 50%;
+		background-color: beige;
+}
+.left .payTime{
+		display: block;
+		margin-top: 0.625rem;
+		margin-left: 0.625rem;
+}
+.left .orderNumber{
+		display: block;
+		margin-top: 0.625rem;
+		margin-left: 0.625rem;
+}
+.right .payTime{
+		display: block;
+		margin-top: 0.625rem;
+		margin-left: 0.625rem;
+}
+.right .orderNumber{
+		display: block;
+		margin-top: 0.625rem;
+		margin-left: 0.625rem;
+}
+	
+	

@@ -23,7 +23,7 @@
 		</view>
 		<!-- 显示金额 -->
 		<view class="container">
-			<view class="moneyContainer" v-for="(item,index) in info" :key="index"
+			<view class="moneyContainer" v-for="(item,index) in storeOrder" :key="index"
 				@click="getDailyOrderDetail(item.totalDateTime)">
 				<view class="moneyContainerHeader">
 					<h2 class="moneyContainerDate">
@@ -35,13 +35,15 @@
 				<view class="moneyContainerBody">
 					<view class="acceptOrder">
 						<span class="orderStatus">收款成功</span>
-						<span class="orderMoney">{{ item.acceptMoney }}元</span>
-						<span class="orderCount">{{ item.acceptOrder }}笔</span>
+						<span class="orderMoney" v-if="item.profitMoney != null">{{ item.profitMoney }}元</span>
+						<span class="orderMoney" v-if="item.profitMoney == null">0元</span>
+						<span class="orderCount">{{ item.profitOrderCount }}笔</span>
 					</view>
 					<view class="rebackOrder">
 						<span class="orderStatus">退款成功</span>
-						<span class="orderMoney">{{ item.rebackMoney }}元</span>
-						<span class="orderCount">{{ item.rebackOrder }}笔</span>
+						<span class="orderMoney" v-if="item.rebackMoney != null">{{ item.rebackMoney }}元</span>
+						<span class="orderMoney" v-if="item.rebackMoney == null">0元</span>
+						<span class="orderCount">{{ item.rebackOrderCount }}笔</span>
 					</view>
 				</view>
 			</view>
@@ -54,26 +56,15 @@
 		data() {
 			return {
 				storeName: "幸福刀削面",
-				info: [{
-						totalDateTime: "2024-01-19",
-						dateTime: "01月19日",
-						acceptMoney: 23466,
-						acceptOrder: 2345,
-						rebackMoney: 234,
-						rebackOrder: 1234,
-					},
-					{
-						totalDateTime: "2024-01-18",
-						dateTime: "01月18日",
-						acceptMoney: 23466,
-						acceptOrder: 2345,
-						rebackMoney: 234,
-						rebackOrder: 1234,
-					},
-				],
+				storeOrder:[],
+				// orders:[],
 				columns: [
 					['中国', '美国', '日本']
-				]
+				],
+				info:{
+					storeId: 1,
+					
+				}
 			}
 		},
 		methods: {
@@ -83,29 +74,13 @@
 			// 日期选择，axios请求，重新复制渲染
 			confirm(e) {
 				console.log('日历选择：', e.range.data)
-				this.info = [{
-						totalDateTime: "2024-01-17",
-						dateTime: "01月17日",
-						acceptMoney: 23466,
-						acceptOrder: 2345,
-						rebackMoney: 234,
-						rebackOrder: 1234,
-					},
-					{
-						totalDateTime: "2024-01-16",
-						dateTime: "01月16日",
-						acceptMoney: 23466,
-						acceptOrder: 2345,
-						rebackMoney: 234,
-						rebackOrder: 1234,
-					}
-				]
+				
 			},
 			check(e) {
 				console.log('check', e);
 			},
 			getDailyOrderDetail(index) {
-				console.log("事件绑定" + index)
+				
 				uni.setStorageSync("orderDailyTime", index)
 				uni.navigateTo({
 					url: "/pages/bill/getDailyOrder/getDailyOrder",
@@ -127,16 +102,33 @@
 					n = n.toString();
 					return n[1] ? n : '0' + n;
 				};
-				// 拼接成YYYY-MM-DD HH:mm:ss格式
-				// console.log(`${year}-${formatNumber(month)}-${formatNumber(day)} ${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(seconds)}`)
-				// const time = `${year}-${formatNumber(month)}-${formatNumber(day)}`
-				// console.log(time.split("-"))
+				this.$request("/storeOrder/getStoreMonthOrder","POST",this.info).then(res => {
+					var length = res.data.data.profitMoney.length
+					length -= 1
+					for(var i = length;i >= 0;i--){
+						this.storeOrder.push({
+							profitMoney: res.data.data.profitMoney[i],
+							profitOrderCount: res.data.data.profitOrderCount[i],
+							rebackMoney: res.data.data.rebackMoney[i],
+							rebackOrderCount: res.data.data.rebackOrderCount[i],
+							dateTime: month + "月" + (i+1) + "日",
+							totalDateTime: year + "-" + month + "-" + (i+1)
+						})
+					}
+				}).catch(err => {
+					uni.showToast({
+						"title":"服务器出错，请稍后再试",
+						"icon":"none"
+					})
+				})
 			},
 			changeStore() {
 				console.log("切换按钮")
 				this.$refs.picker.open();
 			},
-
+			getAccountStore(){
+				console.log("获取登录用户底下的店铺方法")
+			}
 		},
 		mounted() {
 			this.init()

@@ -5,22 +5,27 @@
 
 			<view class="login_from_input">
 				<view class="login_from_name">手机号</view>
-				<view class="login_from_fun"><input type="number" placeholder="请输入手机号码"></view>
+				<view class="login_from_fun"><input type="number" placeholder="请输入手机号码" v-model="user.account"></view>
 			</view>
 
 			<view class="login_from_input">
 				<view class="login_from_name">密码</view>
-				<view class="login_from_fun"><input type="text" password="true" placeholder="请输入登录密码"></view>
+				<view class="login_from_fun"><input type="text" password="true" placeholder="请输入登录密码" v-model="user.pwd"></view>
 			</view>
 
 			<view class="login_from_input">
 				<view class="login_from_name">验证码</view>
 				<view class="login_from_fun">
-					<input style="width: 40%; text-align: left" type="number" maxlength="6" placeholder="验证码">
+					<input style="width: 40%; text-align: left" type="number" maxlength="6" placeholder="验证码" v-model="user.code">
 					<label class="regFrom_tom_yzlabel" :style="{ color : QzyzmStare?'#cccccc':'#2ebbfe'}"
 						@click="Qzyzm">{{Qztime}}{{Qztext}}</label>
 				</view>
 			</view>
+			<view class="login_from_input">
+				<view class="login_from_name">昵称</view>
+				<view class="login_from_fun"><input type="test" placeholder="请输入昵称" v-model="user.nickName"></view>
+			</view>
+			<span class="pwdTips">密码必须至少包含一个字母、一个数字和一个特殊字符，并且长度在8到16个字符之间。</span>
 
 
 
@@ -45,7 +50,13 @@
 				gouxSta: false,
 				Qztime: '',
 				QzyzmStare: false,
-				Qztext: '获取验证码'
+				Qztext: '获取验证码',
+				user:{
+					account:"",
+					pwd:"",
+					code:"",
+					nickName:""
+				}
 			}
 		},
 		methods: {
@@ -63,33 +74,74 @@
 						"title": "请阅读并勾选用户协议",
 						"icon": 'none'
 					})
+					
 				} else {
-					// uni.showToast({
-					// 	"title": "账号不存在",
-					// 	"icon": 'none'
-					// })
-					uni.navigateTo({
-						url:"/pages/login/login"
-					})
+					// 密码规则
+					const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/
+					if(passwordRegex.test(this.user.pwd)){
+						this.$request("/user/regist","POST",this.user).then(res => {
+							console.log(res)
+							if(res.data.code == 200){
+								uni.showToast({
+									"title": "注册成功",
+									"icon": 'none'
+								})
+								uni.navigateBack()
+							}else{
+								uni.showToast({
+									"title": res.data.msg,
+									"icon": 'none'
+								})
+							}
+							
+						}).catch(err => {
+							uni.showToast({
+								"title": "服务器出错，请稍后再试 ",
+								"icon": 'none'
+							})
+						})
+					}else{
+						uni.showToast({
+							"title": "密码不符合要求，请重新输入",
+							"icon": 'none'
+						})
+					}
 				}
 			},
 
-
 			Qzyzm() {
 				var num = 60;
-				if (this.QzyzmStare == false) {
-					this.Qztime = '60';
-					this.Qztext = 's后获取';
-					this.QzyzmStare = true;
-					var interval = setInterval(() => {
-						--this.Qztime
-					}, 1000)
-					setTimeout(() => {
-						clearInterval(interval)
-						this.Qztext = '获取验证码'
-						this.Qztime = ''
-						this.QzyzmStare = false
-					}, 60000)
+				const rule = /^1[3-9]\d{9}$/
+				if(rule.test(this.user.account)){
+					if (this.QzyzmStare == false) {
+						this.Qztime = '60';
+						this.Qztext = 's后重新获取';
+						this.QzyzmStare = true;
+						var interval = setInterval(() => {
+							--this.Qztime
+						}, 1000)
+						setTimeout(() => {
+							clearInterval(interval)
+							this.Qztext = '获取验证码'
+							this.Qztime = ''
+							this.QzyzmStare = false
+						}, 60000)
+						
+							this.$request("/messageCode/send/" + this.user.account + "/interAspect","POST",null).then(res => {
+								console.log(res)
+								
+							}).catch(err => {
+								uni.showToast({
+									"title": "服务器出错，请稍后再试 ",
+									"icon": 'none'
+								})
+							})
+					}
+				}else{
+					uni.showToast({
+						"title": "输入的手机号不规范,请重新输入",
+						"icon": "none"
+					})
 				}
 			},
 		}
@@ -99,6 +151,12 @@
 <style>
 	page {
 		background: #fff;
+	}
+	
+	.pwdTips{
+		margin-top: 20rpx;
+		display: inline-block;
+		color: #ccc;
 	}
 
 	.login_img {

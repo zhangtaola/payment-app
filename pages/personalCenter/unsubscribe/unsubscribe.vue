@@ -54,6 +54,16 @@
 			</text>
 		</view>
 		<uv-button type="error" text="以了解,确认注销" @click="confirmCancellation" style="margin-top: 250rpx;"></uv-button>
+			<view>
+				<uv-action-sheet 
+				ref="actionSheet"
+				:actions="popUpWindow" 
+				:title= "closeTitle"
+				@select="chooseModify"
+				@close="close">
+				</uv-action-sheet>
+			</view>
+		<view style="height: 50rpx;"></view>
 	</view>
 </template>
 
@@ -61,13 +71,50 @@
 	export default {
 		data() {
 			return {
-				
+				closeTitle:"确定要注销账号吗？",
+				popUpWindow: [{
+					name: '确定'
+				},{
+					name: '取消'
+				}],
 			}
 		},
 		methods: {
+			chooseModify(e) {
+				// console.log('选中该项：', e.name);
+				if(e.name === "确定"){
+					//这里执行一些注销条件的判断
+					this.$request(
+						"/user/unsubscribe",
+						"GET",
+						{ userId: "1" }
+						).then(res=>{
+						console.log(res)
+						if(res.data.code == 200) {
+						this.$refs.notify.success ('密码修改成功');
+						this.clearFields();
+						// 使用 setTimeout 添加延时，单位为毫秒（这里是 2000 毫秒，即 2 秒）
+						setTimeout(() => {
+						// 跳转到个人中心页面
+							uni.switchTab({
+							  url: '/pages/personalCenter/personalCenter'
+							});
+						  }, 2000); // 2秒延时
+					  }else if(res.data.code == 201) {
+						this.$refs.notify.error('修改失败');
+					  }else if(res.data.code == 202){
+						this.$refs.notify.error('旧密码输入错误，修改失败');
+					  }
+					}).catch(err=>{
+						console.log(err)
+					})
+				}
+			},
+			close() {
+				// console.log('关闭');
+			},
 			confirmCancellation(){
-				//这里执行一些注销条件的判断
-				console.log("这里执行一些注销条件的判断");
+				this.$refs.actionSheet.open();
 			}
 		}
 	}

@@ -187,14 +187,16 @@
 			},
 			uploadFilePromise(url) {
 				return new Promise((resolve, reject) => {
+					console.log(url);
 					let a = uni.uploadFile({
-						url: 'http://127.0.0.1:8081/api/file/uploadCommodityMsg', // 仅为示例，非真实的接口地址
+						url: 'http://127.0.0.1:8125/ocr/businessLicense', // 仅为示例，非真实的接口地址
 						filePath: url,
-						name: 'multipartFile',
+						name: 'file',
 						formData: {
 							user: 'test'
 						},
 						success: (res) => {
+							console.log(res);
 							setTimeout(() => {
 								resolve(res.data.data)
 							}, 1000)
