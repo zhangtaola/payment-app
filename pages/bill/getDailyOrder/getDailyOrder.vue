@@ -5,16 +5,18 @@
 				<h2 class="dailyTime">选择的时间 : {{ orderDailyTime }}</h2>
 			</view>
 		</uv-sticky>
-		<view class="dailyOrderContainer" v-for="(item,index) in items" :key="index" @click=getOrderDetail(item.time)>
+		<view class="dailyOrderContainer" v-for="(item,index) in items" :key="index" @click=getOrderDetail(item.orderNumber)>
 			<view class="left">
-				<span class="orderWay firstLine">{{ item.orderWay }} - 商品</span>
-				<span class="orderWay">{{ item.orderWay }}</span>
-				<span class="orderWay">{{ item.time }} </span>
+				<span class="orderWay firstLine" v-if="item.orderStatus == 0">收款 - 商品</span>
+				<span class="orderWay firstLine" v-if="item.orderStatus == 1">退款 - 商品</span>
+				<span class="orderWay" v-if="item.orderStatus== 0">收款</span>
+				<span class="orderWay" v-if="item.orderStatus== 1">退款</span>
+				<span class="orderWay">{{ item.orderCreatetime }} </span>
 				
 			</view>
 			<view class="right">
-				<span class="orderMoney" v-if="item.orderStatus==1">+{{ item.orderMoney }} 元</span>
-				<span class="orderMoney" v-if="item.orderStatus==0">-{{ item.orderMoney }} 元</span>
+				<span class="orderMoney" v-if="item.orderStatus == 0">+{{ item.orderMoney }} 元</span>
+				<span class="orderMoney" v-if="item.orderStatus == 1">-{{ item.orderMoney }} 元</span>
 			</view>
 		</view>
 	</view>
@@ -24,35 +26,42 @@
 	export default {
 		data() {
 			return {
-				info: [],
+				info: {
+					startTime:"",
+					endTime:"",
+					storeId:1
+				},
 				orderDailyTime: "",
-				items: [
-					{
-						"orderStatus":1,
-						"orderWay": "收款",
-						"time": "23:21:23",
-						"orderMoney": 123,
-					},
-					{
-						"orderStatus": 0,
-						"orderWay": "退款",
-						"time": "23:21:13",
-						"orderMoney": 23,
-					},
-				]
+				items: []
 			}
 		},
 		methods: {
+			// 接收日期，渲染当天的订单
 			getOrderDailyTime() {
 				this.orderDailyTime = uni.getStorageSync("orderDailyTime")
-				console.log(uni.getStorageSync("orderDailyTime"))
-				// console.log(orderDailyTime)
+				this.info.startTime = uni.getStorageSync("orderDailyTime") + " 00:00:00"
+				this.info.endTime = uni.getStorageSync("orderDailyTime") + " 23:59:59"
+				this.$request("/storeOrder/getStoreDailyOrder","POST",this.info).then(res => {
+					if(res.data.data.length == 0){
+						uni.showToast({
+							"title":"当天暂无订单",
+							"icon":"none"
+						})
+					}else{
+						this.items = res.data.data
+					}
+				}).catch(err => {
+					uni.showToast({
+						"title":"服务器出错，请稍后再试",
+						"icon":"none"
+					})
+				})
 			},
-			
-			getOrderDetail(time){
-				const res = this.orderDailyTime + " " + time
-				console.log(this.orderDailyTime + " " + time)
-				uni.setStorageSync("dayTime",res)
+			// 传订单号，跳转页面
+			getOrderDetail(orderNumber){
+				const res = orderNumber
+				console.log(res)
+				uni.setStorageSync("orderNumber",res)
 				uni.navigateTo({
 					url: "/pages/bill/getDailyOrder/orderDetail/orderDetail",
 					"animationType":"slide-in-right",
@@ -106,7 +115,7 @@
 
 	.right .orderMoney {
 		display: inline-block;
-		margin-left: 200rpx;
+		margin-left: 30rpx;
 		margin-top: 30rpx;
 		color: red;
 		font-size: 25rpx;
