@@ -7,16 +7,16 @@
 		</uv-sticky>
 		<view class="dailyOrderContainer" v-for="(item,index) in items" :key="index" @click=getOrderDetail(item.orderNumber)>
 			<view class="left">
-				<span class="orderWay firstLine" v-if="item.orderStatus == 0">收款 - 商品</span>
-				<span class="orderWay firstLine" v-if="item.orderStatus == 1">退款 - 商品</span>
-				<span class="orderWay" v-if="item.orderStatus== 0">收款</span>
-				<span class="orderWay" v-if="item.orderStatus== 1">退款</span>
+				<span class="orderWay firstLine" v-if="item.orderReback == 0">收款 - 商品</span>
+				<span class="orderWay firstLine" v-if="item.orderReback == 1">退款 - 商品</span>
+				<span class="orderWay" v-if="item.orderReback== 0">收款</span>
+				<span class="orderWay" v-if="item.orderReback== 1">退款</span>
 				<span class="orderWay">{{ item.orderCreatetime }} </span>
 				
 			</view>
 			<view class="right">
-				<span class="orderMoney" v-if="item.orderStatus == 0">+{{ item.orderMoney }} 元</span>
-				<span class="orderMoney" v-if="item.orderStatus == 1">-{{ item.orderMoney }} 元</span>
+				<span class="orderMoney" v-if="item.orderReback == 0">+{{ item.orderMoney }} 元</span>
+				<span class="orderMoney" v-if="item.orderReback == 1">-{{ item.orderMoney }} 元</span>
 			</view>
 		</view>
 	</view>
@@ -42,6 +42,7 @@
 				this.info.startTime = uni.getStorageSync("orderDailyTime") + " 00:00:00"
 				this.info.endTime = uni.getStorageSync("orderDailyTime") + " 23:59:59"
 				this.$request("/storeOrder/getStoreDailyOrder","POST",this.info).then(res => {
+					console.log(res)
 					if(res.data.data.length == 0){
 						uni.showToast({
 							"title":"当天暂无订单",
