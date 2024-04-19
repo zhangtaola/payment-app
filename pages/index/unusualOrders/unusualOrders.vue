@@ -24,7 +24,7 @@
 					<text>￥28.00</text>
 				</view>
 				<view class="unusualOrder-button">
-					<uv-button type="error" shape="circle" text="拒绝" size="small" ></uv-button>
+					<uv-button type="error" shape="circle" text="拒绝" size="small"></uv-button>
 					<uv-button type="primary" shape="circle" text="同意退款" size="small"></uv-button>
 				</view>
 			</view>
@@ -45,8 +45,9 @@
 					url: '/pages/index/index' // 请替换为实际的页面路径
 				});
 			},
-		}
-	}
+	
+			},
+			}
 </script>
 
 <style>
@@ -60,12 +61,13 @@
 		height: 100%;
 		background-color: #f9f9f9;
 	}
+	
 	.unusualOrderbar {
 		width: 751rpx;
 		height: 1500rpx;
-
+	
 	}
-
+	
 	.unusualOrder-info {
 		width: 700rpx;
 		height: 300rpx;
@@ -76,24 +78,25 @@
 		background-color: white;
 	}
 	
-	.unusualOrder-info view{
+	.unusualOrder-info view {
 		margin: 5rpx;
 	}
-
+	
 	.unusualOrder-button {
 		width: 700rpx;
 		display: flex;
-		    justify-content: flex-end;
+		justify-content: flex-end;
 	}
 	
-	.unusualOrder-info1{
+	.unusualOrder-info1 {
 		display: flex;
-		    justify-content: center;
-		    align-items: center;
+		justify-content: center;
+		align-items: center;
 	}
 	
-	.unusualOrder-info2{
+	.unusualOrder-info2 {
 		display: flex;
-		    justify-content: space-between;
-	}
+		justify-content: space-between;
+		}
+
 </style>

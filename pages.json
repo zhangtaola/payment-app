@@ -177,7 +177,7 @@
 			}
 		},
 		{
-			"path" : "pages/merchantSettled/merchantSettled",
+			"path" : "pages/index/merchantSettled/merchantSettled",
 			"style" : 
 			{
 				"navigationBarTitleText" : "商家入驻",
@@ -185,7 +185,7 @@
 			}
 		},
 		{
-			"path" : "pages/trade/trade",
+			"path" : "pages/index/trade/trade",
 			"style" : 
 			{
 				"navigationBarTitleText" : "最新交易",
@@ -193,7 +193,7 @@
 			}
 		},
 		{
-			"path" : "pages/unusualOrders/unusualOrders",
+			"path" : "pages/index/unusualOrders/unusualOrders",
 			"style" : 
 			{
 				"navigationBarTitleText" : "异常订单",
@@ -201,7 +201,7 @@
 			}
 		},
 		{
-			"path" : "pages/pay/pay",
+			"path" : "pages/index/pay/pay",
 			"style" : 
 			{
 				"navigationBarTitleText" : "支付",
@@ -215,7 +215,16 @@
 				"navigationBarTitleText" : "聊天框",
 				"enablePullDownRefresh" : false
 			}
-		}
+		},
+		{
+			"path" : "pages/identify/identify",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		},
+		
 		// {
 		// 	"path" : "pages/merchantSettled/merchantSettled",
 		// 	"style" : 
