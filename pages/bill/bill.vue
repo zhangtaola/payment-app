@@ -28,7 +28,7 @@
 		<view class="container">
 			<view v-if="storeOrder.length === 0 " style="margin: 100rpx auto;"><text  style="font-size: 100rpx; font-weight: bold;">暂无数据</text></view>
 			<view class="moneyContainer" v-for="(item,index) in storeOrder" :key="index"
-				@click="getDailyOrderDetail(item.date)">
+				@click="getDailyOrderDetail(item.date,storeId)">
 				<view class="moneyContainerHeader">
 					<h2 class="moneyContainerDate">
 						{{ item.date }}
@@ -59,7 +59,7 @@
 	export default {
 		data() {
 			return {
-				storeName: "幸福刀削面",
+				storeName: "",
 				storeOrder:[],
 				// orders:[],
 				columns: [],
@@ -86,8 +86,9 @@
 				this.getAllOrder()
 				
 			},
-			getDailyOrderDetail(index) {
+			getDailyOrderDetail(index,storeId) {
 				uni.setStorageSync("orderDailyTime", index)
+				 uni.setStorageSync("storeId", storeId); 
 				uni.navigateTo({
 					url: "/pages/bill/getDailyOrder/getDailyOrder",
 					"animationType":"slide-in-right",
@@ -137,7 +138,8 @@
 					"/form/order",
 					"POST", {
 						data: this.listData,
-						storeId: this.storeId
+						storeId: this.storeId,
+						userId:1
 					},
 				).then(res => {
 					console.log("storeOrder",res)
@@ -150,6 +152,7 @@
 				this.$request(
 					"/form/storeName",
 					"GET",
+					{userId: 1},
 				).then(res => {
 					if (res.data.code == 200) {
 						this.info = res.data.data

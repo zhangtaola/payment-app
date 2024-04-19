@@ -38,6 +38,7 @@
 		methods: {
 			// 接收日期，渲染当天的订单
 			getOrderDailyTime() {
+				this.info.storeId = uni.getStorageSync("storeId")
 				this.orderDailyTime = uni.getStorageSync("orderDailyTime")
 				this.info.startTime = uni.getStorageSync("orderDailyTime") + " 00:00:00"
 				this.info.endTime = uni.getStorageSync("orderDailyTime") + " 23:59:59"
