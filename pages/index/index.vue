@@ -116,7 +116,7 @@
 			},
 			goToMechantSettled() {
 				uni.navigateTo({
-					url: '/pages/index/merchantSettled/merchantSettled' // 请替换为实际的页面路径
+					url: '/pages/index/merchantSettled/merchantSettled'
 				});
 			},
 			goToTrade() {

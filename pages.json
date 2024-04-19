@@ -223,7 +223,8 @@
 				"navigationBarTitleText" : "",
 				"enablePullDownRefresh" : false
 			}
-		}
+		},
+		
 		// {
 		// 	"path" : "pages/merchantSettled/merchantSettled",
 		// 	"style" : 

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> f21448f31c048ae263297ae48fce550486612722
 import App from './App'
 
 // #ifndef VUE3
@@ -20,11 +16,11 @@ import { createSSRApp } from 'vue'
 import request from './utils/request.js'
 export function createApp() {
   const app = createSSRApp(App)
-<<<<<<< HEAD
+
   app.config.globalProperties.$request = request
-=======
+
 	app.config.globalProperties.$request = request
->>>>>>> f21448f31c048ae263297ae48fce550486612722
+
   return {
     app
   }
@@ -32,7 +28,7 @@ export function createApp() {
 // #endif
 
 
-<<<<<<< HEAD
+
 // 下面的这些是封装的
 // import App from './App'
 // // #ifndef VUE3
@@ -58,5 +54,4 @@ export function createApp() {
 //   }
 // }
 // // #endif
-=======
->>>>>>> f21448f31c048ae263297ae48fce550486612722
+
