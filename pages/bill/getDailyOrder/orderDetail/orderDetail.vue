@@ -2,17 +2,17 @@
 	<view id="box">
 		<view class="headContainer">
 			<view class="header">
-				<span class="orderMoney" v-if="order.orderStatus==0">
+				<span class="orderMoney" v-if="order.orderReback==0">
 					+{{ order.orderMoney }}
 				</span>
-				<span class="orderMoney" v-if="order.orderStatus==1">
+				<span class="orderMoney" v-if="order.orderReback==1">
 					-{{ order.orderMoney }}
 				</span>
-				<span class="orderStatus" v-if="order.orderStatus==1">
-					有退款
+				<span class="orderStatus" v-if="order.orderReback==1">
+					退款成功
 				</span>
-				<span class="orderStatus" v-if="order.orderStatus==0">
-					交易关闭
+				<span class="orderStatus" v-if="order.orderReback==0">
+					交易成功
 				</span>
 				<span class="orderStatus" >
 					支付方式：{{ order.orderPayway }}

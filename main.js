@@ -1,4 +1,3 @@
-
 import App from './App'
 
 // #ifndef VUE3
@@ -17,12 +16,17 @@ import { createSSRApp } from 'vue'
 import request from './utils/request.js'
 export function createApp() {
   const app = createSSRApp(App)
+
   app.config.globalProperties.$request = request
+
+	app.config.globalProperties.$request = request
+
   return {
     app
   }
 }
 // #endif
+
 
 
 // 下面的这些是封装的
@@ -50,3 +54,4 @@ export function createApp() {
 //   }
 // }
 // // #endif
+
