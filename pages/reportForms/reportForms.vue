@@ -134,6 +134,7 @@
 				this.$request(
 					"/form/storeName",
 					"GET",
+					{userId: 1},
 				).then(res => {
 					console.log("name", res)
 					if (res.data.code == 200) {
@@ -152,7 +153,8 @@
 					"/form/money",
 					"GET", {
 						data: this.listData,
-						storeId: this.storeId
+						storeId: this.storeId,
+						userId: 1,
 					},
 				).then(res => {
 					console.log(res)
@@ -193,7 +195,8 @@
 					"/form/report",
 					"GET", {
 						data: this.listData,
-						storeId: this.storeId
+						storeId: this.storeId,
+						userId: 1
 					},
 				).then(res => {
 					console.log(res)

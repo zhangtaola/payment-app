@@ -38,11 +38,11 @@
 			<span style="padding-left: 10px;line-height: 2;	color: #C8C7CD;font-size: 15px;">今日营业额</span>
 			<view class="paybar-container">
 				<view class="paybar-left">
-					<span>1,848.00</span>
+					<span>{{money.sum}}</span>
 					<p>收款汇总(元)</p>
 				</view>
 				<view class="paybar_right">
-					<span>84</span>
+					<span>{{money.count}}</span>
 					<p>笔数(笔)</p>
 				</view>
 			</view>
@@ -92,8 +92,17 @@
 </template>
 <script>
 	export default {
+		
 		data() {
+			const d = new Date()
+			const year = d.getFullYear()
+			let month = d.getMonth() + 1
+			month = month < 10 ? `0${month}` : month
+			const date = d.getDate()
 			return {
+				money:[],
+				storeId: 0,
+				listData: [`${year}-${month}-${date}`, `${year}-${month}-${date}`],
 				value: 0,
 				list: [
 					'https://cdn.uviewui.com/uview/swiper/swiper3.png',
@@ -138,8 +147,29 @@
 					}
 				});
 			},
+			getMoney(){
+				this.$request(
+					"/form/money",
+					"GET", {
+						data: this.listData,
+						storeId: this.storeId,
+						userId: 1,
+					},
+				).then(res => {
+					console.log(res)
+					if (res.data.code == 200) {
+						this.money = res.data.data
+			
+					}
+				})
+			},
+			
+			
 			
 		},
+		mounted() {
+			this.getMoney()
+		}
 	}
 </script>
 <style scoped lang="scss">
