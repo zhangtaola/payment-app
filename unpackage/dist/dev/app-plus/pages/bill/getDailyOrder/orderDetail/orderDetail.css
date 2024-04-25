@@ -8,13 +8,16 @@
 		width: 95%;
 		margin: 0 auto;
 		margin-top: 1.25rem;
-		background-color: antiquewhite;
+		border:0.03125rem solid black;
 		text-align: center;
+		border-radius: 0.25rem 0.25rem 0 0;
+		background-color: aliceblue;
+		box-shadow: 0.15625rem 0.15625rem 0.03125rem 0.0625rem gainsboro;
 }
 .orderMoney{
 		display: inline-block;
 		font-size: 1.25rem;
-		margin-top: 1.25rem;
+		margin-top: 0.3125rem;
 }
 .orderStatus{
 		display: block;
@@ -24,18 +27,22 @@
 		height: 6.25rem;
 		width: 95%;
 		margin: 0 auto;
-		background-color: aqua;
 		display: flex;
+		border-left: 0.03125rem solid black;
+		border-bottom: 0.03125rem solid black;
+		border-right: 0.03125rem solid black;
+		border-radius: 0 0 0.25rem 0.25rem;
+		background-color: aliceblue;
+		box-shadow: 0.15625rem 0.15625rem 0.09375rem 0.0625rem gainsboro;
 }
 .left{
 		height: 6.25rem;
 		width: 50%;
-		background-color: aquamarine;
+		border-right: 1px solid black;
 }
 .right{
 		height: 6.25rem;
 		width: 50%;
-		background-color: beige;
 }
 .left .payTime{
 		display: block;

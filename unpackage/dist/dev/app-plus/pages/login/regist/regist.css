@@ -2,6 +2,11 @@
 body {
 		background: #fff;
 }
+.pwdTips{
+		margin-top: 0.625rem;
+		display: inline-block;
+		color: #ccc;
+}
 .login_img {
 		width: 100%;
 		height: auto;
