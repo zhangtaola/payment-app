@@ -62,11 +62,15 @@
 				
 			},
 			getOrder(){
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
 				this.$request(
 					"/form/allOrder",
 					"POST", {
 						storeId: this.storeId,
-						userId: 1,
+						userId: userId,
 					},
 				).then(res => {
 					console.log('orderList',res)
