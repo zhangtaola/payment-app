@@ -194,6 +194,7 @@
 			}else{
 				this.userAccountType = "商家子账号";
 			}
+			this.getCashOutMoney()
 		},
 		methods: {
 			input_store(e) {
@@ -220,6 +221,25 @@
 				    url: '/pages/login/login'
 				})
 			},
+			getCashOutMoney(){
+				this.$request("/user/getCashOutMoney","POST",this.info).then(res => {
+					console.log(res)
+					this.withdrawableMoney = res.data.data.cashOutMoney
+					this.auditingMoney = res.data.data.auditMoney
+				}).catch(err => {
+					uni.showToast({
+						"title":"服务器错误，请稍后再试",
+						"icon":"none"
+					})
+				})
+			},
+			showCashOutStore(){
+				
+				uni.setStorageSync("userId",this.info.userId)
+				uni.navigateTo({
+					url: "/pages/personalCenter/showCashOutStore/showCashOutStore"
+				})
+			}
 		}
 	}
 </script>
