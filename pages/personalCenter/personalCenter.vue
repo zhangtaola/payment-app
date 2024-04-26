@@ -94,6 +94,16 @@
 				</navigator>
 			</view>
 			<view class="li">
+				<navigator url="/pages/identify/identify" hover-class="none">
+					<view class="pic">
+						<image src="../../static/personalCenter/lianxiwomen.png" style="width: 35rpx;" mode="widthFix"></image>
+					</view>
+					<view class="txt">
+						<text>实名认证</text>
+					</view>
+				</navigator>
+			</view>
+			<view class="li">
 				<navigator url="/pages/personalCenter/unsubscribe/unsubscribe" hover-class="none">
 					<view class="pic">
 						<image src="../../static/personalCenter/zhuxiaozhanghu.png" style="width: 35rpx;" mode="widthFix"></image>
@@ -139,7 +149,7 @@
 							</uv-button>
 						</view>
 					</uv-popup>
-					<uv-button type="error" text="退出登录" @click="exitApp" style="margin-top: 100rpx;"></uv-button>
+					<uv-button type="error" text="退出登录" @click="exitApp" style="margin-top: 70rpx;"></uv-button>
 				</view>
 			
 		</view>

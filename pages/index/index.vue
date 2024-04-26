@@ -135,9 +135,21 @@
 				});
 			},
 			goToMechantSettled() {
-				uni.navigateTo({
-					url: '/pages/index/merchantSettled/merchantSettled'
-				});
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userIsAuthentication = userMsg.userIsAuthentication;
+				console.log(userIsAuthentication);
+				if(userIsAuthentication === 0){
+					uni.showToast({
+						title:"请先去个人中心完成实名认证哦!",
+						icon:'error'
+					})
+				}else{
+					uni.navigateTo({
+						url: '/pages/index/merchantSettled/merchantSettled'
+					});
+				}
 			},
 			goToTrade() {
 				uni.navigateTo({
