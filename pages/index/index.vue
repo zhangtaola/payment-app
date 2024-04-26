@@ -62,15 +62,25 @@
 		</view>
 		<view class="tradebar-bottom">
 			<uv-list>
-				<uv-list-item title="支付成功" note="4月10日 14:19" thumb="/static/icon/wechat.png" thumb-size="lg"
-					rightText="27.00" :clickable="true" style="font-weight: bold;">
-				</uv-list-item>
-				<uv-list-item title="支付成功" note="4月10日 14:19" thumb="/static/icon/alipay.png" thumb-size="lg"
-					rightText="120.00" :clickable="true" :custom-style=asd style="font-weight: bold;">
-				</uv-list-item>
-				<uv-list-item title="支付成功" note="4月10日 14:19" thumb="/static/icon/alipay.png" thumb-size="lg"
-					rightText="130.00" :clickable="true" style="font-weight: bold;">
-				</uv-list-item>
+				<view v-for="(item,index) in orderList ">
+					<uv-list-item v-if="index< 3 && item.orderPayway=='支付宝' && item.orderReback==0" title="支付成功" :note="item.orderCreatetime "
+					thumb="/static/icon/alipay.png" thumb-size="lg"
+						:rightText="item.orderMoney.toString()" :clickable="true" style="font-weight: bold;">
+					</uv-list-item>
+					<uv-list-item v-if="index< 3 && item.orderPayway=='支付宝' && item.orderReback==1" title="退款成功" :note="item.orderCreatetime "
+					thumb="/static/icon/alipay.png" thumb-size="lg"
+						:rightText="item.orderMoney.toString()" :clickable="true" style="font-weight: bold;">
+					</uv-list-item>
+					<uv-list-item v-if="index< 3 && item.orderPayway=='微信' && item.orderReback==0" title="支付成功" :note="item.orderCreatetime"
+					thumb="/static/icon/wechat.png" thumb-size="lg"
+						:rightText="item.orderMoney.toString()" :clickable="true" style="font-weight: bold;">
+					</uv-list-item>
+					<uv-list-item v-if="index< 3 && item.orderPayway=='微信' && item.orderReback==1" title="退款成功" :note="item.orderCreatetime "
+					thumb="/static/icon/wechat.png" thumb-size="lg"
+						:rightText="item.orderMoney.toString()" :clickable="true" style="font-weight: bold;">
+					</uv-list-item>
+					
+				</view>
 			</uv-list>
 		</view>
 	</view>
@@ -104,6 +114,7 @@
 				storeId: 0,
 				listData: [`${year}-${month}-${date}`, `${year}-${month}-${date}`],
 				value: 0,
+				orderList: [],
 				list: [
 					'https://cdn.uviewui.com/uview/swiper/swiper3.png',
 					'https://cdn.uviewui.com/uview/swiper/swiper2.png',
@@ -147,6 +158,21 @@
 					}
 				});
 			},
+			getOrder(){
+				this.$request(
+					"/form/allOrder",
+					"POST", {
+						storeId: this.storeId,
+						userId: 1,
+					},
+				).then(res => {
+					console.log('orderList',res)
+					if (res.data.code == 200) {
+						this.orderList = res.data.data
+							
+					}
+				})
+			},
 			getMoney(){
 				this.$request(
 					"/form/money",
@@ -169,6 +195,7 @@
 		},
 		mounted() {
 			this.getMoney()
+			this.getOrder()
 		}
 	}
 </script>
