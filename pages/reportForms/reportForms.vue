@@ -131,10 +131,14 @@
 				}
 			},
 			getStoreName() {
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
 				this.$request(
 					"/form/storeName",
 					"GET",
-					{userId: 1},
+					{userId: userId},
 				).then(res => {
 					console.log("name", res)
 					if (res.data.code == 200) {
@@ -149,12 +153,16 @@
 				})
 			},
 			getMoney(){
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
 				this.$request(
 					"/form/money",
 					"GET", {
 						data: this.listData,
 						storeId: this.storeId,
-						userId: 1,
+						userId: userId,
 					},
 				).then(res => {
 					console.log(res)
@@ -191,12 +199,16 @@
 				// this.chartData1 = JSON.parse(JSON.stringify(res));
 				//       this.chartData = JSON.parse(JSON.stringify(res));
 				//     }, 500);
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
 				this.$request(
 					"/form/report",
 					"GET", {
 						data: this.listData,
 						storeId: this.storeId,
-						userId: 1
+						userId: userId
 					},
 				).then(res => {
 					console.log(res)

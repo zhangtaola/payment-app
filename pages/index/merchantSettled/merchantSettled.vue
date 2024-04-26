@@ -29,16 +29,16 @@
 			</uv-form-item>
 			<uv-input placeholder="负责人信息" border="bottom" :disabled="true"></uv-input>
 			<uv-form-item label="身份证国徽面" prop="pics" label-width="180rpx">
-				<uv-upload :fileList="fileList1" name="1" multiple :maxCount="1" @afterRead="afterRead"
+				<uv-upload :fileList="fileList1" name="1" multiple :maxCount="1" @afterRead="afterRead4"
 					@delete="deletePic" style="margin-left: 50rpx;">
-					<image src="https://cdn.uviewui.com/uview/demo/upload/positive.png" mode="widthFix"
+					<image src="../../../static/index/merchantSettled/opposite.png" mode="widthFix"
 						style="width: 230px;height: 150px;"></image>
 				</uv-upload>
 			</uv-form-item>
 			<uv-form-item label="身份证信息面" prop="pics" label-width="180rpx">
 				<uv-upload :fileList="fileList2" name="2" multiple :maxCount="1" @afterRead="afterRead"
 					@delete="deletePic" style="margin-left: 50rpx;">
-					<image src="https://cdn.uviewui.com/uview/demo/upload/positive.png" mode="widthFix"
+					<image src="../../../static/index/merchantSettled/positive.png" mode="widthFix"
 						style="width: 230px;height: 150px;"></image>
 				</uv-upload>
 			</uv-form-item>
@@ -49,7 +49,7 @@
 				<uv-input v-model="form.userIdCard" placeholder="请输入负责人身份证" :disabled="true" />
 			</uv-form-item>
 		</uv-form>
-		<uv-button @click="submit" type="primary" customStyle="margin-top: 10px">提交</uv-button>
+		<uv-button @click="submit" :disabled="submitBtnState" type="primary" customStyle="margin-top: 10px">提交</uv-button>
 		<!-- <uv-button type="error" text="重置" customStyle="margin-top: 10px"></uv-button> -->
 		<uv-notify ref="notify"></uv-notify>
 
@@ -61,6 +61,7 @@
 	export default {
 		data() {
 			return {
+				submitBtnState:false,
 				fileList1: [],
 				fileList2: [],
 				fileList3: [],
@@ -70,6 +71,7 @@
 					merchantAddress: '',
 					auditStoreNumber: '',
 					username: '',
+					userId:'',
 					userIdCard: '',
 					auditStoreHeadImage: '',
 					auditStoreIdentifyImage: '',
@@ -85,6 +87,11 @@
 				});
 			},
 			submit() {
+				this.submitBtnState = true;
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				this.form.userId = userMsg.userId;
 				if (this.form.auditStoreHeadImage != '' && this.form.auditStoreIdentifyImage != '' && this.form
 					.auditStoreIdentifyCardFront != '' && this.form.auditStoreIdentifyCardBack != '') {
 					if (this.form.auditStoreName != '') {
@@ -92,14 +99,28 @@
 							this.form
 						).then(res => {
 							console.log(res)
+							if(res.data.code == 200){
+								this.$refs.notify.success( res.data.msg + ",请前往个人中心查看");
+								setInterval(()=>{
+								     uni.switchTab({
+								     	url: '/pages/index/index'
+								     })
+								    },2000)	
+							}else{
+								this.submitBtnState = false;
+								this.$refs.notify.error('提交失败，请稍后再试');
+							}
+						
 						}).catch(err => {
 							console.log(err)
 						})
 					} else {
+						this.submitBtnState = false;
 						this.$refs.notify.error("商铺名不能为空" || '未知错误');
 					}
 
 				} else {
+					this.submitBtnState = false;
 					this.$refs.notify.error("请将信息补充完整" || '未知错误');
 				}
 			},
@@ -161,7 +182,7 @@
 			uploadFilePromise(filePath) {
 				return new Promise((resolve, reject) => {
 					uni.uploadFile({
-						url: 'http://127.0.0.1:8080/ocr/idcard', // 示例URL
+						url: 'http://127.0.0.1:8081/ocr/idcard', // 示例URL
 						filePath: filePath,
 						name: 'multipartFile',
 						formData: {
@@ -179,18 +200,20 @@
 									.idCardFrontUrl;
 								resolve(responseData.data); // 用响应中的所需数据解决promise
 							} else if (responseData.code == 201) {
-								this.form.auditStoreIdentifyCardBack = responseData.data.idCardBackUrl;
-								this.$refs.notify.success(responseData.msg || '未知错误');
-								resolve(responseData.data);
+								this.$refs.notify.error("请上传正确的身份证信息面");
+								this.fileList2.splice(0, this.fileList2.length);
 							} else if (responseData.code == 202) {
 								this.$refs.notify.error(responseData.msg || '未知错误');
-								reject(new Error(responseData.msg || '上传失败'));
+								this.fileList2.splice(0, this.fileList2.length);
+
 							} else if (responseData.code == 203) {
 								this.$refs.notify.error(responseData.msg || '未知错误');
-								reject(new Error(responseData.msg || '上传失败'));
+								this.fileList2.splice(0, this.fileList2.length);
+
 							} else if (responseData.code == 204) {
 								this.$refs.notify.error(responseData.msg || '未知错误');
-								reject(new Error(responseData.msg || '上传失败'));
+								this.fileList2.splice(0, this.fileList2.length);
+
 							}
 						},
 						fail: (err) => {
@@ -229,7 +252,7 @@
 			uploadFilePromise2(filePath) {
 				return new Promise((resolve, reject) => {
 					uni.uploadFile({
-						url: 'http://127.0.0.1:8080/ocr/businessLicense', // 示例URL
+						url: 'http://127.0.0.1:8081/ocr/businessLicense', // 示例URL
 						filePath: filePath,
 						name: 'multipartFile',
 						formData: {
@@ -247,7 +270,8 @@
 								resolve(responseData.data); // 用响应中的所需数据解决promise
 							} else {
 								this.$refs.notify.error(responseData.msg || '未知错误');
-								reject(new Error(responseData.msg || '上传失败'));
+								this.fileList3.splice(0, this.fileList3.length)
+							
 							}
 						},
 						fail: (err) => {
@@ -286,7 +310,7 @@
 			uploadFilePromise3(filePath) {
 				return new Promise((resolve, reject) => {
 					uni.uploadFile({
-						url: 'http://127.0.0.1:8080/ocr/uploadMerchant', // 示例URL
+						url: 'http://127.0.0.1:8081/ocr/uploadMerchant', // 示例URL
 						filePath: filePath,
 						name: 'multipartFile',
 						formData: {
@@ -300,8 +324,80 @@
 								this.form.auditStoreHeadImage = responseData.data.storeHeadImageUrl;
 								resolve(responseData.data); // 用响应中的所需数据解决promise
 							} else {
+								this.fileList4.splice(0, this.fileList4.length)
 								this.$refs.notify.error(responseData.msg || '未知错误');
 								reject(new Error(responseData.msg || '上传失败'));
+							}
+						},
+						fail: (err) => {
+							reject(err);
+						}
+					});
+				});
+			},
+			// 区分正反面
+			async afterRead4(event) {
+				// 当设置 multiple 为 true 时, file 为数组格式，否则为对象格式
+				let lists = [].concat(event.file)
+				let fileListLen = this[`fileList${event.name}`].length
+
+				lists.map((item) => {
+					this[`fileList${event.name}`].push({
+						...item,
+						status: 'uploading',
+						message: '上传中'
+
+					});
+				});
+				for (let i = 0; i < lists.length; i++) {
+					try {
+						const result = await this.uploadFilePromise4(lists[i].url);
+						let item = this[`fileList${event.name}`][fileListLen];
+						this[`fileList${event.name}`].splice(fileListLen, 1, Object.assign(item, {
+							status: 'success',
+							message: '',
+							url: result.url // 假设result包含URL在url属性中
+						}));
+						fileListLen++;
+					} catch (error) {
+						console.error('上传失败', error);
+						this.$refs.notify.error('上传失败');
+					}
+				}
+			},
+			uploadFilePromise4(filePath) {
+				return new Promise((resolve, reject) => {
+					uni.uploadFile({
+						url: 'http://127.0.0.1:8081/ocr/idcard', // 示例URL
+						filePath: filePath,
+						name: 'multipartFile',
+						formData: {
+							user: 'test'
+						},
+						success: (res) => {
+							let responseData = JSON.parse(res.data);
+							console.log(responseData);
+							if (responseData.code == 200) {
+								this.$refs.notify.error("请上传正确的身份证国徽面" || '未知错误');
+								this.fileList1.splice(0, this.fileList1.length);
+
+							} else if (responseData.code == 201) {
+								this.form.auditStoreIdentifyCardBack = responseData.data.idCardBackUrl;
+								this.idCardBack = true;
+								this.$refs.notify.success(responseData.msg || '未知错误');
+								resolve(responseData.data);
+							} else if (responseData.code == 202) {
+								this.$refs.notify.error(responseData.msg || '未知错误');
+								this.fileList1.splice(0, this.fileList1.length);
+
+							} else if (responseData.code == 203) {
+								this.$refs.notify.error(responseData.msg || '未知错误');
+								this.fileList1.splice(0, this.fileList1.length);
+
+							} else if (responseData.code == 204) {
+								this.$refs.notify.error(responseData.msg || '未知错误');
+								this.fileList1.splice(0, this.fileList1.length);
+
 							}
 						},
 						fail: (err) => {

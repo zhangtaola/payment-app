@@ -134,12 +134,16 @@
 				this.$refs.picker.open();
 			},
 			getAllOrder(){
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
 				this.$request(
 					"/form/order",
 					"POST", {
 						data: this.listData,
 						storeId: this.storeId,
-						userId:1
+						userId:userId
 					},
 				).then(res => {
 					console.log("storeOrder",res)
@@ -149,10 +153,14 @@
 				})
 			},
 			getStoreName() {
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
 				this.$request(
 					"/form/storeName",
 					"GET",
-					{userId: 1},
+					{userId: userId},
 				).then(res => {
 					if (res.data.code == 200) {
 						this.info = res.data.data

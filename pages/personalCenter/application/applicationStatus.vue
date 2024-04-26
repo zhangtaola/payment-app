@@ -6,21 +6,42 @@
 		<uv-steps-item title="审核通过"></uv-steps-item>
 	  </uv-steps>
 	</view>
-	<view class="applicationStatusTitle" v-show="applicationStatus === '审核中'">
+	<view class="applicationStatusTitle" v-show="applicationStatus === 0">
 		<view>
 			<image src="../../../static/personalCenter/applicitionWait.png" class="applicationImg"></image>
 		</view>
 		您的申请已提交，管理员审核中，请耐心等待！
-		<uv-button type="error" text="取消申请" @click="cancellationApplication" style="margin-top: 480rpx;"></uv-button>
+		<view>
+			<uv-popup ref="popup" mode="center">
+				<view style="width: 600rpx;">
+					<text style="display: block;
+							text-align: center;
+							width: 300px;
+							margin-top: 20px;
+							margin-bottom: 50px;
+							color: rgb(231 36 36);">
+							确认取消申请吗？
+					</text>
+					<uv-button 
+					type="default" 
+					text="确认退出"
+					@click="confirm" 
+					style="margin-top: 20px;background-color: #ccdade36;margin: 20px 5px 10px 5px;"
+					></uv-button>
+				
+					<uv-button 
+					type="default" 
+					text="取消" 
+					@click="close" 
+					style="margin-top: 30px;background-color: #ccdade36;margin: 0px 5px 10px 5px;">
+					</uv-button>
+				</view>
+			</uv-popup>
+			</view>
+		<uv-button type="error" text="取消申请" v-show="cancellationApplicationBtn" @click="cancellationApplication" style="margin-top: 480rpx;"></uv-button>
 	</view>
 	
-	<view class="applicationStatusTitle" v-show="applicationStatus === '审核通过'">
-		<view>
-			<image src="../../../static/personalCenter/applicitionSuccess.png" class="applicationImg"></image>
-		</view>
-		恭喜你，审核通过了！
-	</view>
-	<view class="applicationStatusTitle" v-show="applicationStatus === '审核失败'">
+	<view class="applicationStatusTitle" v-show="applicationStatus === 1">
 		<view>
 			<image src="../../../static/personalCenter/applicitionError.png" class="applicationImg"></image>
 		</view>
@@ -34,6 +55,23 @@
 		</view>
 		<uv-button type="error" text="修改申请" @click="modifyApplication" style="margin-top: 300rpx;"></uv-button>
 	</view>
+	
+	
+	
+	<view class="applicationStatusTitle" v-show="applicationStatus === 2">
+		<view>
+			<image src="../../../static/personalCenter/applicitionSuccess.png" class="applicationImg"></image>
+		</view>
+		恭喜你，审核通过了！
+	</view>
+	
+	<view class="applicationStatusTitle" v-show="applicationStatus === 3">
+		<view>
+			<image src="../../../static/personalCenter/applicitionError.png" class="applicationImg"></image>
+		</view>
+		已取消申请！
+	</view>
+
 </template>
 
 <script>
@@ -45,7 +83,8 @@
 				applicationTitle:'审核中',
 				applicationStatus:'',//审核的状态，用来渲染不同的提示信息
 				applicationMsg:'',
-				modifyApplicationMsg:"店铺名称错误，资质内容与营业执照冲突"
+				modifyApplicationMsg:"",
+				cancellationApplicationBtn:true
 			}
 		},
 		mounted() {
@@ -54,17 +93,19 @@
 		  this.applicationMsg = applicationMsg;
 		  // 使用参数
 		  console.log('参数:', applicationMsg);
-		  this.applicationStatus = applicationMsg.applicationUnit;
-		  if(applicationMsg.applicationUnit === '审核失败'){
-			  this.applicationTitle = '审核失败';
+		  this.applicationStatus = applicationMsg.auditStatus;
+		  this.modifyApplicationMsg = applicationMsg.auditSuggestion
+		  if(applicationMsg.auditStatus === 1){
+			  this.applicationTitle = '驳回修改';
 			  this.isOutOfStock = true;
 		  }
-		  if(applicationMsg.applicationUnit === '审核通过'){
+		  if(applicationMsg.auditStatus === 2){
 			  this.currentStep = 3;
 		  }
-		  
-		  // 使用完参数后清空全局数据
-		  // uni.removeStorageSync('applicationMsg');
+		  if(applicationMsg.auditStatus === 3){
+			  this.applicationTitle = '取消申请';
+			  this.isOutOfStock = true;
+		  }
 		},
 		methods: {
 			modifyApplication(){
@@ -76,9 +117,33 @@
 				})
 			},
 			cancellationApplication(){
-				console.log("取消申请的逻辑代码");
-				//取消申请的逻辑代码
-				console.log('参数:', this.applicationMsg);
+				this.$refs.popup.open();
+			},
+			close(){
+				this.$refs.popup.close();
+			},
+			//取消申请
+			confirm(){
+				console.log("退出的逻辑",this.applicationMsg.auditId);
+				this.cancellationApplicationBtn = false;
+				this.$request(
+					"/application/cancellationApplication",
+					"GET",
+					{auditId: this.applicationMsg.auditId},
+				).then(res => {
+					console.log("name", res)
+					if (res.data.code == 200) {
+						this.productList = res.data.data;
+						console.log(res.data.data);
+					}
+				})
+				// 使用完参数后清空全局数据
+				uni.removeStorageSync('applicationMsg');
+				this.$refs.popup.close();
+				uni.switchTab({
+					// 保留当前页面，跳转到应用内的某个页面
+					url: '/pages/personalCenter/personalCenter'
+				});
 			}
 		},
 

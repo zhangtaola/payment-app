@@ -38,7 +38,7 @@
 // const baseUrl = "http://127.0.0.1:8080/";
 
 
-const baseUrl = 'http://localhost:8080'    //api的固定前部地址
+const baseUrl = 'http://rqvdas.natappfree.cc'    //api的固定前部地址
 const request = (url,method,data) =>{
     return new Promise((resolve,reject) =>{
         uni.request({

@@ -125,8 +125,6 @@
 				} else {
 					// 密码规则
 					const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/
-					
-
 					if (this.loginWay == 0) {
 						this.$request("/user/accountLogin","POST",this.user).then(res => {
 							console.log(res)
@@ -135,6 +133,12 @@
 									"title":"登录成功",
 									"icon":"none"
 								})
+								// 存储数据及过期时间
+								var now = Date.now();
+								var expiredTime = now + 30 * 1000; // 过期时间为当前时间的半分钟后
+								uni.setStorageSync('userMsg', res.data.data);
+								uni.setStorageSync('userMsgExpiredTime', expiredTime);
+								console.log(expiredTime);
 								uni.switchTab({
 									url: '/pages/index/index'
 								})
@@ -230,8 +234,6 @@
 							// 通知验证码组件内部开始倒计时
 							this.$refs.code.start();
 						}, 2000);
-
-						
 						this.$request("/messageCode/send/" + this.user.account + "/interAspect","POST",null).then(res => {
 							console.log(res)
 						}).catch(err => {
@@ -268,6 +270,27 @@
 				})
 			}
 		},
+		mounted() {
+			// 获取数据时判断是否过期
+			var userMsgExpiredTime = uni.getStorageSync('userMsgExpiredTime');
+			console.log("userMsgExpiredTime",userMsgExpiredTime);
+			if (userMsgExpiredTime != null && Date.now() > userMsgExpiredTime) {
+			    // 数据已过期，需要重新获取
+			    // 这里可以进行相应的处理，例如重新请求数据等
+				uni.showToast({
+					"title":"请重新登录",
+					"icon":"none"
+				})
+			} else {
+				// 存储数据及过期时间
+				var now = Date.now();
+				var expiredTime = now + 30 * 1000; // 过期时间为当前时间的半分钟后
+				uni.setStorageSync('userMsgExpiredTime', expiredTime);
+			    uni.switchTab({
+			    	url: '/pages/index/index'
+			    })
+			}
+		}
 
 	}
 </script>

@@ -961,6 +961,10 @@ body[data-v-2ed368b2] {}
 		line-height: 4.6875rem;
 		margin-left: 1.875rem;
 		font-size: 0.9375rem;
+		flex: 1;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 }
 .changeButtonContainer[data-v-2ed368b2] {
 		height: 1.5625rem;
@@ -972,6 +976,7 @@ body[data-v-2ed368b2] {}
 }
 .selectContainer[data-v-2ed368b2] {
 		height: 1.5625rem;
+		margin-right: 1.5625rem;
 }
 .selectImage[data-v-2ed368b2] {
 		width: 1.25rem;

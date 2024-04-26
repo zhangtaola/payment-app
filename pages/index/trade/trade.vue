@@ -46,20 +46,20 @@
 			change(){
 				
 			},
-			getNewTrade() {
-				this.$request("/order/getNewOrder", "POST", {
+		// 	getNewTrade() {
+		// 		this.$request("/order/getNewOrder", "POST", {
 		
-				}).then(res => {
-					console.log(res)
-				}).catch(err => {
-					console.log(err)
-				})
-			}
+		// 		}).then(res => {
+		// 			console.log(res)
+		// 		}).catch(err => {
+		// 			console.log(err)
+		// 		})
+		// 	}
 
 		},
-		mounted() {
-			this.getNewTrade();
-		}
+		// mounted() {
+		// 	this.getNewTrade();
+		// }
 	}
 </script>
 

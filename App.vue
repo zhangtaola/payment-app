@@ -8,7 +8,10 @@
 			console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			console.log("退出了");
+			var now = Date.now();
+			var expiredTime = now + 30 * 1000; // 过期时间为当前时间的半分钟后
+			uni.setStorageSync('userMsgExpiredTime', expiredTime);
 		}
 	}
 </script>

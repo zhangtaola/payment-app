@@ -33,7 +33,7 @@
 		data() {
 			return {
 				passwordInfo:{
-					userId:"1",
+					userId:"",
 					oldPwd:"",
 					newPwd:"",
 					confirmPwd:"",
@@ -64,6 +64,11 @@
 					return this.$refs.notify.error('新密码和旧密码不能一样');
 				};
 				//发送post请求，参数为object
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
+				this.passwordInfo.userId = userId;
 				this.$request(
 					"/user/modifyPwd",
 					"POST",

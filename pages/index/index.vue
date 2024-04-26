@@ -168,7 +168,10 @@
 			
 		},
 		mounted() {
-			this.getMoney()
+			this.getMoney();
+			// 从本地获取数据
+			var value = uni.getStorageSync('userMsg');
+			console.log(value);
 		}
 	}
 </script>

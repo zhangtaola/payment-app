@@ -14,10 +14,10 @@
 					<view class="txt">
 						<view class="name">
 							<view class="h3">
-								店铺名：{{storeName}}
+								昵称：{{userNickname}}
 							</view>
 							<view class="storeId">
-								商户ID：{{storeId}}
+								账号类型：{{userAccountType}}
 							</view>
 						</view>
 					</view>
@@ -152,15 +152,13 @@
 		data() {
 			return {
 				//店铺名称
-				storeName:"lala便利店",
+				userNickname:"",
 				//商户id
-				storeId:"454654654564656",
+				userAccountType:"",
 				//待审核金额
 				auditingMoney:"500000",
 				//可提现金额
 				withdrawableMoney:"50000",
-				
-
 				inputValue_store: '',
 				candidates_store: [{
 					id: '1',
@@ -185,8 +183,17 @@
 				}]
 			}
 		},
-		onLoad() {
-
+		mounted() {
+			// 从本地获取数据
+			var userMsg = uni.getStorageSync('userMsg');
+			this.userNickname = userMsg.userNickname;
+			if(userMsg.userAccountType === 0){
+				this.userAccountType = "普通账号";
+			}else if(userMsg.userAccountType === 1){
+				this.userAccountType = "商家主账号";
+			}else{
+				this.userAccountType = "商家子账号";
+			}
 		},
 		methods: {
 			input_store(e) {
@@ -205,6 +212,9 @@
 			confirm(){
 				console.log("退出的逻辑");
 				this.$refs.popup.close();
+				// 删除存储的数据
+				uni.removeStorageSync('userMsg'); // 删除存储的 userMsg
+				uni.removeStorageSync('userMsgExpiredTime'); // 删除存储的过期时间
 				uni.redirectTo({
 				    // 不保留当前页面，跳转到应用内的某个页面
 				    url: '/pages/login/login'

@@ -1,6 +1,15 @@
 {
 	"pages": [
 		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "登录",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "default"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
@@ -168,15 +177,6 @@
 			}
 		},
 		{
-			"path" : "pages/login/login",
-			"style" : 
-			{
-				"navigationBarTitleText" : "登录",
-				"enablePullDownRefresh" : false,
-				"navigationStyle": "default"
-			}
-		},
-		{
 			"path" : "pages/index/merchantSettled/merchantSettled",
 			"style" : 
 			{
@@ -223,7 +223,7 @@
 				"navigationBarTitleText" : "",
 				"enablePullDownRefresh" : false
 			}
-		},
+		}
 		
 		// {
 		// 	"path" : "pages/merchantSettled/merchantSettled",

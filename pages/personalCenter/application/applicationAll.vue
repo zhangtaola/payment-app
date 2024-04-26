@@ -3,11 +3,16 @@
     <view class="content">
 	<view>
 		<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(item, index) in productList"
-			:key="item.id" @click="goProDetail(item)">
-			<view class="topTitleV">{{item.storeName}}</view>
+			:key="item.auditId" @click="goProDetail(item)">
+			<view class="topTitleV">{{item.auditStoreName}}</view>
 			<view class="topTitleV unitV" :style="{ 
-				color: item.applicationUnit === '审核通过' ? 'green' : (item.applicationUnit === '审核中' ? 'blue' : 'red') }">
-			{{ item.applicationUnit }}
+				color: item.auditStatus === 2 ? 'green' : (item.auditStatus === 0 ? 'blue' : 'red') }">
+			{{ 
+			    item.auditStatus === 0 ? '待审核' : 
+			    (item.auditStatus === 1 ? '驳回修改' : 
+			    (item.auditStatus === 2 ? '审核通过' : 
+			    (item.auditStatus === 3 ? '取消申请' : '未知状态')))
+			}}
 			</view>
 			<view
 				style="display: flex; flex: 1; flex-wrap: wrap; margin-top: 0rpx; margin-left: -8rpx; height: 100rpx; width:calc(100vw-62rpx)">
@@ -48,7 +53,7 @@
 				})
             },
 			bindTag(item) {
-				return [item.applicationTime]
+				return [item.auditStoreCreateTime]
 			},
 			bindColor(index) {
 				let colorArr = ['rgb(131 153 218)'];
@@ -60,32 +65,21 @@
 			},
             requestData() {
                 this.productList = [];
-                for (let i = 0; i < 6; i++) {
-						
-					if(i < 3){
-						this.productList.push({
-							'storeName': '店铺名称' + i,
-							'applicationUnit': '审核通过',
-							'applicationTime': '申请时间：2024-4-9',
-							'id': i + ''
-						});
-					}else if(i == 4){
-						this.productList.push({
-							'storeName': '店铺名称' + i,
-							'applicationUnit': '审核中',
-							'applicationTime': '申请时间：2024-4-9',
-							'id': i + ''
-						});
-					}else{
-						this.productList.push({
-							'storeName': '店铺名称' + i,
-							'applicationUnit': '审核失败',
-							'applicationTime': '申请时间：2024-4-9',
-							'id': i + ''
-						});
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				console.log(userMsg);
+				var userId = userMsg.userId;
+				this.$request(
+					"/application/selectAllApplication",
+					"GET",
+					{userId: userId},
+				).then(res => {
+					console.log(res)
+					if (res.data.code == 200) {
+						this.productList = res.data.data;
+						console.log(res.data.data);
 					}
-					
-                }
+				})
             }
         }
     }
