@@ -3,7 +3,8 @@
 		<view>
 			<uv-navbar title="最新交易" @leftClick="goToIndex"></uv-navbar>
 		</view>
-		<view style="margin-top: 80rpx;width: 780rpx;height: 10rpx;"></view>
+		<br><br>
+		<!-- <view style="margin-top: 80rpx;width: 780rpx;height: 10rpx;"></view>
 		<view class="tradebar">
 			<view class="tradebar-container">
 				<view style="width: 150rpx;">
@@ -15,9 +16,23 @@
 			<view class="tradebar-info">
 				<text>收入:￥7823.00.00</text>
 			</view>
-		</view>
+		</view> -->
 		<uv-list>
-			<uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/wechat.png" thumb-size="lg"
+			<view v-for="item in orderList ">
+				<uv-list-item v-if="item.orderPayway=='支付宝' && item.orderReback==0" title="支付成功" :note="item.orderCreatetime" thumb="/static/icon/alipay.png" thumb-size="lg"
+					:rightText="item.orderMoney.toString()" :customStyle="{ borderBottom: '1px solid #F2F2F2' }">
+				</uv-list-item>
+				<uv-list-item v-if="item.orderPayway=='支付宝' && item.orderReback==1" title="退款成功" :note="item.orderCreatetime" thumb="/static/icon/alipay.png" thumb-size="lg"
+					:rightText="item.orderMoney.toString()" :customStyle="{ borderBottom: '1px solid #F2F2F2' }">
+				</uv-list-item>
+				<uv-list-item v-if="item.orderPayway=='微信' && item.orderReback==0" title="支付成功" :note="item.orderCreatetime" thumb="/static/icon/wechat.png" thumb-size="lg"
+					:rightText="item.orderMoney.toString()" :customStyle="{ borderBottom: '1px solid #F2F2F2' }">
+				</uv-list-item>
+				<uv-list-item v-if="item.orderPayway=='微信' && item.orderReback==1" title="退款成功" :note="item.orderCreatetime" thumb="/static/icon/wechat.png" thumb-size="lg"
+					:rightText="item.orderMoney.toString()" :customStyle="{ borderBottom: '1px solid #F2F2F2' }">
+				</uv-list-item>
+			</view>
+			<!-- <uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/wechat.png" thumb-size="lg"
 				rightText="27.00" custom-style="border-bottom:1px solid #F2F2F2">
 			</uv-list-item>
 			<uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/alipay.png" thumb-size="lg"
@@ -25,7 +40,7 @@
 			</uv-list-item>
 			<uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/alipay.png" thumb-size="lg"
 				rightText="130.00" custom-style="border-bottom:1px solid #F2F2F2">
-			</uv-list-item>
+			</uv-list-item> -->
 		</uv-list>
 	</view>
 </template>
@@ -34,7 +49,7 @@
 	export default {
 		data() {
 			return {
-				value:''
+				orderList:[],
 			};
 		},
 		methods: {
@@ -46,20 +61,26 @@
 			change(){
 				
 			},
-		// 	getNewTrade() {
-		// 		this.$request("/order/getNewOrder", "POST", {
-		
-		// 		}).then(res => {
-		// 			console.log(res)
-		// 		}).catch(err => {
-		// 			console.log(err)
-		// 		})
-		// 	}
+			getOrder(){
+				this.$request(
+					"/form/allOrder",
+					"POST", {
+						storeId: this.storeId,
+						userId: 1,
+					},
+				).then(res => {
+					console.log('orderList',res)
+					if (res.data.code == 200) {
+						this.orderList = res.data.data
+							
+					}
+				})
+			},
 
 		},
-		// mounted() {
-		// 	this.getNewTrade();
-		// }
+		mounted() {
+			this.getOrder();
+		}
 	}
 </script>
 
