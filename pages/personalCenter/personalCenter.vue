@@ -161,6 +161,7 @@
 	export default {
 		data() {
 			return {
+				userId:"",
 				//店铺名称
 				userNickname:"",
 				//商户id
@@ -197,6 +198,7 @@
 			// 从本地获取数据
 			var userMsg = uni.getStorageSync('userMsg');
 			this.userNickname = userMsg.userNickname;
+			this.userId = userMsg.userId;
 			if(userMsg.userAccountType === 0){
 				this.userAccountType = "普通账号";
 			}else if(userMsg.userAccountType === 1){
@@ -204,6 +206,7 @@
 			}else{
 				this.userAccountType = "商家子账号";
 			}
+			this.getCashOutMoney()
 		},
 		methods: {
 			input_store(e) {
@@ -230,6 +233,24 @@
 				    url: '/pages/login/login'
 				})
 			},
+			getCashOutMoney(){
+				this.$request("/user/getCashOutMoney","POST",{userId:this.userId}).then(res => {
+					console.log(res)
+					this.withdrawableMoney = res.data.data.cashOutMoney
+					this.auditingMoney = res.data.data.auditMoney
+				}).catch(err => {
+					uni.showToast({
+						"title":"服务器错误，请稍后再试",
+						"icon":"none"
+					})
+				})
+			},
+			showCashOutStore(){
+				uni.setStorageSync("userId",this.userId)
+				uni.navigateTo({
+					url: "/pages/personalCenter/showCashOutStore/showCashOutStore"
+				})
+			}
 		}
 	}
 </script>

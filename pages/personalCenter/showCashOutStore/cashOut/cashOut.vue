@@ -24,7 +24,7 @@
 			<view class="right">
 				<view class="inputContainer">
 					<uv-input style="margin-top: 30rpx;width: 80%;margin-left: 23rpx;"
-						:placeholder="'最多可提 ¥ ' + store.money" v-model="cashOut.tixianMoney" type="number"
+						:placeholder="'最多可提 ¥ ' + store.money" v-model="cashOut.payOutMoney" type="number"
 						@change="change" clearable>
 					</uv-input>
 				</view>
@@ -43,7 +43,9 @@
 			<uv-button type="primary" text="确定" style="width: 90%;margin: 0 auto;margin-top: 50rpx;"
 				@click="submit"></uv-button>
 		</view>
-
+		<view class="cashOutTips">
+			<span>最后的可提现金额为，输入的提现金额减去服务费</span>
+		</view>
 	</view>
 </template>
 
@@ -52,36 +54,95 @@
 		data() {
 			return {
 				isEmpty: true,
-
+				
 				store: {
-					money: "200",
-					bossAccount: "123415312",
+					money: 0,
+					bossAccount: "",
 					feilv: 0.06 //提现费率 抽成
 				},
 				cashOut: {
-					tixianMoney: "",
+					payOutMoney: "",
 					choucheng: "", // 抽成的钱
+					storeId:0,
+					payOutCard:""
+				},
+				info:{
+					storeId:0,
+					userId:0,
 				}
 			}
 		},
 		methods: {
-
 			change(e) {
 				this.isEmpty = false
 				this.cashOut.tixianMoney = e
 				console.log(this.cashOut)
 				this.cashOut.choucheng = this.cashOut.tixianMoney * this.store.feilv
-				
-				console.log(this.cashOut)
-				
-			},
-			confirm() {
-				console.log('confirm')
-				this.cashOut.choucheng = this.cashOut.tixianMoney * this.store.feilv
 			},
 			submit() {
-				console.log("提现")
+				if(this.cashOut.payOutMoney > this.store.money){
+					uni.showToast({
+						title:"提现的金额不可大于可提现金额",
+						icon:"none"
+					})
+					this.cashOut.payOutMoney = ""
+					this.cashOut.choucheng = ""
+				}else if(this.cashOut.payOutMoney < 0){
+					uni.showToast({
+						title:"提现金额不可小于0",
+						icon:"none"
+					})
+					this.cashOut.payOutMoney = ""
+					this.cashOut.choucheng = ""
+				}else if(this.cashOut.payOutMoney == 0){
+					uni.showToast({
+						title:"提现金额不可等于0",
+						icon:"none"
+					})
+					this.cashOut.payOutMoney = ""
+					this.cashOut.choucheng = ""
+				}else{
+					console.log(this.cashOut)
+					this.$request("/user/doCashOut","POST",this.cashOut).then(res => {
+						console.log(res)
+						if(res.data.code == 200){
+							uni.showToast({
+								title:"提现成功",
+								icon:"none"
+							})
+						}
+						this.cashOut.payOutMoney = ""
+						this.cashOut.choucheng = ""
+						this.getStoreMoney()
+					}).catch(err => {
+						uni.showToast({
+							title:"服务器出错了，请稍后再试",
+							icon:"none"
+						})
+					})
+				}
+			},
+			getStoreMoney(){
+				this.info.storeId = uni.getStorageSync("storeId")
+				this.cashOut.storeId = uni.getStorageSync("storeId")
+				this.info.userId = uni.getStorageSync("userId")
+				this.cashOut.payoutCard = uni.getStorageSync("userId")
+				this.$request("/user/getStoreCashOutMoney","POST",this.info).then(res => {
+					console.log(res)
+					if(res.data.code == 200){
+						this.store.money = res.data.data.paymentStore.storeUsableMoney
+						this.store.bossAccount = res.data.data.userAccount
+					}
+				}).catch(err => {
+					uni.showToast({
+						title:"服务器出错了，请稍后再试",
+						icon:"none"
+					})
+				})
 			}
+		},
+		mounted() {
+			this.getStoreMoney()
 		}
 	}
 </script>
@@ -171,5 +232,12 @@
 		margin-right: 60rpx;
 		color: goldenrod;
 		font-size: 30rpx;
+	}
+	.cashOutTips{
+		width: 90%;
+		height: 100rpx;
+		margin: 0 auto;
+		margin-top: 30rpx;
+		color:red
 	}
 </style>

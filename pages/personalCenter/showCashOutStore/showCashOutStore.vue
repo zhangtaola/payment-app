@@ -9,12 +9,12 @@
 					不知道写啥
 				</view>
 				<view class="foot">
-					可提现金额: ¥<h2 class="info">{{ item.storeMoney }}</h2>
+					可提现金额: ¥<h2 class="info">{{ item.storeUsableMoney}}</h2>
 				</view>
 			</view>
 			<view class="rightContainer">
 				<view class="imageContainer">
-					<image :src="item.storeImage" class="storeImage"></image>
+					<image :src="item.storeHeadImage" class="storeImage"></image>
 				</view>
 			</view>
 		</view>
@@ -26,31 +26,42 @@
 		data() {
 			return {
 				stores:[
-					{
-						storeId:1,
-						storeName: "幸福刀削面",
-						storeMoney: "1234",
-						storeImage: "../../../static/personalCenter/store.jpg"
-					},
-					{
-						storeId:2,
-						storeName: "必胜客",
-						storeMoney: "123",
-						storeImage: "../../../static/personalCenter/store.jpg"
-					},
-				]
+					
+				],
+				info:{
+					userId:0
+				}
 			}
 		},
 		methods: {
 			choseStore(storeId){
-				console.log(storeId)
+				console.log(storeId + "这是传递的店铺id")
 				uni.setStorageSync("storeId",storeId)
+				uni.setStorageSync("userId",this.info.userId)
 				uni.navigateTo({
 					url: "/pages/personalCenter/showCashOutStore/cashOut/cashOut",
 					"animationType":"slide-in-right",
 					"animationDuration": 200
 				})
+			},
+			getCashOutStore(){
+				this.info.userId = uni.getStorageSync("userId")
+				console.log(this.info.userId + "接收的用户id")
+				this.$request("/user/getCashOutStore","POST",this.info).then(res => {
+					console.log(res)
+					if(res.data.code == 200){
+						this.stores = res.data.data
+					}
+				}).catch(err => {
+					uni.showToast({
+						title:"服务器出错，请稍后再试",
+						icon:"none"
+					})
+				})
 			}
+		},
+		mounted() {
+			this.getCashOutStore()
 		}
 	}
 </script>
