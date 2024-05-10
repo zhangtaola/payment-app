@@ -135,7 +135,7 @@
 								})
 								// 存储数据及过期时间
 								var now = Date.now();
-								var expiredTime = now + 30 * 1000; // 过期时间为当前时间的半分钟后
+								var expiredTime = now + 30 * 10000; // 过期时间为当前时间的半分钟后
 								uni.setStorageSync('userMsg', res.data.data);
 								uni.setStorageSync('userMsgExpiredTime', expiredTime);
 								console.log(expiredTime);
@@ -277,10 +277,10 @@
 			if (userMsgExpiredTime != null && Date.now() > userMsgExpiredTime) {
 			    // 数据已过期，需要重新获取
 			    // 这里可以进行相应的处理，例如重新请求数据等
-				uni.showToast({
-					"title":"请重新登录",
-					"icon":"none"
-				})
+				// uni.showToast({
+				// 	"title":"请重新登录",
+				// 	"icon":"none"
+				// })
 			} else {
 				// 存储数据及过期时间
 				var now = Date.now();

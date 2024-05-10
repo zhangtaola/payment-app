@@ -1,159 +1,167 @@
 <template>
-	<view class="header">
-		<view class="uesr">
-			<view class="top-xh">
-				<view>
-				</view>
-			</view>
-			<view class="fot-xh">
-				<!-- <navigator url="" hover-class="none"> -->
-					<view class="pic">
-						<image src="../../static/personalCenter/people.png" style="width: 130rpx;" mode="widthFix">
-						</image>
+	<view>
+		<scroll-view style="height: 100%;" scroll-y="true" refresher-enabled="true" :refresher-triggered="triggered"
+			:refresher-threshold="100" refresher-background="lightgrey" @refresherpulling="onPulling"
+			@refresherrefresh="onRefresh" @refresherrestore="onRestore" @refresherabort="onAbort">
+			<view class="header">
+				<view class="uesr">
+					<view class="top-xh">
+						<view>
+						</view>
 					</view>
-					<view class="txt">
-						<view class="name">
-							<view class="h3">
-								昵称：{{userNickname}}
+					<view class="fot-xh">
+						<!-- <navigator url="" hover-class="none"> -->
+							<view class="pic">
+								<image src="../../static/personalCenter/people.png" style="width: 130rpx;" mode="widthFix">
+								</image>
 							</view>
-							<view class="storeId">
-								账号类型：{{userAccountType}}
+							<view class="txt">
+								<view class="name">
+									<view class="h3">
+										昵称：{{userNickname}}
+									</view>
+									<view class="storeId">
+										账号类型：{{userAccountType}}
+									</view>
+								</view>
 							</view>
-						</view>
+						<!-- </navigator> -->
 					</view>
-				<!-- </navigator> -->
-			</view>
-		</view>
-		<view class="money">
-			<view class="m-a1">
-				<view class="money-box">
-					<navigator url="/pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney" hover-class="none">
-					<view class="storeMoney">
-						<view class="pic">
-							<image src="../../static/personalCenter/daishenghe.png" style="width: 76rpx;" mode="widthFix"></image>
-						</view>
-						<view class="txt">
-							<text class="s1">待审核</text>
-							<text>{{auditingMoney}}元</text>
-						</view>
-					</view>
-					</navigator>
-					<navigator url="/pages/personalCenter/showCashOutStore/showCashOutStore" hover-class="none">
-					<view class="storeMoney">
-						<view class="pic">
-							<image src="../../static/personalCenter/ketixian.png" style="width: 76rpx;" mode="widthFix"></image>
-						</view>
-						<view class="txt">
-							<text class="s1">可提现</text>
-							<text>{{withdrawableMoney}}元</text>
-						</view>
-					</view>
-					</navigator>
 				</view>
-			</view>
-		</view>
-		<view class="ul-list1-xh">
-			<view class="li">
-				<navigator url="/pages/personalCenter/storeManagement/storeManagement" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/dianpu.png" style="width: 40rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt">
-						<text>店铺管理</text>
-					</view>
-				</navigator>
-			</view>
-			<view class="li">
-				<navigator url="/pages/personalCenter/application/applicationAll" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/shengqingjindu.png" style="width: 35rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt">
-						<text>申请进度</text>
-					</view>
-				</navigator>
-			</view>
-			<view class="li">
-				<navigator url="/pages/personalCenter/userOpinion/userOpinion" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/yijian.png" style="width: 35rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt">
-						<text>意见反馈</text>
-					</view>
-				</navigator>
-			</view>
-			<view class="li">
-				<navigator url="/pages/personalCenter/chatWindow/chatWindow" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/lianxiwomen.png" style="width: 35rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt">
-						<text>联系我们</text>
-					</view>
-				</navigator>
-			</view>
-			<view class="li">
-				<navigator url="/pages/identify/identify" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/lianxiwomen.png" style="width: 35rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt">
-						<text>实名认证</text>
-					</view>
-				</navigator>
-			</view>
-			<view class="li">
-				<navigator url="/pages/personalCenter/unsubscribe/unsubscribe" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/zhuxiaozhanghu.png" style="width: 35rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt" style="border-bottom: none;">
-						<text>注销账户</text>
-					</view>
-				</navigator>
-			</view>
-			<view class="li">
-				<navigator url="/pages/personalCenter/changePassword/changePassword" hover-class="none">
-					<view class="pic">
-						<image src="../../static/personalCenter/xiugaimima.png" style="width: 35rpx;" mode="widthFix"></image>
-					</view>
-					<view class="txt" style="border-bottom: none;">
-						<text>修改密码</text>
-					</view>
-				</navigator>
-			</view>
-				<view>
-					<uv-popup ref="popup" mode="center">
-						<view style="width: 600rpx;">
-							<text style="display: block;
-									text-align: center;
-									width: 300px;
-									margin-top: 20px;
-									margin-bottom: 50px;
-									color: rgb(231 36 36);">
-									确认要退出吗？
-							</text>
-							<uv-button 
-							type="default" 
-							text="确认退出"
-							@click="confirm" 
-							style="margin-top: 20px;background-color: #ccdade36;margin: 20px 5px 10px 5px;"
-							></uv-button>
-		
-							<uv-button 
-							type="default" 
-							text="取消" 
-							@click="close" 
-							style="margin-top: 30px;background-color: #ccdade36;margin: 0px 5px 10px 5px;">
-							</uv-button>
+				<view class="money">
+					<view class="m-a1">
+						<view class="money-box">
+							<navigator url="/pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney" hover-class="none">
+							<view class="storeMoney">
+								<view class="pic">
+									<image src="../../static/personalCenter/daishenghe.png" style="width: 76rpx;" mode="widthFix"></image>
+								</view>
+								<view class="txt">
+									<text class="s1">待审核</text>
+									<text>{{auditingMoney}}元</text>
+								</view>
+							</view>
+							</navigator>
+							<navigator url="/pages/personalCenter/showCashOutStore/showCashOutStore" hover-class="none">
+							<view class="storeMoney">
+								<view class="pic">
+									<image src="../../static/personalCenter/ketixian.png" style="width: 76rpx;" mode="widthFix"></image>
+								</view>
+								<view class="txt">
+									<text class="s1">可提现</text>
+									<text>{{withdrawableMoney}}元</text>
+								</view>
+							</view>
+							</navigator>
 						</view>
-					</uv-popup>
-					<uv-button type="error" text="退出登录" @click="exitApp" style="margin-top: 70rpx;"></uv-button>
+					</view>
+				</view>
+				<view class="ul-list1-xh">
+					<view class="li">
+						<navigator url="/pages/personalCenter/storeManagement/storeManagement" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/dianpu.png" style="width: 40rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt">
+								<text>店铺管理</text>
+							</view>
+						</navigator>
+					</view>
+					<view class="li">
+						<navigator url="/pages/personalCenter/application/applicationAll" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/shengqingjindu.png" style="width: 35rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt">
+								<text>申请进度</text>
+							</view>
+						</navigator>
+					</view>
+					<view class="li">
+						<navigator url="/pages/personalCenter/userOpinion/userOpinion" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/yijian.png" style="width: 35rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt">
+								<text>意见反馈</text>
+							</view>
+						</navigator>
+					</view>
+					<view class="li">
+						<navigator url="/pages/personalCenter/chatWindow/chatWindow" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/lianxiwomen.png" style="width: 35rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt">
+								<text>联系我们</text>
+							</view>
+						</navigator>
+					</view>
+					<view class="li">
+						<navigator url="/pages/identify/identify" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/lianxiwomen.png" style="width: 35rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt">
+								<text>实名认证</text>
+							</view>
+						</navigator>
+					</view>
+					<view class="li">
+						<navigator url="/pages/personalCenter/unsubscribe/unsubscribe" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/zhuxiaozhanghu.png" style="width: 35rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt" style="border-bottom: none;">
+								<text>注销账户</text>
+							</view>
+						</navigator>
+					</view>
+					<view class="li">
+						<navigator url="/pages/personalCenter/changePassword/changePassword" hover-class="none">
+							<view class="pic">
+								<image src="../../static/personalCenter/xiugaimima.png" style="width: 35rpx;" mode="widthFix"></image>
+							</view>
+							<view class="txt" style="border-bottom: none;">
+								<text>修改密码</text>
+							</view>
+						</navigator>
+					</view>
+						<view>
+							<uv-popup ref="popup" mode="center">
+								<view style="width: 600rpx;">
+									<text style="display: block;
+											text-align: center;
+											width: 300px;
+											margin-top: 20px;
+											margin-bottom: 50px;
+											color: rgb(231 36 36);">
+											确认要退出吗？
+									</text>
+									<uv-button 
+									type="default" 
+									text="确认退出"
+									@click="confirm" 
+									style="margin-top: 20px;background-color: #ccdade36;margin: 20px 5px 10px 5px;"
+									></uv-button>
+				
+									<uv-button 
+									type="default" 
+									text="取消" 
+									@click="close" 
+									style="margin-top: 30px;background-color: #ccdade36;margin: 0px 5px 10px 5px;">
+									</uv-button>
+								</view>
+							</uv-popup>
+							<uv-button type="error" text="退出登录" @click="exitApp" style="margin-top: 70rpx;"></uv-button>
+						</view>
 				</view>
 			
-		</view>
-		
+				</view>
+			</scroll-view>
+
+
+
 	</view>
 </template>
 
@@ -161,6 +169,7 @@
 	export default {
 		data() {
 			return {
+				triggered: false,
 				userId:"",
 				//店铺名称
 				userNickname:"",
@@ -193,6 +202,12 @@
 					name: '...'
 				}]
 			}
+		},
+		onLoad() {
+			this._freshing = false;
+			setTimeout(() => {
+				this.triggered = true;
+			}, 100)
 		},
 		mounted() {
 			// 从本地获取数据
@@ -234,6 +249,7 @@
 				})
 			},
 			getCashOutMoney(){
+				console.log(this.userId);
 				this.$request("/user/getCashOutMoney","POST",{userId:this.userId}).then(res => {
 					console.log(res)
 					this.withdrawableMoney = res.data.data.cashOutMoney
@@ -246,10 +262,28 @@
 				})
 			},
 			showCashOutStore(){
-				uni.setStorageSync("userId",this.userId)
 				uni.navigateTo({
 					url: "/pages/personalCenter/showCashOutStore/showCashOutStore"
 				})
+			},
+			onPulling(e) {
+				console.log("onpulling", e);
+			},
+			onRefresh() {
+				if (this._freshing) return;
+				this._freshing = true;
+				setTimeout(() => {
+					this.triggered = false;
+					this._freshing = false;
+				}, 1000)
+			},
+			onRestore() {
+				this.triggered = 'restore'; // 需要重置
+				this.getCashOutMoney();
+				console.log("onRestore");
+			},
+			onAbort() {
+				console.log("onAbort");
 			}
 		}
 	}

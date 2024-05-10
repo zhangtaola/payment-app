@@ -6,15 +6,15 @@
 					店铺名: <h2 class="info">{{ item.storeName }}</h2>
 				</view>
 				<view class="mid">
-					不知道写啥
+
 				</view>
 				<view class="foot">
-					待审核金额: ¥<h2 class="info">{{ item.storeMoney }}</h2>
+					待审核金额: ¥<h2 class="info">{{ item.storeAuditMoney }}</h2>
 				</view>
 			</view>
 			<view class="rightContainer">
 				<view class="imageContainer">
-					<image :src="item.storeImage" class="storeImage"></image>
+					<image :src="item.storeHeadImage" class="storeImage"></image>
 				</view>
 			</view>
 		</view>
@@ -25,32 +25,32 @@
 	export default {
 		data() {
 			return {
-				stores:[
-					{
-						storeId:1,
-						storeName: "幸福刀削面",
-						storeMoney: "1234",
-						storeImage: "../../../static/personalCenter/store.jpg"
-					},
-					{
-						storeId:2,
-						storeName: "必胜客",
-						storeMoney: "123",
-						storeImage: "../../../static/personalCenter/store.jpg"
-					},
-				]
+				userId:'',
+				stores:[]
 			}
 		},
 		methods: {
-			// choseStore(storeId){
-			// 	console.log(storeId)
-			// 	uni.setStorageSync("storeId",storeId)
-			// 	uni.navigateTo({
-			// 		url: "/pages/personalCenter/showCashOutStore/cashOut/cashOut",
-			// 		"animationType":"slide-in-right",
-			// 		"animationDuration": 200
-			// 	})
-			// }
+			getStoreAuditMoney(){
+				// 从本地获取数据
+				var userMsg = uni.getStorageSync('userMsg');
+				this.userId = userMsg.userId;
+				console.log(this.userId);
+				this.$request("/user/getCashOutStore","POST",{userId:this.userId}).then(res => {
+					console.log(res)
+					if(res.data.code == 200){
+						console.log(res.data.data);
+						this.stores = res.data.data;
+					}
+				}).catch(err => {
+					uni.showToast({
+						title:"服务器出错，请稍后再试",
+						icon:"none"
+					})
+				})
+			}
+		},
+		mounted() {
+			this.getStoreAuditMoney()
 		}
 	}
 </script>

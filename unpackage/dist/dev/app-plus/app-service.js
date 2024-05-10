@@ -2187,7 +2187,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_3$4 = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1c], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-gap/components/uv-gap/uv-gap.vue"]]);
+  const __easycom_3$3 = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1c], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-gap/components/uv-gap/uv-gap.vue"]]);
   const _sfc_main$1c = {
     name: "uv-toast",
     mixins: [mpMixin, mixin],
@@ -2321,7 +2321,7 @@ if (uni.restoreGlobal) {
     const _component_uv_overlay = resolveEasycom(vue.resolveDynamicComponent("uv-overlay"), __easycom_0$d);
     const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_2$9);
     const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
-    const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$4);
+    const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$3);
     const _component_uv_transition = resolveEasycom(vue.resolveDynamicComponent("uv-transition"), __easycom_2$a);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uv-toast" }, [
       vue.createVNode(_component_uv_overlay, {
@@ -2510,7 +2510,7 @@ if (uni.restoreGlobal) {
       vue.createCommentVNode(" 此组件功能由js完成，无需写html逻辑 ")
     ]);
   }
-  const __easycom_1$b = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1a], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-code/components/uv-code/uv-code.vue"]]);
+  const __easycom_1$c = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1a], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-code/components/uv-code/uv-code.vue"]]);
   const button = {
     props: {
       lang: String,
@@ -2982,7 +2982,7 @@ if (uni.restoreGlobal) {
                   "icon": "none"
                 });
                 var now = Date.now();
-                var expiredTime = now + 30 * 1e3;
+                var expiredTime = now + 30 * 1e4;
                 uni.setStorageSync("userMsg", res.data.data);
                 uni.setStorageSync("userMsgExpiredTime", expiredTime);
                 formatAppLog("log", "at pages/login/login.vue:141", expiredTime);
@@ -3114,12 +3114,9 @@ if (uni.restoreGlobal) {
     mounted() {
       var userMsgExpiredTime = uni.getStorageSync("userMsgExpiredTime");
       formatAppLog("log", "at pages/login/login.vue:276", "userMsgExpiredTime", userMsgExpiredTime);
-      if (userMsgExpiredTime != null && Date.now() > userMsgExpiredTime) {
-        uni.showToast({
-          "title": "请重新登录",
-          "icon": "none"
-        });
-      } else {
+      if (userMsgExpiredTime != null && Date.now() > userMsgExpiredTime)
+        ;
+      else {
         var now = Date.now();
         var expiredTime = now + 30 * 1e3;
         uni.setStorageSync("userMsgExpiredTime", expiredTime);
@@ -3131,7 +3128,7 @@ if (uni.restoreGlobal) {
   };
   function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_toast = resolveEasycom(vue.resolveDynamicComponent("uv-toast"), __easycom_0$b);
-    const _component_uv_code = resolveEasycom(vue.resolveDynamicComponent("uv-code"), __easycom_1$b);
+    const _component_uv_code = resolveEasycom(vue.resolveDynamicComponent("uv-code"), __easycom_1$c);
     const _component_uv_button = resolveEasycom(vue.resolveDynamicComponent("uv-button"), __easycom_2$8);
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
@@ -3810,7 +3807,7 @@ if (uni.restoreGlobal) {
       /* TEXT, CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1$a = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$15], ["__scopeId", "data-v-91e4945b"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-badge/components/uv-badge/uv-badge.vue"]]);
+  const __easycom_1$b = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$15], ["__scopeId", "data-v-91e4945b"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-badge/components/uv-badge/uv-badge.vue"]]);
   const props$p = {
     props: {
       value: {
@@ -4247,7 +4244,7 @@ if (uni.restoreGlobal) {
   };
   function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
-    const _component_uv_badge = resolveEasycom(vue.resolveDynamicComponent("uv-badge"), __easycom_1$a);
+    const _component_uv_badge = resolveEasycom(vue.resolveDynamicComponent("uv-badge"), __easycom_1$b);
     const _component_uv_switch = resolveEasycom(vue.resolveDynamicComponent("uv-switch"), __easycom_2$7);
     return vue.openBlock(), vue.createElementBlock("view", {
       class: vue.normalizeClass([{ "uv-list-item--disabled": $props.disabled }, "uv-list-item"]),
@@ -4388,7 +4385,7 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ], 14, ["hover-class"]);
   }
-  const __easycom_2$6 = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$13], ["__scopeId", "data-v-d568ce32"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list-item/uv-list-item.vue"]]);
+  const __easycom_1$a = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$13], ["__scopeId", "data-v-d568ce32"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list-item/uv-list-item.vue"]]);
   const _sfc_main$13 = {
     name: "uv-list",
     mixins: [mpMixin, mixin],
@@ -4470,7 +4467,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_3$3 = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$12], ["__scopeId", "data-v-53ea9bef"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list/uv-list.vue"]]);
+  const __easycom_2$6 = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$12], ["__scopeId", "data-v-53ea9bef"], ["__file", "D:/HBuilderX/aggregated payment/payment-app/uni_modules/uv-list/components/uv-list/uv-list.vue"]]);
   const props$o = {
     props: {
       // 显示的内容，字符串
@@ -5505,6 +5502,7 @@ if (uni.restoreGlobal) {
         storeId: 0,
         listData: [`${year}-${month}-${date2}`, `${year}-${month}-${date2}`],
         value: 0,
+        orderList: [],
         list: [
           "https://cdn.uviewui.com/uview/swiper/swiper3.png",
           "https://cdn.uviewui.com/uview/swiper/swiper2.png",
@@ -5515,7 +5513,7 @@ if (uni.restoreGlobal) {
     },
     methods: {
       leftClick() {
-        formatAppLog("log", "at pages/index/index.vue:119", "leftClick");
+        formatAppLog("log", "at pages/index/index.vue:130", "leftClick");
       },
       goToPay() {
         uni.navigateTo({
@@ -5523,9 +5521,20 @@ if (uni.restoreGlobal) {
         });
       },
       goToMechantSettled() {
-        uni.navigateTo({
-          url: "/pages/index/merchantSettled/merchantSettled"
-        });
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/index/index.vue:140", userMsg);
+        var userIsAuthentication = userMsg.userIsAuthentication;
+        formatAppLog("log", "at pages/index/index.vue:142", userIsAuthentication);
+        if (userIsAuthentication === 0) {
+          uni.showToast({
+            title: "请先去个人中心完成实名认证哦!",
+            icon: "none"
+          });
+        } else {
+          uni.navigateTo({
+            url: "/pages/index/merchantSettled/merchantSettled"
+          });
+        }
       },
       goToTrade() {
         uni.navigateTo({
@@ -5540,22 +5549,43 @@ if (uni.restoreGlobal) {
       scanCode() {
         uni.scanCode({
           success: function(res) {
-            formatAppLog("log", "at pages/index/index.vue:145", "条码类型：" + res.scanType);
-            formatAppLog("log", "at pages/index/index.vue:146", "条码内容：" + res.result);
+            formatAppLog("log", "at pages/index/index.vue:168", "条码类型：" + res.scanType);
+            formatAppLog("log", "at pages/index/index.vue:169", "条码内容：" + res.result);
+          }
+        });
+      },
+      getOrder() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/index/index.vue:176", userMsg);
+        var userId = userMsg.userId;
+        this.$request(
+          "/form/allOrder",
+          "POST",
+          {
+            storeId: this.storeId,
+            userId
+          }
+        ).then((res) => {
+          formatAppLog("log", "at pages/index/index.vue:185", "orderList", res);
+          if (res.data.code == 200) {
+            this.orderList = res.data.data;
           }
         });
       },
       getMoney() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/index/index.vue:195", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/form/money",
           "GET",
           {
             data: this.listData,
             storeId: this.storeId,
-            userId: 1
+            userId
           }
         ).then((res) => {
-          formatAppLog("log", "at pages/index/index.vue:159", res);
+          formatAppLog("log", "at pages/index/index.vue:205", res);
           if (res.data.code == 200) {
             this.money = res.data.data;
           }
@@ -5564,14 +5594,13 @@ if (uni.restoreGlobal) {
     },
     mounted() {
       this.getMoney();
-      var value2 = uni.getStorageSync("userMsg");
-      formatAppLog("log", "at pages/index/index.vue:174", value2);
+      this.getOrder();
     }
   };
   function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$9);
-    const _component_uv_list_item = resolveEasycom(vue.resolveDynamicComponent("uv-list-item"), __easycom_2$6);
-    const _component_uv_list = resolveEasycom(vue.resolveDynamicComponent("uv-list"), __easycom_3$3);
+    const _component_uv_list_item = resolveEasycom(vue.resolveDynamicComponent("uv-list-item"), __easycom_1$a);
+    const _component_uv_list = resolveEasycom(vue.resolveDynamicComponent("uv-list"), __easycom_2$6);
     const _component_uv_notice_bar = resolveEasycom(vue.resolveDynamicComponent("uv-notice-bar"), __easycom_3$2);
     const _component_uv_swiper = resolveEasycom(vue.resolveDynamicComponent("uv-swiper"), __easycom_4$3);
     return vue.openBlock(), vue.createElementBlock(
@@ -5687,34 +5716,56 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "tradebar-bottom" }, [
             vue.createVNode(_component_uv_list, null, {
               default: vue.withCtx(() => [
-                vue.createVNode(_component_uv_list_item, {
-                  title: "支付成功",
-                  note: "4月10日 14:19",
-                  thumb: "/static/icon/wechat.png",
-                  "thumb-size": "lg",
-                  rightText: "27.00",
-                  clickable: true,
-                  style: { "font-weight": "bold" }
-                }),
-                vue.createVNode(_component_uv_list_item, {
-                  title: "支付成功",
-                  note: "4月10日 14:19",
-                  thumb: "/static/icon/alipay.png",
-                  "thumb-size": "lg",
-                  rightText: "120.00",
-                  clickable: true,
-                  "custom-style": $data.asd,
-                  style: { "font-weight": "bold" }
-                }, null, 8, ["custom-style"]),
-                vue.createVNode(_component_uv_list_item, {
-                  title: "支付成功",
-                  note: "4月10日 14:19",
-                  thumb: "/static/icon/alipay.png",
-                  "thumb-size": "lg",
-                  rightText: "130.00",
-                  clickable: true,
-                  style: { "font-weight": "bold" }
-                })
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($data.orderList, (item, index2) => {
+                    return vue.openBlock(), vue.createElementBlock("view", null, [
+                      index2 < 3 && item.orderPayway == "支付宝" && item.orderReback == 0 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                        key: 0,
+                        title: "支付成功",
+                        note: item.orderCreatetime,
+                        thumb: "/static/icon/alipay.png",
+                        "thumb-size": "lg",
+                        rightText: item.orderMoney.toString(),
+                        clickable: true,
+                        style: { "font-weight": "bold" }
+                      }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true),
+                      index2 < 3 && item.orderPayway == "支付宝" && item.orderReback == 1 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                        key: 1,
+                        title: "退款成功",
+                        note: item.orderCreatetime,
+                        thumb: "/static/icon/alipay.png",
+                        "thumb-size": "lg",
+                        rightText: item.orderMoney.toString(),
+                        clickable: true,
+                        style: { "font-weight": "bold" }
+                      }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true),
+                      index2 < 3 && item.orderPayway == "微信" && item.orderReback == 0 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                        key: 2,
+                        title: "支付成功",
+                        note: item.orderCreatetime,
+                        thumb: "/static/icon/wechat.png",
+                        "thumb-size": "lg",
+                        rightText: item.orderMoney.toString(),
+                        clickable: true,
+                        style: { "font-weight": "bold" }
+                      }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true),
+                      index2 < 3 && item.orderPayway == "微信" && item.orderReback == 1 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                        key: 3,
+                        title: "退款成功",
+                        note: item.orderCreatetime,
+                        thumb: "/static/icon/wechat.png",
+                        "thumb-size": "lg",
+                        rightText: item.orderMoney.toString(),
+                        clickable: true,
+                        style: { "font-weight": "bold" }
+                      }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true)
+                    ]);
+                  }),
+                  256
+                  /* UNKEYED_FRAGMENT */
+                ))
               ]),
               _: 1
               /* STABLE */
@@ -6209,6 +6260,8 @@ if (uni.restoreGlobal) {
   const _sfc_main$W = {
     data() {
       return {
+        triggered: false,
+        userId: "",
         //店铺名称
         userNickname: "",
         //商户id
@@ -6243,9 +6296,16 @@ if (uni.restoreGlobal) {
         }]
       };
     },
+    onLoad() {
+      this._freshing = false;
+      setTimeout(() => {
+        this.triggered = true;
+      }, 100);
+    },
     mounted() {
       var userMsg = uni.getStorageSync("userMsg");
       this.userNickname = userMsg.userNickname;
+      this.userId = userMsg.userId;
       if (userMsg.userAccountType === 0) {
         this.userAccountType = "普通账号";
       } else if (userMsg.userAccountType === 1) {
@@ -6253,13 +6313,14 @@ if (uni.restoreGlobal) {
       } else {
         this.userAccountType = "商家子账号";
       }
+      this.getCashOutMoney();
     },
     methods: {
       input_store(e2) {
-        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:200", e2);
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:228", e2);
       },
       select_store(e2) {
-        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:203", e2);
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:231", e2);
       },
       exitApp() {
         this.$refs.popup.open();
@@ -6269,7 +6330,7 @@ if (uni.restoreGlobal) {
       },
       //确认退出系统
       confirm() {
-        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:213", "退出的逻辑");
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:241", "退出的逻辑");
         this.$refs.popup.close();
         uni.removeStorageSync("userMsg");
         uni.removeStorageSync("userMsgExpiredTime");
@@ -6277,249 +6338,319 @@ if (uni.restoreGlobal) {
           // 不保留当前页面，跳转到应用内的某个页面
           url: "/pages/login/login"
         });
+      },
+      getCashOutMoney() {
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:252", this.userId);
+        this.$request("/user/getCashOutMoney", "POST", { userId: this.userId }).then((res) => {
+          formatAppLog("log", "at pages/personalCenter/personalCenter.vue:254", res);
+          this.withdrawableMoney = res.data.data.cashOutMoney;
+          this.auditingMoney = res.data.data.auditMoney;
+        }).catch((err) => {
+          uni.showToast({
+            "title": "服务器错误，请稍后再试",
+            "icon": "none"
+          });
+        });
+      },
+      showCashOutStore() {
+        uni.navigateTo({
+          url: "/pages/personalCenter/showCashOutStore/showCashOutStore"
+        });
+      },
+      onPulling(e2) {
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:270", "onpulling", e2);
+      },
+      onRefresh() {
+        if (this._freshing)
+          return;
+        this._freshing = true;
+        setTimeout(() => {
+          this.triggered = false;
+          this._freshing = false;
+        }, 1e3);
+      },
+      onRestore() {
+        this.triggered = "restore";
+        this.getCashOutMoney();
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:283", "onRestore");
+      },
+      onAbort() {
+        formatAppLog("log", "at pages/personalCenter/personalCenter.vue:286", "onAbort");
       }
     }
   };
   function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_button = resolveEasycom(vue.resolveDynamicComponent("uv-button"), __easycom_2$8);
     const _component_uv_popup = resolveEasycom(vue.resolveDynamicComponent("uv-popup"), __easycom_4$2);
-    return vue.openBlock(), vue.createElementBlock("view", { class: "header" }, [
-      vue.createElementVNode("view", { class: "uesr" }, [
-        vue.createElementVNode("view", { class: "top-xh" }, [
-          vue.createElementVNode("view")
-        ]),
-        vue.createElementVNode("view", { class: "fot-xh" }, [
-          vue.createCommentVNode(' <navigator url="" hover-class="none"> '),
-          vue.createElementVNode("view", { class: "pic" }, [
-            vue.createElementVNode("image", {
-              src: "/static/personalCenter/people.png",
-              style: { "width": "130rpx" },
-              mode: "widthFix"
-            })
-          ]),
-          vue.createElementVNode("view", { class: "txt" }, [
-            vue.createElementVNode("view", { class: "name" }, [
-              vue.createElementVNode(
-                "view",
-                { class: "h3" },
-                " 昵称：" + vue.toDisplayString($data.userNickname),
-                1
-                /* TEXT */
-              ),
-              vue.createElementVNode(
-                "view",
-                { class: "storeId" },
-                " 账号类型：" + vue.toDisplayString($data.userAccountType),
-                1
-                /* TEXT */
-              )
-            ])
-          ]),
-          vue.createCommentVNode(" </navigator> ")
-        ])
-      ]),
-      vue.createElementVNode("view", { class: "money" }, [
-        vue.createElementVNode("view", { class: "m-a1" }, [
-          vue.createElementVNode("view", { class: "money-box" }, [
-            vue.createElementVNode("navigator", {
-              url: "/pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney",
-              "hover-class": "none"
-            }, [
-              vue.createElementVNode("view", { class: "storeMoney" }, [
-                vue.createElementVNode("view", { class: "pic" }, [
-                  vue.createElementVNode("image", {
-                    src: "/static/personalCenter/daishenghe.png",
-                    style: { "width": "76rpx" },
-                    mode: "widthFix"
-                  })
-                ]),
-                vue.createElementVNode("view", { class: "txt" }, [
-                  vue.createElementVNode("text", { class: "s1" }, "待审核"),
+    return vue.openBlock(), vue.createElementBlock("view", null, [
+      vue.createElementVNode("scroll-view", {
+        style: { "height": "100%" },
+        "scroll-y": "true",
+        "refresher-enabled": "true",
+        "refresher-triggered": $data.triggered,
+        "refresher-threshold": 100,
+        "refresher-background": "lightgrey",
+        onRefresherpulling: _cache[0] || (_cache[0] = (...args) => $options.onPulling && $options.onPulling(...args)),
+        onRefresherrefresh: _cache[1] || (_cache[1] = (...args) => $options.onRefresh && $options.onRefresh(...args)),
+        onRefresherrestore: _cache[2] || (_cache[2] = (...args) => $options.onRestore && $options.onRestore(...args)),
+        onRefresherabort: _cache[3] || (_cache[3] = (...args) => $options.onAbort && $options.onAbort(...args))
+      }, [
+        vue.createElementVNode("view", { class: "header" }, [
+          vue.createElementVNode("view", { class: "uesr" }, [
+            vue.createElementVNode("view", { class: "top-xh" }, [
+              vue.createElementVNode("view")
+            ]),
+            vue.createElementVNode("view", { class: "fot-xh" }, [
+              vue.createCommentVNode(' <navigator url="" hover-class="none"> '),
+              vue.createElementVNode("view", { class: "pic" }, [
+                vue.createElementVNode("image", {
+                  src: "/static/personalCenter/people.png",
+                  style: { "width": "130rpx" },
+                  mode: "widthFix"
+                })
+              ]),
+              vue.createElementVNode("view", { class: "txt" }, [
+                vue.createElementVNode("view", { class: "name" }, [
                   vue.createElementVNode(
-                    "text",
-                    null,
-                    vue.toDisplayString($data.auditingMoney) + "元",
+                    "view",
+                    { class: "h3" },
+                    " 昵称：" + vue.toDisplayString($data.userNickname),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "view",
+                    { class: "storeId" },
+                    " 账号类型：" + vue.toDisplayString($data.userAccountType),
                     1
                     /* TEXT */
                   )
-                ])
-              ])
-            ]),
-            vue.createElementVNode("navigator", {
-              url: "/pages/personalCenter/showCashOutStore/showCashOutStore",
-              "hover-class": "none"
-            }, [
-              vue.createElementVNode("view", { class: "storeMoney" }, [
-                vue.createElementVNode("view", { class: "pic" }, [
-                  vue.createElementVNode("image", {
-                    src: "/static/personalCenter/ketixian.png",
-                    style: { "width": "76rpx" },
-                    mode: "widthFix"
-                  })
-                ]),
-                vue.createElementVNode("view", { class: "txt" }, [
-                  vue.createElementVNode("text", { class: "s1" }, "可提现"),
-                  vue.createElementVNode(
-                    "text",
-                    null,
-                    vue.toDisplayString($data.withdrawableMoney) + "元",
-                    1
-                    /* TEXT */
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      vue.createElementVNode("view", { class: "ul-list1-xh" }, [
-        vue.createElementVNode("view", { class: "li" }, [
-          vue.createElementVNode("navigator", {
-            url: "/pages/personalCenter/storeManagement/storeManagement",
-            "hover-class": "none"
-          }, [
-            vue.createElementVNode("view", { class: "pic" }, [
-              vue.createElementVNode("image", {
-                src: "/static/personalCenter/dianpu.png",
-                style: { "width": "40rpx" },
-                mode: "widthFix"
-              })
-            ]),
-            vue.createElementVNode("view", { class: "txt" }, [
-              vue.createElementVNode("text", null, "店铺管理")
-            ])
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "li" }, [
-          vue.createElementVNode("navigator", {
-            url: "/pages/personalCenter/application/applicationAll",
-            "hover-class": "none"
-          }, [
-            vue.createElementVNode("view", { class: "pic" }, [
-              vue.createElementVNode("image", {
-                src: "/static/personalCenter/shengqingjindu.png",
-                style: { "width": "35rpx" },
-                mode: "widthFix"
-              })
-            ]),
-            vue.createElementVNode("view", { class: "txt" }, [
-              vue.createElementVNode("text", null, "申请进度")
-            ])
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "li" }, [
-          vue.createElementVNode("navigator", {
-            url: "/pages/personalCenter/userOpinion/userOpinion",
-            "hover-class": "none"
-          }, [
-            vue.createElementVNode("view", { class: "pic" }, [
-              vue.createElementVNode("image", {
-                src: "/static/personalCenter/yijian.png",
-                style: { "width": "35rpx" },
-                mode: "widthFix"
-              })
-            ]),
-            vue.createElementVNode("view", { class: "txt" }, [
-              vue.createElementVNode("text", null, "意见反馈")
-            ])
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "li" }, [
-          vue.createElementVNode("navigator", {
-            url: "/pages/personalCenter/chatWindow/chatWindow",
-            "hover-class": "none"
-          }, [
-            vue.createElementVNode("view", { class: "pic" }, [
-              vue.createElementVNode("image", {
-                src: "/static/personalCenter/lianxiwomen.png",
-                style: { "width": "35rpx" },
-                mode: "widthFix"
-              })
-            ]),
-            vue.createElementVNode("view", { class: "txt" }, [
-              vue.createElementVNode("text", null, "联系我们")
-            ])
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "li" }, [
-          vue.createElementVNode("navigator", {
-            url: "/pages/personalCenter/unsubscribe/unsubscribe",
-            "hover-class": "none"
-          }, [
-            vue.createElementVNode("view", { class: "pic" }, [
-              vue.createElementVNode("image", {
-                src: "/static/personalCenter/zhuxiaozhanghu.png",
-                style: { "width": "35rpx" },
-                mode: "widthFix"
-              })
-            ]),
-            vue.createElementVNode("view", {
-              class: "txt",
-              style: { "border-bottom": "none" }
-            }, [
-              vue.createElementVNode("text", null, "注销账户")
-            ])
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "li" }, [
-          vue.createElementVNode("navigator", {
-            url: "/pages/personalCenter/changePassword/changePassword",
-            "hover-class": "none"
-          }, [
-            vue.createElementVNode("view", { class: "pic" }, [
-              vue.createElementVNode("image", {
-                src: "/static/personalCenter/xiugaimima.png",
-                style: { "width": "35rpx" },
-                mode: "widthFix"
-              })
-            ]),
-            vue.createElementVNode("view", {
-              class: "txt",
-              style: { "border-bottom": "none" }
-            }, [
-              vue.createElementVNode("text", null, "修改密码")
-            ])
-          ])
-        ]),
-        vue.createElementVNode("view", null, [
-          vue.createVNode(
-            _component_uv_popup,
-            {
-              ref: "popup",
-              mode: "center"
-            },
-            {
-              default: vue.withCtx(() => [
-                vue.createElementVNode("view", { style: { "width": "600rpx" } }, [
-                  vue.createElementVNode("text", { style: { "display": "block", "text-align": "center", "width": "300px", "margin-top": "20px", "margin-bottom": "50px", "color": "rgb(231 36 36)" } }, " 确认要退出吗？ "),
-                  vue.createVNode(_component_uv_button, {
-                    type: "default",
-                    text: "确认退出",
-                    onClick: $options.confirm,
-                    style: { "margin-top": "20px", "background-color": "#ccdade36", "margin": "20px 5px 10px 5px" }
-                  }, null, 8, ["onClick"]),
-                  vue.createVNode(_component_uv_button, {
-                    type: "default",
-                    text: "取消",
-                    onClick: $options.close,
-                    style: { "margin-top": "30px", "background-color": "#ccdade36", "margin": "0px 5px 10px 5px" }
-                  }, null, 8, ["onClick"])
                 ])
               ]),
-              _: 1
-              /* STABLE */
-            },
-            512
-            /* NEED_PATCH */
-          ),
-          vue.createVNode(_component_uv_button, {
-            type: "error",
-            text: "退出登录",
-            onClick: $options.exitApp,
-            style: { "margin-top": "100rpx" }
-          }, null, 8, ["onClick"])
+              vue.createCommentVNode(" </navigator> ")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "money" }, [
+            vue.createElementVNode("view", { class: "m-a1" }, [
+              vue.createElementVNode("view", { class: "money-box" }, [
+                vue.createElementVNode("navigator", {
+                  url: "/pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney",
+                  "hover-class": "none"
+                }, [
+                  vue.createElementVNode("view", { class: "storeMoney" }, [
+                    vue.createElementVNode("view", { class: "pic" }, [
+                      vue.createElementVNode("image", {
+                        src: "/static/personalCenter/daishenghe.png",
+                        style: { "width": "76rpx" },
+                        mode: "widthFix"
+                      })
+                    ]),
+                    vue.createElementVNode("view", { class: "txt" }, [
+                      vue.createElementVNode("text", { class: "s1" }, "待审核"),
+                      vue.createElementVNode(
+                        "text",
+                        null,
+                        vue.toDisplayString($data.auditingMoney) + "元",
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ])
+                ]),
+                vue.createElementVNode("navigator", {
+                  url: "/pages/personalCenter/showCashOutStore/showCashOutStore",
+                  "hover-class": "none"
+                }, [
+                  vue.createElementVNode("view", { class: "storeMoney" }, [
+                    vue.createElementVNode("view", { class: "pic" }, [
+                      vue.createElementVNode("image", {
+                        src: "/static/personalCenter/ketixian.png",
+                        style: { "width": "76rpx" },
+                        mode: "widthFix"
+                      })
+                    ]),
+                    vue.createElementVNode("view", { class: "txt" }, [
+                      vue.createElementVNode("text", { class: "s1" }, "可提现"),
+                      vue.createElementVNode(
+                        "text",
+                        null,
+                        vue.toDisplayString($data.withdrawableMoney) + "元",
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "ul-list1-xh" }, [
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/personalCenter/storeManagement/storeManagement",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/dianpu.png",
+                    style: { "width": "40rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", { class: "txt" }, [
+                  vue.createElementVNode("text", null, "店铺管理")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/personalCenter/application/applicationAll",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/shengqingjindu.png",
+                    style: { "width": "35rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", { class: "txt" }, [
+                  vue.createElementVNode("text", null, "申请进度")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/personalCenter/userOpinion/userOpinion",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/yijian.png",
+                    style: { "width": "35rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", { class: "txt" }, [
+                  vue.createElementVNode("text", null, "意见反馈")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/personalCenter/chatWindow/chatWindow",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/lianxiwomen.png",
+                    style: { "width": "35rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", { class: "txt" }, [
+                  vue.createElementVNode("text", null, "联系我们")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/identify/identify",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/lianxiwomen.png",
+                    style: { "width": "35rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", { class: "txt" }, [
+                  vue.createElementVNode("text", null, "实名认证")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/personalCenter/unsubscribe/unsubscribe",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/zhuxiaozhanghu.png",
+                    style: { "width": "35rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", {
+                  class: "txt",
+                  style: { "border-bottom": "none" }
+                }, [
+                  vue.createElementVNode("text", null, "注销账户")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "li" }, [
+              vue.createElementVNode("navigator", {
+                url: "/pages/personalCenter/changePassword/changePassword",
+                "hover-class": "none"
+              }, [
+                vue.createElementVNode("view", { class: "pic" }, [
+                  vue.createElementVNode("image", {
+                    src: "/static/personalCenter/xiugaimima.png",
+                    style: { "width": "35rpx" },
+                    mode: "widthFix"
+                  })
+                ]),
+                vue.createElementVNode("view", {
+                  class: "txt",
+                  style: { "border-bottom": "none" }
+                }, [
+                  vue.createElementVNode("text", null, "修改密码")
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", null, [
+              vue.createVNode(
+                _component_uv_popup,
+                {
+                  ref: "popup",
+                  mode: "center"
+                },
+                {
+                  default: vue.withCtx(() => [
+                    vue.createElementVNode("view", { style: { "width": "600rpx" } }, [
+                      vue.createElementVNode("text", { style: { "display": "block", "text-align": "center", "width": "300px", "margin-top": "20px", "margin-bottom": "50px", "color": "rgb(231 36 36)" } }, " 确认要退出吗？ "),
+                      vue.createVNode(_component_uv_button, {
+                        type: "default",
+                        text: "确认退出",
+                        onClick: $options.confirm,
+                        style: { "margin-top": "20px", "background-color": "#ccdade36", "margin": "20px 5px 10px 5px" }
+                      }, null, 8, ["onClick"]),
+                      vue.createVNode(_component_uv_button, {
+                        type: "default",
+                        text: "取消",
+                        onClick: $options.close,
+                        style: { "margin-top": "30px", "background-color": "#ccdade36", "margin": "0px 5px 10px 5px" }
+                      }, null, 8, ["onClick"])
+                    ])
+                  ]),
+                  _: 1
+                  /* STABLE */
+                },
+                512
+                /* NEED_PATCH */
+              ),
+              vue.createVNode(_component_uv_button, {
+                type: "error",
+                text: "退出登录",
+                onClick: $options.exitApp,
+                style: { "margin-top": "70rpx" }
+              }, null, 8, ["onClick"])
+            ])
+          ])
         ])
-      ])
+      ], 40, ["refresher-triggered"])
     ]);
   }
   const PagesPersonalCenterPersonalCenter = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$V], ["__file", "D:/HBuilderX/aggregated payment/payment-app/pages/personalCenter/personalCenter.vue"]]);
@@ -9571,26 +9702,32 @@ if (uni.restoreGlobal) {
         this.$refs.picker.open();
       },
       getAllOrder() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/bill/bill.vue:139", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/form/order",
           "POST",
           {
             data: this.listData,
             storeId: this.storeId,
-            userId: 1
+            userId
           }
         ).then((res) => {
-          formatAppLog("log", "at pages/bill/bill.vue:145", "storeOrder", res);
+          formatAppLog("log", "at pages/bill/bill.vue:149", "storeOrder", res);
           if (res.data.code == 200) {
             this.storeOrder = res.data.data;
           }
         });
       },
       getStoreName() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/bill/bill.vue:158", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/form/storeName",
           "GET",
-          { userId: 1 }
+          { userId }
         ).then((res) => {
           if (res.data.code == 200) {
             this.info = res.data.data;
@@ -9601,7 +9738,7 @@ if (uni.restoreGlobal) {
               );
             });
             this.columns.push(col);
-            formatAppLog("log", "at pages/bill/bill.vue:166", "this.info", this.info[0].storeId);
+            formatAppLog("log", "at pages/bill/bill.vue:174", "this.info", this.info[0].storeId);
             this.storeName = this.columns[0][0];
             this.storeId = this.info[0].storeId;
           }
@@ -16192,12 +16329,15 @@ ${i3}
         }
       },
       getStoreName() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/reportForms/reportForms.vue:136", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/form/storeName",
           "GET",
-          { userId: 1 }
+          { userId }
         ).then((res) => {
-          formatAppLog("log", "at pages/reportForms/reportForms.vue:139", "name", res);
+          formatAppLog("log", "at pages/reportForms/reportForms.vue:143", "name", res);
           if (res.data.code == 200) {
             res.data.data.forEach((item) => {
               this.range.push({
@@ -16209,16 +16349,19 @@ ${i3}
         });
       },
       getMoney() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/reportForms/reportForms.vue:158", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/form/money",
           "GET",
           {
             data: this.listData,
             storeId: this.storeId,
-            userId: 1
+            userId
           }
         ).then((res) => {
-          formatAppLog("log", "at pages/reportForms/reportForms.vue:160", res);
+          formatAppLog("log", "at pages/reportForms/reportForms.vue:168", res);
           if (res.data.code == 200) {
             this.count = res.data.data.count;
             this.sum = res.data.data.sum;
@@ -16228,16 +16371,19 @@ ${i3}
         });
       },
       getServerData() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/reportForms/reportForms.vue:204", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/form/report",
           "GET",
           {
             data: this.listData,
             storeId: this.storeId,
-            userId: 1
+            userId
           }
         ).then((res) => {
-          formatAppLog("log", "at pages/reportForms/reportForms.vue:202", res);
+          formatAppLog("log", "at pages/reportForms/reportForms.vue:214", res);
           if (res.data.code == 200) {
             this.chartData1 = JSON.parse(JSON.stringify(res.data.data));
             this.chartData = JSON.parse(JSON.stringify(res.data.data));
@@ -16245,7 +16391,7 @@ ${i3}
         });
       },
       change(e2) {
-        formatAppLog("log", "at pages/reportForms/reportForms.vue:214", "选择的店铺值：", this.range[e2]);
+        formatAppLog("log", "at pages/reportForms/reportForms.vue:226", "选择的店铺值：", this.range[e2]);
         const selectedrange = this.range.find((range2) => range2.value === e2);
         this.storeId = selectedrange.value;
         this.storeName = selectedrange.text;
@@ -16284,7 +16430,7 @@ ${i3}
         this.$refs.calendar.open();
       },
       confirm(e2) {
-        formatAppLog("log", "at pages/reportForms/reportForms.vue:260", "日历选择：", e2);
+        formatAppLog("log", "at pages/reportForms/reportForms.vue:272", "日历选择：", e2);
         this.listData = [e2.range.before, e2.range.after];
         this.getServerData();
         this.getMoney();
@@ -16297,7 +16443,7 @@ ${i3}
     const _component_uv_calendars = resolveEasycom(vue.resolveDynamicComponent("uv-calendars"), __easycom_2$4);
     const _component_uv_grid_item = resolveEasycom(vue.resolveDynamicComponent("uv-grid-item"), __easycom_3$1);
     const _component_uv_grid = resolveEasycom(vue.resolveDynamicComponent("uv-grid"), __easycom_4$1);
-    const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$4);
+    const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$3);
     const _component_qiun_data_charts = resolveEasycom(vue.resolveDynamicComponent("qiun-data-charts"), __easycom_6$1);
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("br"),
@@ -17467,15 +17613,18 @@ ${i3}
       },
       requestData() {
         this.productList = [];
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/personalCenter/application/applicationAll.vue:70", userMsg);
+        var userId = userMsg.userId;
         this.$request(
           "/application/selectAllApplication",
           "GET",
-          { userId: 1 }
+          { userId }
         ).then((res) => {
-          formatAppLog("log", "at pages/personalCenter/application/applicationAll.vue:73", res);
+          formatAppLog("log", "at pages/personalCenter/application/applicationAll.vue:77", res);
           if (res.data.code == 200) {
             this.productList = res.data.data;
-            formatAppLog("log", "at pages/personalCenter/application/applicationAll.vue:76", res.data.data);
+            formatAppLog("log", "at pages/personalCenter/application/applicationAll.vue:80", res.data.data);
           }
         });
       }
@@ -20454,7 +20603,7 @@ ${i3}
     const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$c);
     const _component_uv_line = resolveEasycom(vue.resolveDynamicComponent("uv-line"), __easycom_0$1);
     const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_2$9);
-    const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$4);
+    const _component_uv_gap = resolveEasycom(vue.resolveDynamicComponent("uv-gap"), __easycom_3$3);
     const _component_uv_popup = resolveEasycom(vue.resolveDynamicComponent("uv-popup"), __easycom_4$2);
     return vue.openBlock(), vue.createBlock(_component_uv_popup, {
       ref: "popup",
@@ -21243,7 +21392,7 @@ ${i3}
     data() {
       return {
         passwordInfo: {
-          userId: "1",
+          userId: "",
           oldPwd: "",
           newPwd: "",
           confirmPwd: ""
@@ -21270,12 +21419,16 @@ ${i3}
         if (newPwd === oldPwd) {
           return this.$refs.notify.error("新密码和旧密码不能一样");
         }
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:69", userMsg);
+        var userId = userMsg.userId;
+        this.passwordInfo.userId = userId;
         this.$request(
           "/user/modifyPwd",
           "POST",
           this.passwordInfo
         ).then((res) => {
-          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:72", res);
+          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:77", res);
           if (res.data.code == 200) {
             this.$refs.notify.success("密码修改成功");
             this.clearFields();
@@ -21290,7 +21443,7 @@ ${i3}
             this.$refs.notify.error("旧密码输入错误，修改失败");
           }
         }).catch((err) => {
-          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:89", err);
+          formatAppLog("log", "at pages/personalCenter/changePassword/changePassword.vue:94", err);
         });
       },
       //清空字段的值，封装起来
@@ -21407,32 +21560,42 @@ ${i3}
   const _sfc_main$g = {
     data() {
       return {
-        stores: [
-          {
-            storeId: 1,
-            storeName: "幸福刀削面",
-            storeMoney: "1234",
-            storeImage: "../../../static/personalCenter/store.jpg"
-          },
-          {
-            storeId: 2,
-            storeName: "必胜客",
-            storeMoney: "123",
-            storeImage: "../../../static/personalCenter/store.jpg"
-          }
-        ]
+        stores: [],
+        info: {
+          userId: 0
+        }
       };
     },
     methods: {
       choseStore(storeId) {
-        formatAppLog("log", "at pages/personalCenter/showCashOutStore/showCashOutStore.vue:46", storeId);
+        formatAppLog("log", "at pages/personalCenter/showCashOutStore/showCashOutStore.vue:36", storeId + "这是传递的店铺id");
         uni.setStorageSync("storeId", storeId);
+        uni.setStorageSync("userId", this.info.userId);
         uni.navigateTo({
           url: "/pages/personalCenter/showCashOutStore/cashOut/cashOut",
           "animationType": "slide-in-right",
           "animationDuration": 200
         });
+      },
+      getCashOutStore() {
+        var userMsg = uni.getStorageSync("userMsg");
+        this.info.userId = userMsg.userId;
+        formatAppLog("log", "at pages/personalCenter/showCashOutStore/showCashOutStore.vue:48", this.info.userId + "接收的用户id");
+        this.$request("/user/getCashOutStore", "POST", this.info).then((res) => {
+          formatAppLog("log", "at pages/personalCenter/showCashOutStore/showCashOutStore.vue:50", res);
+          if (res.data.code == 200) {
+            this.stores = res.data.data;
+          }
+        }).catch((err) => {
+          uni.showToast({
+            title: "服务器出错，请稍后再试",
+            icon: "none"
+          });
+        });
       }
+    },
+    mounted() {
+      this.getCashOutStore();
     }
   };
   function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21457,13 +21620,13 @@ ${i3}
                   /* TEXT */
                 )
               ]),
-              vue.createElementVNode("view", { class: "mid" }, " 不知道写啥 "),
+              vue.createElementVNode("view", { class: "mid" }),
               vue.createElementVNode("view", { class: "foot" }, [
                 vue.createTextVNode(" 可提现金额: ¥"),
                 vue.createElementVNode(
                   "h2",
                   { class: "info" },
-                  vue.toDisplayString(item.storeMoney),
+                  vue.toDisplayString(item.storeUsableMoney),
                   1
                   /* TEXT */
                 )
@@ -21472,7 +21635,7 @@ ${i3}
             vue.createElementVNode("view", { class: "rightContainer" }, [
               vue.createElementVNode("view", { class: "imageContainer" }, [
                 vue.createElementVNode("image", {
-                  src: item.storeImage,
+                  src: item.storeHeadImage,
                   class: "storeImage"
                 }, null, 8, ["src"])
               ])
@@ -21490,15 +21653,21 @@ ${i3}
       return {
         isEmpty: true,
         store: {
-          money: "200",
-          bossAccount: "123415312",
+          money: 0,
+          bossAccount: "",
           feilv: 0.06
           //提现费率 抽成
         },
         cashOut: {
-          tixianMoney: "",
-          choucheng: ""
+          payOutMoney: "",
+          choucheng: "",
           // 抽成的钱
+          storeId: 0,
+          payOutCard: ""
+        },
+        info: {
+          storeId: 0,
+          userId: 0
         }
       };
     },
@@ -21506,17 +21675,73 @@ ${i3}
       change(e2) {
         this.isEmpty = false;
         this.cashOut.tixianMoney = e2;
-        formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:72", this.cashOut);
-        this.cashOut.choucheng = this.cashOut.tixianMoney * this.store.feilv;
-        formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:75", this.cashOut);
-      },
-      confirm() {
-        formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:79", "confirm");
+        formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:79", this.cashOut);
         this.cashOut.choucheng = this.cashOut.tixianMoney * this.store.feilv;
       },
       submit() {
-        formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:83", "提现");
+        if (this.cashOut.payOutMoney > this.store.money) {
+          uni.showToast({
+            title: "提现的金额不可大于可提现金额",
+            icon: "none"
+          });
+          this.cashOut.payOutMoney = "";
+          this.cashOut.choucheng = "";
+        } else if (this.cashOut.payOutMoney < 0) {
+          uni.showToast({
+            title: "提现金额不可小于0",
+            icon: "none"
+          });
+          this.cashOut.payOutMoney = "";
+          this.cashOut.choucheng = "";
+        } else if (this.cashOut.payOutMoney == 0) {
+          uni.showToast({
+            title: "提现金额不可等于0",
+            icon: "none"
+          });
+          this.cashOut.payOutMoney = "";
+          this.cashOut.choucheng = "";
+        } else {
+          formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:105", this.cashOut);
+          this.$request("/user/doCashOut", "POST", this.cashOut).then((res) => {
+            formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:107", res);
+            if (res.data.code == 200) {
+              uni.showToast({
+                title: "提现成功",
+                icon: "none"
+              });
+            }
+            this.cashOut.payOutMoney = "";
+            this.cashOut.choucheng = "";
+            this.getStoreMoney();
+          }).catch((err) => {
+            uni.showToast({
+              title: "服务器出错了，请稍后再试",
+              icon: "none"
+            });
+          });
+        }
+      },
+      getStoreMoney() {
+        this.info.storeId = uni.getStorageSync("storeId");
+        this.cashOut.storeId = uni.getStorageSync("storeId");
+        this.info.userId = uni.getStorageSync("userId");
+        this.cashOut.payoutCard = uni.getStorageSync("userId");
+        this.$request("/user/getStoreCashOutMoney", "POST", this.info).then((res) => {
+          formatAppLog("log", "at pages/personalCenter/showCashOutStore/cashOut/cashOut.vue:131", res);
+          if (res.data.code == 200) {
+            this.store.money = res.data.data.paymentStore.storeUsableMoney;
+            this.store.bossAccount = res.data.data.userAccount;
+          }
+        }).catch((err) => {
+          uni.showToast({
+            title: "服务器出错了，请稍后再试",
+            icon: "none"
+          });
+        });
       }
+    },
+    mounted() {
+      this.getStoreMoney();
     }
   };
   function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21555,8 +21780,8 @@ ${i3}
             vue.createVNode(_component_uv_input, {
               style: { "margin-top": "30rpx", "width": "80%", "margin-left": "23rpx" },
               placeholder: "最多可提 ¥ " + $data.store.money,
-              modelValue: $data.cashOut.tixianMoney,
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.cashOut.tixianMoney = $event),
+              modelValue: $data.cashOut.payOutMoney,
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.cashOut.payOutMoney = $event),
               type: "number",
               onChange: $options.change,
               clearable: ""
@@ -21594,6 +21819,9 @@ ${i3}
           style: { "width": "90%", "margin": "0 auto", "margin-top": "50rpx" },
           onClick: $options.submit
         }, null, 8, ["onClick"])
+      ]),
+      vue.createElementVNode("view", { class: "cashOutTips" }, [
+        vue.createElementVNode("span", null, "最后的可提现金额为，输入的提现金额减去服务费")
       ])
     ]);
   }
@@ -21601,32 +21829,31 @@ ${i3}
   const _sfc_main$e = {
     data() {
       return {
-        stores: [
-          {
-            storeId: 1,
-            storeName: "幸福刀削面",
-            storeMoney: "1234",
-            storeImage: "../../../static/personalCenter/store.jpg"
-          },
-          {
-            storeId: 2,
-            storeName: "必胜客",
-            storeMoney: "123",
-            storeImage: "../../../static/personalCenter/store.jpg"
-          }
-        ]
+        userId: "",
+        stores: []
       };
     },
     methods: {
-      // choseStore(storeId){
-      // 	__f__('log','at pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney.vue:46',storeId)
-      // 	uni.setStorageSync("storeId",storeId)
-      // 	uni.navigateTo({
-      // 		url: "/pages/personalCenter/showCashOutStore/cashOut/cashOut",
-      // 		"animationType":"slide-in-right",
-      // 		"animationDuration": 200
-      // 	})
-      // }
+      getStoreAuditMoney() {
+        var userMsg = uni.getStorageSync("userMsg");
+        this.userId = userMsg.userId;
+        formatAppLog("log", "at pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney.vue:37", this.userId);
+        this.$request("/user/getCashOutStore", "POST", { userId: this.userId }).then((res) => {
+          formatAppLog("log", "at pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney.vue:39", res);
+          if (res.data.code == 200) {
+            formatAppLog("log", "at pages/personalCenter/showAuditStoreMoney/showAuditStoreMoney.vue:41", res.data.data);
+            this.stores = res.data.data;
+          }
+        }).catch((err) => {
+          uni.showToast({
+            title: "服务器出错，请稍后再试",
+            icon: "none"
+          });
+        });
+      }
+    },
+    mounted() {
+      this.getStoreAuditMoney();
     }
   };
   function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21650,13 +21877,13 @@ ${i3}
                   /* TEXT */
                 )
               ]),
-              vue.createElementVNode("view", { class: "mid" }, " 不知道写啥 "),
+              vue.createElementVNode("view", { class: "mid" }),
               vue.createElementVNode("view", { class: "foot" }, [
                 vue.createTextVNode(" 待审核金额: ¥"),
                 vue.createElementVNode(
                   "h2",
                   { class: "info" },
-                  vue.toDisplayString(item.storeMoney),
+                  vue.toDisplayString(item.storeAuditMoney),
                   1
                   /* TEXT */
                 )
@@ -21665,7 +21892,7 @@ ${i3}
             vue.createElementVNode("view", { class: "rightContainer" }, [
               vue.createElementVNode("view", { class: "imageContainer" }, [
                 vue.createElementVNode("image", {
-                  src: item.storeImage,
+                  src: item.storeHeadImage,
                   class: "storeImage"
                 }, null, 8, ["src"])
               ])
@@ -22385,6 +22612,7 @@ ${i3}
           merchantAddress: "",
           auditStoreNumber: "",
           username: "",
+          userId: "",
           userIdCard: "",
           auditStoreHeadImage: "",
           auditStoreIdentifyImage: "",
@@ -22402,6 +22630,9 @@ ${i3}
       },
       submit() {
         this.submitBtnState = true;
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:93", userMsg);
+        this.form.userId = userMsg.userId;
         if (this.form.auditStoreHeadImage != "" && this.form.auditStoreIdentifyImage != "" && this.form.auditStoreIdentifyCardFront != "" && this.form.auditStoreIdentifyCardBack != "") {
           if (this.form.auditStoreName != "") {
             this.$request(
@@ -22409,7 +22640,7 @@ ${i3}
               "POST",
               this.form
             ).then((res) => {
-              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:96", res);
+              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:101", res);
               if (res.data.code == 200) {
                 this.$refs.notify.success(res.data.msg + ",请前往个人中心查看");
                 setInterval(() => {
@@ -22422,7 +22653,7 @@ ${i3}
                 this.$refs.notify.error("提交失败，请稍后再试");
               }
             }).catch((err) => {
-              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:110", err);
+              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:115", err);
             });
           } else {
             this.submitBtnState = false;
@@ -22480,7 +22711,7 @@ ${i3}
             }));
             fileListLen++;
           } catch (error2) {
-            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:172", "上传失败", error2);
+            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:177", "上传失败", error2);
             this.$refs.notify.error("上传失败");
           }
         }
@@ -22488,7 +22719,7 @@ ${i3}
       uploadFilePromise(filePath) {
         return new Promise((resolve, reject) => {
           uni.uploadFile({
-            url: "http://127.0.0.1:8080/ocr/idcard",
+            url: "http://127.0.0.1:8081/ocr/idcard",
             // 示例URL
             filePath,
             name: "multipartFile",
@@ -22497,7 +22728,7 @@ ${i3}
             },
             success: (res) => {
               let responseData = JSON.parse(res.data);
-              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:188", responseData);
+              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:193", responseData);
               if (responseData.code == 200) {
                 this.$refs.notify.success(responseData.msg || "未知错误");
                 this.form.userName = responseData.data.idName;
@@ -22547,7 +22778,7 @@ ${i3}
             }));
             fileListLen++;
           } catch (error2) {
-            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:242", "上传失败", error2);
+            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:247", "上传失败", error2);
             this.$refs.notify.error("上传失败");
           }
         }
@@ -22555,7 +22786,7 @@ ${i3}
       uploadFilePromise2(filePath) {
         return new Promise((resolve, reject) => {
           uni.uploadFile({
-            url: "http://127.0.0.1:8080/ocr/businessLicense",
+            url: "http://127.0.0.1:8081/ocr/businessLicense",
             // 示例URL
             filePath,
             name: "multipartFile",
@@ -22564,7 +22795,7 @@ ${i3}
             },
             success: (res) => {
               let responseData = JSON.parse(res.data);
-              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:258", responseData);
+              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:263", responseData);
               if (responseData.code == 200) {
                 this.form.auditStoreName = responseData.data.businessName;
                 this.form.merchantAddress = responseData.data.address;
@@ -22605,7 +22836,7 @@ ${i3}
             }));
             fileListLen++;
           } catch (error2) {
-            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:300", "上传失败", error2);
+            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:305", "上传失败", error2);
             this.$refs.notify.error("上传失败");
           }
         }
@@ -22613,7 +22844,7 @@ ${i3}
       uploadFilePromise3(filePath) {
         return new Promise((resolve, reject) => {
           uni.uploadFile({
-            url: "http://127.0.0.1:8080/ocr/uploadMerchant",
+            url: "http://127.0.0.1:8081/ocr/uploadMerchant",
             // 示例URL
             filePath,
             name: "multipartFile",
@@ -22622,7 +22853,7 @@ ${i3}
             },
             success: (res) => {
               let responseData = JSON.parse(res.data);
-              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:316", responseData);
+              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:321", responseData);
               if (responseData.code == 200) {
                 this.form.auditStoreHeadImage = responseData.data.storeHeadImageUrl;
                 resolve(responseData.data);
@@ -22661,7 +22892,7 @@ ${i3}
             }));
             fileListLen++;
           } catch (error2) {
-            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:358", "上传失败", error2);
+            formatAppLog("error", "at pages/index/merchantSettled/merchantSettled.vue:363", "上传失败", error2);
             this.$refs.notify.error("上传失败");
           }
         }
@@ -22669,7 +22900,7 @@ ${i3}
       uploadFilePromise4(filePath) {
         return new Promise((resolve, reject) => {
           uni.uploadFile({
-            url: "http://127.0.0.1:8080/ocr/idcard",
+            url: "http://127.0.0.1:8081/ocr/idcard",
             // 示例URL
             filePath,
             name: "multipartFile",
@@ -22678,7 +22909,7 @@ ${i3}
             },
             success: (res) => {
               let responseData = JSON.parse(res.data);
-              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:374", responseData);
+              formatAppLog("log", "at pages/index/merchantSettled/merchantSettled.vue:379", responseData);
               if (responseData.code == 200) {
                 this.$refs.notify.error("请上传正确的身份证国徽面");
                 this.fileList1.splice(0, this.fileList1.length);
@@ -22716,7 +22947,7 @@ ${i3}
       // 		// 返回文件对象
       // 		return file;
       // 	} catch (error) {
-      // 		__f__('error','at pages/index/merchantSettled/merchantSettled.vue:418','转换 Blob URL 到文件时出错:', error);
+      // 		__f__('error','at pages/index/merchantSettled/merchantSettled.vue:423','转换 Blob URL 到文件时出错:', error);
       // 		throw error;
       // 	}
       // },
@@ -22731,7 +22962,7 @@ ${i3}
       // 		// 返回文件对象数组
       // 		return files;
       // 	} catch (error) {
-      // 		__f__('error','at pages/index/merchantSettled/merchantSettled.vue:435','处理 Blob URL 数组时出错:', error);
+      // 		__f__('error','at pages/index/merchantSettled/merchantSettled.vue:440','处理 Blob URL 数组时出错:', error);
       // 		throw error;
       // 	}
       // },
@@ -22982,7 +23213,7 @@ ${i3}
   const _sfc_main$7 = {
     data() {
       return {
-        value: ""
+        orderList: []
       };
     },
     methods: {
@@ -22993,25 +23224,34 @@ ${i3}
         });
       },
       change() {
+      },
+      getOrder() {
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/index/trade/trade.vue:69", userMsg);
+        var userId = userMsg.userId;
+        this.$request(
+          "/form/allOrder",
+          "POST",
+          {
+            storeId: this.storeId,
+            userId
+          }
+        ).then((res) => {
+          formatAppLog("log", "at pages/index/trade/trade.vue:78", "orderList", res);
+          if (res.data.code == 200) {
+            this.orderList = res.data.data;
+          }
+        });
       }
-      // 	getNewTrade() {
-      // 		this.$request("/order/getNewOrder", "POST", {
-      // 		}).then(res => {
-      // 			__f__('log','at pages/index/trade/trade.vue:53',res)
-      // 		}).catch(err => {
-      // 			__f__('log','at pages/index/trade/trade.vue:55',err)
-      // 		})
-      // 	}
+    },
+    mounted() {
+      this.getOrder();
     }
-    // mounted() {
-    // 	this.getNewTrade();
-    // }
   };
   function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$9);
-    const _component_uv_input = resolveEasycom(vue.resolveDynamicComponent("uv-input"), __easycom_1$2);
-    const _component_uv_list_item = resolveEasycom(vue.resolveDynamicComponent("uv-list-item"), __easycom_2$6);
-    const _component_uv_list = resolveEasycom(vue.resolveDynamicComponent("uv-list"), __easycom_3$3);
+    const _component_uv_list_item = resolveEasycom(vue.resolveDynamicComponent("uv-list-item"), __easycom_1$a);
+    const _component_uv_list = resolveEasycom(vue.resolveDynamicComponent("uv-list"), __easycom_2$6);
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("view", null, [
         vue.createVNode(_component_uv_navbar, {
@@ -23019,52 +23259,57 @@ ${i3}
           onLeftClick: $options.goToIndex
         }, null, 8, ["onLeftClick"])
       ]),
-      vue.createElementVNode("view", { style: { "margin-top": "80rpx", "width": "780rpx", "height": "10rpx" } }),
-      vue.createElementVNode("view", { class: "tradebar" }, [
-        vue.createElementVNode("view", { class: "tradebar-container" }, [
-          vue.createElementVNode("view", { style: { "width": "150rpx" } }, [
-            vue.createVNode(_component_uv_input, {
-              placeholder: "2024-4-10",
-              border: "surround",
-              modelValue: $data.value,
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.value = $event),
-              onChange: $options.change,
-              disabled: true,
-              style: { "width": "150rpx" }
-            }, null, 8, ["modelValue", "onChange"])
-          ]),
-          vue.createElementVNode("text", null, "日交易")
-        ]),
-        vue.createElementVNode("view", { class: "tradebar-info" }, [
-          vue.createElementVNode("text", null, "收入:￥7823.00.00")
-        ])
-      ]),
+      vue.createElementVNode("view", { style: { "margin-top": "20%" } }),
+      vue.createCommentVNode(' <view style="margin-top: 80rpx;width: 780rpx;height: 10rpx;"></view>\r\n		<view class="tradebar">\r\n			<view class="tradebar-container">\r\n				<view style="width: 150rpx;">\r\n					<uv-input placeholder="2024-4-10" border="surround" v-model="value" @change="change" :disabled="true"\r\n						style="width: 150rpx;"></uv-input>\r\n				</view>\r\n				<text>日交易</text>\r\n			</view>\r\n			<view class="tradebar-info">\r\n				<text>收入:￥7823.00.00</text>\r\n			</view>\r\n		</view> '),
       vue.createVNode(_component_uv_list, null, {
         default: vue.withCtx(() => [
-          vue.createVNode(_component_uv_list_item, {
-            title: "**付款",
-            note: "4月10日 14:19",
-            thumb: "/static/icon/wechat.png",
-            "thumb-size": "lg",
-            rightText: "27.00",
-            "custom-style": "border-bottom:1px solid #F2F2F2"
-          }),
-          vue.createVNode(_component_uv_list_item, {
-            title: "**付款",
-            note: "4月10日 14:19",
-            thumb: "/static/icon/alipay.png",
-            "thumb-size": "lg",
-            rightText: "120.00",
-            "custom-style": "border-bottom:1px solid #F2F2F2"
-          }),
-          vue.createVNode(_component_uv_list_item, {
-            title: "**付款",
-            note: "4月10日 14:19",
-            thumb: "/static/icon/alipay.png",
-            "thumb-size": "lg",
-            rightText: "130.00",
-            "custom-style": "border-bottom:1px solid #F2F2F2"
-          })
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.orderList, (item) => {
+              return vue.openBlock(), vue.createElementBlock("view", null, [
+                item.orderPayway == "支付宝" && item.orderReback == 0 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                  key: 0,
+                  title: "支付成功",
+                  note: item.orderCreatetime,
+                  thumb: "/static/icon/alipay.png",
+                  "thumb-size": "lg",
+                  rightText: item.orderMoney.toString(),
+                  customStyle: { borderBottom: "1px solid #F2F2F2" }
+                }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true),
+                item.orderPayway == "支付宝" && item.orderReback == 1 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                  key: 1,
+                  title: "退款成功",
+                  note: item.orderCreatetime,
+                  thumb: "/static/icon/alipay.png",
+                  "thumb-size": "lg",
+                  rightText: item.orderMoney.toString(),
+                  customStyle: { borderBottom: "1px solid #F2F2F2" }
+                }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true),
+                item.orderPayway == "微信" && item.orderReback == 0 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                  key: 2,
+                  title: "支付成功",
+                  note: item.orderCreatetime,
+                  thumb: "/static/icon/wechat.png",
+                  "thumb-size": "lg",
+                  rightText: item.orderMoney.toString(),
+                  customStyle: { borderBottom: "1px solid #F2F2F2" }
+                }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true),
+                item.orderPayway == "微信" && item.orderReback == 1 ? (vue.openBlock(), vue.createBlock(_component_uv_list_item, {
+                  key: 3,
+                  title: "退款成功",
+                  note: item.orderCreatetime,
+                  thumb: "/static/icon/wechat.png",
+                  "thumb-size": "lg",
+                  rightText: item.orderMoney.toString(),
+                  customStyle: { borderBottom: "1px solid #F2F2F2" }
+                }, null, 8, ["note", "rightText"])) : vue.createCommentVNode("v-if", true)
+              ]);
+            }),
+            256
+            /* UNKEYED_FRAGMENT */
+          )),
+          vue.createCommentVNode(' <uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/wechat.png" thumb-size="lg"\r\n				rightText="27.00" custom-style="border-bottom:1px solid #F2F2F2">\r\n			</uv-list-item>\r\n			<uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/alipay.png" thumb-size="lg"\r\n				rightText="120.00" custom-style="border-bottom:1px solid #F2F2F2">\r\n			</uv-list-item>\r\n			<uv-list-item title="**付款" note="4月10日 14:19" thumb="/static/icon/alipay.png" thumb-size="lg"\r\n				rightText="130.00" custom-style="border-bottom:1px solid #F2F2F2">\r\n			</uv-list-item> ')
         ]),
         _: 1
         /* STABLE */
@@ -23695,6 +23940,12 @@ ${i3}
   const _sfc_main$1 = {
     data() {
       return {
+        showPage: false,
+        info: {
+          userName: "",
+          userIdCard: "",
+          userId: ""
+        },
         goToPersonalCenter() {
           uni.switchTab({
             url: "/pages/personalCenter/personalCenter"
@@ -23703,7 +23954,44 @@ ${i3}
         }
       };
     },
-    methods: {}
+    mounted() {
+      var userMsg = uni.getStorageSync("userMsg");
+      var userIsAuthentication = userMsg.userIsAuthentication;
+      if (userIsAuthentication === 0) {
+        this.showPage = true;
+      } else {
+        this.showPage = false;
+      }
+    },
+    methods: {
+      submit() {
+        formatAppLog("log", "at pages/identify/identify.vue:49", this.info);
+        var userMsg = uni.getStorageSync("userMsg");
+        formatAppLog("log", "at pages/identify/identify.vue:52", userMsg);
+        this.info.userId = userMsg.userId;
+        this.$request(
+          "/ocr/certification",
+          "POST",
+          this.info
+        ).then((res) => {
+          if (res.data.code == 200) {
+            userMsg.userIsAuthentication = 1;
+            uni.setStorageSync("userMsg", userMsg);
+            uni.showToast({
+              title: "验证成功!"
+            });
+            uni.switchTab({
+              url: "/pages/personalCenter/personalCenter"
+            });
+          } else {
+            uni.showToast({
+              title: "验证失败!",
+              icon: "error"
+            });
+          }
+        });
+      }
+    }
   };
   function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_navbar = resolveEasycom(vue.resolveDynamicComponent("uv-navbar"), __easycom_0$9);
@@ -23716,20 +24004,34 @@ ${i3}
           onLeftClick: _cache[0] || (_cache[0] = ($event) => $data.goToPersonalCenter())
         })
       ]),
-      vue.createElementVNode("view", { style: { "margin-top": "80rpx", "width": "780rpx", "height": "10rpx" } }),
-      vue.createVNode(_component_uv_input, {
-        placeholder: "请输入姓名",
-        border: "bottom"
-      }),
-      vue.createVNode(_component_uv_input, {
-        placeholder: "请输入身份证",
-        border: "bottom"
-      }),
-      vue.createVNode(_component_uv_button, {
-        type: "error",
-        size: "small",
-        text: "大小尺寸"
-      })
+      $data.showPage ? (vue.openBlock(), vue.createElementBlock("view", { key: 0 }, [
+        vue.createElementVNode("view", { style: { "margin-top": "150rpx", "width": "780rpx", "height": "10rpx" } }),
+        vue.createVNode(_component_uv_input, {
+          placeholder: "请输入姓名",
+          border: "bottom",
+          modelValue: $data.info.userName,
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.info.userName = $event)
+        }, null, 8, ["modelValue"]),
+        vue.createVNode(_component_uv_input, {
+          placeholder: "请输入身份证",
+          border: "bottom",
+          modelValue: $data.info.userIdCard,
+          "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.info.userIdCard = $event),
+          style: { "margin-top": "50rpx" }
+        }, null, 8, ["modelValue"]),
+        vue.createVNode(_component_uv_button, {
+          onClick: $options.submit,
+          type: "error",
+          text: "提交",
+          style: { "margin": "auto", "margin-top": "50rpx", "width": "80%" }
+        }, null, 8, ["onClick"])
+      ])) : vue.createCommentVNode("v-if", true),
+      !$data.showPage ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        style: { "margin-top": "300rpx" }
+      }, [
+        vue.createElementVNode("h3", { style: { "margin-left": "25%" } }, "您已经实名认证过了哦！")
+      ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
   const PagesIdentifyIdentify = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "D:/HBuilderX/aggregated payment/payment-app/pages/identify/identify.vue"]]);
@@ -23769,12 +24071,12 @@ ${i3}
     onHide: function() {
       formatAppLog("log", "at App.vue:11", "退出了");
       var now = Date.now();
-      var expiredTime = now + 30 * 1e3;
+      var expiredTime = now + 30 * 1e4;
       uni.setStorageSync("userMsgExpiredTime", expiredTime);
     }
   };
   const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:/HBuilderX/aggregated payment/payment-app/App.vue"]]);
-  const baseUrl = "http://rqvdas.natappfree.cc";
+  const baseUrl = "https://payproject.mynatapp.cc";
   const request = (url2, method2, data) => {
     return new Promise((resolve, reject) => {
       uni.request({

@@ -620,3 +620,10 @@ uni-view[data-v-ae8e42c7], uni-scroll-view[data-v-ae8e42c7], uni-swiper-item[dat
 		color: goldenrod;
 		font-size: 0.9375rem;
 }
+.cashOutTips{
+		width: 90%;
+		height: 3.125rem;
+		margin: 0 auto;
+		margin-top: 0.9375rem;
+		color:red
+}

@@ -143,7 +143,7 @@
 				if(userIsAuthentication === 0){
 					uni.showToast({
 						title:"请先去个人中心完成实名认证哦!",
-						icon:'error'
+						icon:'none'
 					})
 				}else{
 					uni.navigateTo({

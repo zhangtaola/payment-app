@@ -3,7 +3,9 @@
 		<view>
 			<uv-navbar title="最新交易" @leftClick="goToIndex"></uv-navbar>
 		</view>
-		<br><br>
+		<view style="margin-top: 20%;">
+			
+		</view>
 		<!-- <view style="margin-top: 80rpx;width: 780rpx;height: 10rpx;"></view>
 		<view class="tradebar">
 			<view class="tradebar-container">

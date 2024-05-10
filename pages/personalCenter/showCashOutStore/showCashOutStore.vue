@@ -5,9 +5,7 @@
 				<view class="top">
 					店铺名: <h2 class="info">{{ item.storeName }}</h2>
 				</view>
-				<view class="mid">
-					不知道写啥
-				</view>
+				<view class="mid"></view>
 				<view class="foot">
 					可提现金额: ¥<h2 class="info">{{ item.storeUsableMoney}}</h2>
 				</view>
@@ -45,7 +43,8 @@
 				})
 			},
 			getCashOutStore(){
-				this.info.userId = uni.getStorageSync("userId")
+				var userMsg = uni.getStorageSync('userMsg');
+				this.info.userId = userMsg.userId;
 				console.log(this.info.userId + "接收的用户id")
 				this.$request("/user/getCashOutStore","POST",this.info).then(res => {
 					console.log(res)

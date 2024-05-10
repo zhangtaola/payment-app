@@ -33,11 +33,12 @@
 				},
 			}
 		},
+		
 		mounted() {
 			// 从本地获取数据
 			var userMsg = uni.getStorageSync('userMsg');
 			var userIsAuthentication = userMsg.userIsAuthentication;
-			if(userMsg.userAccountType === 0){
+			if(userIsAuthentication === 0){
 				this.showPage = true;
 			}else{
 				this.showPage = false;
